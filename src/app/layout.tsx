@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from "next";
-import { Plus_Jakarta_Sans, JetBrains_Mono } from "next/font/google";
+import { Manrope, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-display",
+const manrope = Manrope({
+  variable: "--font-manrope",
   subsets: ["latin"],
   display: "swap",
   weight: ["400", "500", "600", "700", "800"],
@@ -17,17 +17,17 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Apex Plumber — 24/7 Emergency Plumbing & Licensed Rooter Specialists",
+  title: "Apex Plumber — Ready To Help You | Licensed Plumbing Services",
   description:
-    "America's top-rated 24/7 emergency plumbers. Licensed master technicians ready for burst pipes, drain cleaning, water heater failure & sewer repair with zero overtime fees.",
+    "Apex Plumber provides 24/7 certified commercial & residential plumbing services. Over 25+ years experience in drain cleaning, water heaters, pipe repair & emergency dispatch with zero overtime fees.",
   keywords: [
-    "emergency plumber",
-    "24/7 plumbing service",
-    "drain cleaning",
-    "burst pipe repair",
-    "water heater repair",
-    "trenchless sewer repair",
-    "licensed master plumber",
+    "Plumber",
+    "Emergency Plumber",
+    "Apex Plumber",
+    "Drain Cleaning",
+    "Water Heater Repair",
+    "Gas Line Service",
+    "Bathroom Plumbing",
   ],
   authors: [{ name: "Apex Plumber Network" }],
   icons: {
@@ -39,7 +39,7 @@ export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#0F172A",
+  themeColor: "#0052da",
 };
 
 export default function RootLayout({
@@ -50,9 +50,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${plusJakartaSans.variable} ${jetbrainsMono.variable} scroll-smooth`}
+      className={`${manrope.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-white text-slate-900 font-sans antialiased overflow-x-hidden selection:bg-orange-100 selection:text-orange-900">
+      <body className="min-h-screen bg-white text-[#4c5165] font-sans antialiased overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
         {children}
       </body>
     </html>

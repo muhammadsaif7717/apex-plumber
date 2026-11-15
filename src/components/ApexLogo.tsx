@@ -8,64 +8,45 @@ interface ApexLogoProps {
 export function ApexLogo({ className = "h-10", showSubtitle = true }: ApexLogoProps) {
   return (
     <div className={`flex items-center gap-3 select-none ${className}`}>
-      {/* Precision Shield Icon with Droplet & Wrench */}
-      <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-slate-900 via-blue-950 to-blue-900 border border-slate-700 shadow-md shadow-slate-900/10 shrink-0">
+      {/* Plumco-Style Brand Icon */}
+      <div className="relative flex items-center justify-center w-11 h-11 rounded-xl bg-gradient-to-br from-[#0052da] to-[#003899] text-white shadow-md shadow-[#0052da]/25 shrink-0">
         <svg
           viewBox="0 0 36 36"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
           className="w-7 h-7"
         >
-          {/* Outer Shield Outline */}
+          {/* Stylized Droplet and Wrench Emblem */}
           <path
-            d="M18 3L6 7.5V16.5C6 24.3 11.2 31.5 18 33C24.8 31.5 30 24.3 30 16.5V7.5L18 3Z"
-            fill="#0F172A"
-            stroke="#2563EB"
-            strokeWidth="1.75"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-          {/* Inner Safety Orange Water Droplet */}
-          <path
-            d="M18 10C18 10 12.5 16.8 12.5 20.2C12.5 23.3 15 25.8 18 25.8C21 25.8 23.5 23.3 23.5 20.2C23.5 16.8 18 10 18 10Z"
-            fill="#F97316"
-          />
-          {/* Highlight Specular Glint */}
-          <path
-            d="M15.5 19C15.5 17.5 17 15 17.5 14"
-            stroke="#FED7AA"
-            strokeWidth="1.2"
-            strokeLinecap="round"
-          />
-          {/* Precision Plumbing Wrench Accent */}
-          <path
-            d="M13.5 12L22.5 24"
-            stroke="#FFFFFF"
-            strokeWidth="1.6"
-            strokeLinecap="round"
+            d="M18 4C18 4 9 14.5 9 20.5C9 25.5 13 29.5 18 29.5C23 29.5 27 25.5 27 20.5C27 14.5 18 4 18 4Z"
+            fill="currentColor"
+            fillOpacity="0.2"
           />
           <path
-            d="M20.5 22L24.5 24.5L22 26.5"
-            stroke="#FFFFFF"
-            strokeWidth="1.4"
+            d="M18 7C18 7 11.5 15.5 11.5 20.5C11.5 24.1 14.4 27 18 27C21.6 27 24.5 24.1 24.5 20.5C24.5 15.5 18 7 18 7Z"
+            fill="#FFFFFF"
+          />
+          <path
+            d="M15 15L21 21M21 15L15 21"
+            stroke="#0052da"
+            strokeWidth="2.2"
             strokeLinecap="round"
-            strokeLinejoin="round"
           />
         </svg>
       </div>
 
       <div className="flex flex-col">
-        <div className="flex items-center gap-1.5 leading-none">
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-slate-900 font-sans">
-            APEX
+        <div className="flex items-center gap-1 leading-none">
+          <span className="text-2xl font-black tracking-tight text-[#253041] font-sans">
+            Apex
           </span>
-          <span className="text-xl sm:text-2xl font-extrabold tracking-tight text-blue-600 font-sans">
-            PLUMBER
+          <span className="text-2xl font-extrabold tracking-tight text-[#0052da] font-sans">
+            Plumber
           </span>
         </div>
         {showSubtitle && (
-          <span className="text-[10px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5 font-mono">
-            Emergency & Rooter Co.
+          <span className="text-[11px] font-semibold tracking-wider text-slate-500 uppercase mt-0.5 font-mono">
+            Plumbing &amp; Rooter Services
           </span>
         )}
       </div>

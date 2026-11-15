@@ -2,149 +2,121 @@
 
 import React from "react";
 import Image from "next/image";
-import { SERVICES, ServiceItem } from "@/data/services";
+import { PLUMCO_SERVICES, PlumcoService } from "@/data/plumcoData";
 import { useLocation } from "@/context/LocationContext";
 import {
+  UtensilsCrossed,
+  Flame,
+  Droplets,
+  Bath,
+  ShieldAlert,
   Wrench,
-  Clock,
-  ShieldCheck,
-  CheckCircle2,
-  ChevronRight,
+  ArrowRight,
   PhoneCall,
 } from "lucide-react";
 
 export function ApexServicesGrid() {
   const { currentLocation, openBookingModal } = useLocation();
 
-  const handleBookService = (service: ServiceItem) => {
+  const iconMap: Record<string, React.ElementType> = {
+    UtensilsCrossed,
+    Flame,
+    Droplets,
+    Bath,
+    ShieldAlert,
+    Wrench,
+  };
+
+  const handleBookService = (service: PlumcoService) => {
     openBookingModal({
       serviceId: service.id,
       issueDescription: service.title,
-      estimatedPriceRange: `Starting at $${service.startingPrice}`,
+      estimatedPriceRange: `Starting from $${service.startingPrice}`,
       urgency: "sameday",
     });
   };
 
   return (
-    <section id="services" className="py-16 sm:py-24 bg-white border-b border-slate-200">
+    <section id="services" className="py-16 sm:py-24 bg-[#f4f8fe] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Section Header */}
-        <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-50 border border-blue-200 text-blue-700 text-xs font-bold font-mono uppercase tracking-wider mb-3">
-            <Wrench className="w-3.5 h-3.5" />
-            <span>Master Trade Capabilities</span>
+        {/* Plumco Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-14">
+          <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
+            <span>:: Best Service We Offer</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight leading-tight">
-            Commercial & Residential Plumbing Services in {currentLocation.primaryCity}
+          <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
+            Best Service We Offer
           </h2>
-          <p className="mt-3 text-base text-slate-600 leading-relaxed">
-            Every technician arrives in a mobile workshop van stocked with over 1,500 OEM replacement parts, industrial hydro-jetters, and digital sewer cameras. Firm flat rates quoted prior to work commencing.
+          <p className="mt-3 text-sm sm:text-base text-[#4c5165] leading-relaxed">
+            Professional plumbing solutions delivered by certified technicians across {currentLocation.primaryCity}. Upfront pricing and zero overtime surcharges.
           </p>
         </div>
 
-        {/* 6 Core Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {SERVICES.map((service) => (
-            <div
-              key={service.id}
-              className="group bg-slate-50/70 hover:bg-white rounded-2xl border border-slate-200 hover:border-blue-400 hover:shadow-xl hover:shadow-blue-950/5 transition-all duration-200 flex flex-col overflow-hidden"
-            >
-              {/* Service Visual Header */}
-              <div className="relative h-48 w-full overflow-hidden bg-slate-100 border-b border-slate-200">
-                <Image
-                  src={service.imageUrl}
-                  alt={service.title}
-                  width={600}
-                  height={350}
-                  unoptimized
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                />
-                {/* Floating Response Badge */}
-                <div className="absolute top-3 left-3 bg-slate-900/90 backdrop-blur-xs text-white text-[11px] font-bold px-2.5 py-1 rounded-md shadow-sm border border-slate-700 flex items-center gap-1.5">
-                  <Clock className="w-3 h-3 text-orange-400" />
-                  <span>{service.turnaround}</span>
+        {/* 6 Plumco Cards Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {PLUMCO_SERVICES.map((srv) => {
+            const IconComponent = iconMap[srv.iconName] || Wrench;
+            return (
+              <div
+                key={srv.id}
+                className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100"
+              >
+                {/* Image Header */}
+                <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                  <Image
+                    src={srv.img}
+                    alt={srv.title}
+                    width={600}
+                    height={380}
+                    unoptimized
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                  />
+                  {/* Floating Service Icon */}
+                  <div className="absolute -bottom-5 right-6 w-12 h-12 rounded-xl bg-[#0052da] text-white flex items-center justify-center shadow-lg group-hover:bg-[#253041] transition-colors">
+                    <IconComponent className="w-6 h-6" />
+                  </div>
+
+                  {/* Starting Price Pill */}
+                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs text-[#253041] px-3 py-1 rounded-md text-xs font-mono font-bold shadow-sm">
+                    From ${srv.startingPrice}
+                  </div>
                 </div>
 
-                {/* Starting Price Tag */}
-                <div className="absolute bottom-3 right-3 bg-white/95 backdrop-blur-xs text-slate-900 border border-slate-200 px-3 py-1 rounded-lg shadow-md">
-                  <div className="text-[10px] text-slate-500 font-semibold uppercase leading-none">
-                    Starting From
+                {/* Card Content */}
+                <div className="p-7 flex-1 flex flex-col justify-between">
+                  <div>
+                    <h3 className="text-xl font-bold text-[#253041] group-hover:text-[#0052da] transition-colors mb-2.5">
+                      {srv.title}
+                    </h3>
+                    <p className="text-sm text-[#4c5165] leading-relaxed line-clamp-3">
+                      {srv.desc}
+                    </p>
                   </div>
-                  <div className="text-lg font-black text-blue-700 font-mono leading-tight">
-                    ${service.startingPrice}
+
+                  {/* Card Bottom CTA */}
+                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                    <button
+                      type="button"
+                      onClick={() => handleBookService(srv)}
+                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0052da] group-hover:text-[#0041ae] transition-colors"
+                    >
+                      <span>Book Service</span>
+                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                    </button>
+
+                    <a
+                      href={`tel:${currentLocation.phoneRaw}`}
+                      className="text-xs font-bold text-slate-500 hover:text-[#0052da] flex items-center gap-1 font-mono"
+                      title="Direct Call"
+                    >
+                      <PhoneCall className="w-3.5 h-3.5 text-[#0052da]" />
+                      <span>Call</span>
+                    </a>
                   </div>
                 </div>
               </div>
-
-              {/* Service Content */}
-              <div className="p-5 sm:p-6 flex-1 flex flex-col">
-                <div className="text-[11px] font-mono text-orange-600 font-bold uppercase tracking-wider mb-1">
-                  {service.badge}
-                </div>
-                <h3 className="text-lg font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">
-                  {service.title}
-                </h3>
-
-                <p className="mt-2.5 text-xs text-slate-600 leading-relaxed line-clamp-3">
-                  {service.description}
-                </p>
-
-                {/* Equipment Used Tags */}
-                <div className="mt-4 pt-3 border-t border-slate-200">
-                  <span className="text-[10px] uppercase font-mono font-bold text-slate-400 tracking-wider block mb-1.5">
-                    Equipment Deployed:
-                  </span>
-                  <div className="flex flex-wrap gap-1.5">
-                    {service.equipment.map((eq, i) => (
-                      <span
-                        key={i}
-                        className="bg-white border border-slate-200 text-slate-700 text-[11px] px-2 py-0.5 rounded font-mono"
-                      >
-                        {eq}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Feature Highlights */}
-                <ul className="mt-4 space-y-1.5 text-xs text-slate-700">
-                  {service.bullets.slice(0, 3).map((bullet, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600 shrink-0 mt-0.5" />
-                      <span>{bullet}</span>
-                    </li>
-                  ))}
-                </ul>
-
-                {/* Warranty Note */}
-                <div className="mt-4 pt-3 border-t border-dashed border-slate-200 flex items-center gap-1.5 text-[11px] text-slate-500 font-medium">
-                  <ShieldCheck className="w-3.5 h-3.5 text-blue-600 shrink-0" />
-                  <span className="truncate">{service.warranty}</span>
-                </div>
-
-                {/* Action Buttons */}
-                <div className="mt-5 pt-3 flex items-center gap-2">
-                  <button
-                    type="button"
-                    onClick={() => handleBookService(service)}
-                    className="flex-1 py-2.5 px-3 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold rounded-lg transition active:scale-[0.98] shadow-xs flex items-center justify-center gap-1 focus-visible:ring-2 focus-visible:ring-blue-500"
-                  >
-                    <span>Book Service</span>
-                    <ChevronRight className="w-3.5 h-3.5" />
-                  </button>
-
-                  <a
-                    href={`tel:${currentLocation.phoneRaw}`}
-                    className="py-2.5 px-3 bg-orange-50 hover:bg-orange-100 text-orange-700 border border-orange-200 rounded-lg text-xs font-bold transition flex items-center justify-center gap-1"
-                    title={`Call for ${service.title}`}
-                  >
-                    <PhoneCall className="w-3.5 h-3.5" />
-                    <span>Call</span>
-                  </a>
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
     </section>

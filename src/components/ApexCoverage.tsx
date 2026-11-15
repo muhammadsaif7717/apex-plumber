@@ -23,13 +23,12 @@ export function ApexCoverage() {
     <section id="coverage" className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-blue-100/80 border border-blue-200 text-blue-800 text-xs font-bold font-mono uppercase tracking-wider mb-3">
-            <MapPin className="w-3.5 h-3.5" />
-            <span>Turnkey Multi-State Coverage</span>
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
+            <span>:: Service Area Coverage</span>
           </div>
-          <h2 className="text-2xl sm:text-4xl font-black text-slate-900 tracking-tight">
-            Select Your State & Metro Plumbing Market
+          <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
+            Select Your State &amp; Metro Market
           </h2>
           <p className="mt-3 text-slate-600 text-sm sm:text-base">
             Switch markets to view live local dispatch hotlines, municipal master plumber licenses, and dedicated regional fleet telemetry.

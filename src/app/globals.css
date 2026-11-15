@@ -1,10 +1,14 @@
 @import "tailwindcss";
 
 :root {
-  --font-display: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
-  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
-  --background: #ffffff;
-  --foreground: #0f172a;
+  --font-sans: var(--font-manrope), system-ui, -apple-system, sans-serif;
+  --font-mono: var(--font-mono), monospace;
+  --plumco-blue: #0052da;
+  --plumco-blue-hover: #0041ae;
+  --plumco-navy: #253041;
+  --plumco-dark: #162132;
+  --plumco-light-bg: #f4f8fe;
+  --plumco-body: #4c5165;
 }
 
 html {
@@ -13,15 +17,59 @@ html {
 }
 
 body {
-  background-color: var(--background);
-  color: var(--foreground);
-  font-family: var(--font-display);
+  background-color: #ffffff;
+  color: #4c5165;
+  font-family: var(--font-sans);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom scrollbar for clean precision */
+/* Plumco Primary Button */
+.btn-plumco {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #0052da;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 14px 32px;
+  transition: all 0.25s ease;
+  box-shadow: 0 8px 24px -4px rgba(0, 82, 218, 0.3);
+}
+
+.btn-plumco:hover {
+  background-color: #0041ae;
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px -4px rgba(0, 82, 218, 0.4);
+}
+
+.btn-plumco:active {
+  transform: translateY(0);
+}
+
+/* Plumco Dark Button */
+.btn-plumco-dark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  background-color: #253041;
+  color: #ffffff;
+  font-weight: 700;
+  border-radius: 8px;
+  padding: 14px 32px;
+  transition: all 0.25s ease;
+}
+
+.btn-plumco-dark:hover {
+  background-color: #162132;
+  transform: translateY(-2px);
+}
+
+/* Subtle scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
@@ -40,8 +88,7 @@ body {
   background: #94a3b8;
 }
 
-/* Accessibility focus styles */
 :focus-visible {
-  outline: 2px solid #f97316;
+  outline: 2px solid #0052da;
   outline-offset: 2px;
 }

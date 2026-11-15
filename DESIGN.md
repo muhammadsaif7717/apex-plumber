@@ -1,86 +1,79 @@
-# 📐 DESIGN SYSTEM & SPECIFICATION — APEX PLUMBER
-> **Google Stitch Specification & Cleanroom Light Industrial Protocol**  
-> *Target Category:* High-Converting Emergency Trade Service Platform & Multi-State Pitch Atelier.
+# 📐 DESIGN SYSTEM & SPECIFICATION — APEX PLUMBER (PLUMCO THEME ATELIER)
+> **Direct Plumco Architecture & Clean Industrial Precision Protocol**  
+> *Benchmark Target:* https://wpocean.com/wp/plumco/  
+> *Target Category:* High-Converting Emergency & Commercial Plumbing Platform & Multi-State Pitch Atelier.
 
 ---
 
 ## 1. Visual Hierarchy & Aesthetic Direction
-- **Archetype:** Precision Industrial & Maritime Trust Cleanroom (Hyper-legible, clinical white, deep nautical slate, high-visibility rescue safety accents).
-- **Core Emotional Triggers:** Immediate Relief, Absolute Authority, Unshakeable Reliability, Transparent Upfront Pricing.
-- **Strict Mode:** Pure Light Cleanroom. Zero dark-mode ambiguity, 100% WCAG AAA contrast ratio on all critical text and emergency CTAs.
+- **Archetype:** Plumco Signature Master Tradesman Theme — Royal Hydronic Blue (`#0052da`), Deep Nautical Charcoal Slate (`#253041`), Crisp Pure White (`#ffffff`), and Soft Ice Blue Canvas (`#f4f8fe`).
+- **Core Emotional Triggers:** "Ready To Help You", 25+ Years Experience, Absolute Professionalism, No Overtime Fees, Guaranteed On-Time Arrival.
+- **Responsive Guarantee:** 100% Pixel-Perfect Mobile-First from 360px (and down to 320px) up to 4K Ultrawide with Zero Horizontal Overflow (`overflow-x: hidden`).
 
 ---
 
 ## 2. Color Palette & Semantic Tokens
 
-### Primary Trust Palette (Maritime Deep Slate & Hydronic Blues)
-- `--navy-950`: `#0F172A` (Dominant text, authority headlines, master badges)
-- `--navy-900`: `#1E293B` (Secondary headings, dark trust containers)
-- `--blue-800`: `#1E3A8A` (Deep nautical anchor, header accents)
-- `--blue-600`: `#2563EB` (Primary brand accent, interactive links, trust checks)
-- `--blue-500`: `#3B82F6` (Active indicator, hover highlight)
-- `--blue-50`:  `#EFF6FF` (Soft hydronic tint for trust callouts)
-
-### Emergency Rescue Accents (High-Visibility Safety Amber & Orange)
-- `--orange-500`: `#F97316` (Emergency dispatch hotline, primary CTA buttons, live response pill)
-- `--orange-600`: `#EA580C` (Active/Hover button state, urgent warning highlight)
-- `--orange-400`: `#FB923C` (Border glow, subtle indicator)
-- `--orange-50`:  `#FFF7ED` (Emergency dispatch background tint)
-
-### Surface & Neutral Scale (Clinical Cleanroom Slate)
-- `--surface-white`: `#FFFFFF` (Card surfaces, cleanroom canvas)
-- `--surface-50`:    `#F8FAFC` (Page background, alternating row surface)
-- `--surface-100`:   `#F1F5F9` (Subtle dividers, input fills, badge backgrounds)
-- `--border-200`:    `#E2E8F0` (Default precision card border)
-- `--border-300`:    `#CBD5E1` (Input focus boundary, active tab outline)
-- `--text-muted`:    `#64748B` (Secondary descriptions, metadata)
-- `--text-body`:     `#334155` (High-legibility readable paragraph text)
-
-### Functional Feedback Tokens
-- `--status-success`: `#16A34A` (Available technicians, verified license badge)
-- `--status-warning`: `#CA8A04` (Heavy call volume alert)
-- `--status-urgent`:  `#DC2626` (Pipe burst emergency marker)
+### Plumco Primary Palette
+- `--plumco-blue`: `#0052da` (rgb(0, 82, 218)) — Primary buttons, active tabs, fun fact background, service highlights.
+- `--plumco-blue-hover`: `#0041ae` (Hover state for buttons and links)
+- `--plumco-blue-light`: `#eef5ff` / `#f4f8fe` (Hero background, alternating sections)
+- `--plumco-navy`: `#253041` (rgb(37, 48, 65)) — Primary headings, appointment section background, footer background.
+- `--plumco-dark`: `#162132` (Deepest footer & topbar background)
+- `--plumco-text`: `#4c5165` (High-legibility readable paragraph text)
+- `--plumco-yellow`: `#ffb600` / `#f59e0b` (5-Star reviews, subtle attention badge)
+- `--plumco-white`: `#ffffff` (Pure white card surfaces)
+- `--plumco-border`: `#e7edf6` (Subtle modern borders)
 
 ---
 
-## 3. Typography Scale & Fonts
+## 3. Section Architecture (Matching Plumco Exact 1:1)
 
-### Font Families
-- **Display & Headings:** `Plus Jakarta Sans`, sans-serif (Weights: 700, 800, 900)
-- **Body & Controls:** `Plus Jakarta Sans`, -apple-system, sans-serif (Weights: 400, 500, 600)
-- **Technical & License Numbers:** `JetBrains Mono`, monospace (License IDs, timestamps, exact prices)
-
-### Type Scale
-- `display-2xl`: `3.5rem` (56px) / Line-height: `1.08` / Tracking: `-0.03em`
-- `display-xl`:  `2.75rem` (44px) / Line-height: `1.12` / Tracking: `-0.025em`
-- `heading-lg`:  `2rem` (32px) / Line-height: `1.2` / Tracking: `-0.02em`
-- `heading-md`:  `1.5rem` (24px) / Line-height: `1.3` / Tracking: `-0.015em`
-- `body-lg`:     `1.125rem` (18px) / Line-height: `1.6`
-- `body-base`:   `1rem` (16px) / Line-height: `1.5`
-- `caption-sm`:  `0.875rem` (14px) / Line-height: `1.4` / Tracking: `0.01em`
-- `code-mono`:   `0.8125rem` (13px) / Monospace / Tracking: `0.02em`
-
----
-
-## 4. Components, Spacing & Border Radii
-
-### Border Radii (Modern Crisp Architectural)
-- Small components (badges, chips, tags): `rounded-md` (6px)
-- Interactive buttons & inputs: `rounded-lg` (8px)
-- Service cards & dispatch widget: `rounded-xl` (12px)
-- Modals & hero card wrappers: `rounded-2xl` (16px)
-
-### Shadows & Depth (No AI-Slop Heavy Blur)
-- Card border: `1px solid #E2E8F0` with subtle elevation `0 1px 3px 0 rgb(0 0 0 / 0.05)`
-- Interactive Hover: `0 8px 24px -4px rgb(15 23 42 / 0.08)`
-- Emergency Button Glow: `0 4px 14px 0 rgb(249 115 22 / 0.35)`
-
----
-
-## 5. Anti-AI-Slop & Vercel Guideline Checklist
-- [x] Zero generic "Learn More → 01" number ornaments.
-- [x] Zero decorative blinking ping dots.
-- [x] All buttons have explicit `hover`, `active`, and `focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-orange-500` accessibility states.
-- [x] Every phone number is interactive with `tel:+18005552739` and formatted clearly `(800) 555-APEX`.
-- [x] All form controls have matching `<label>` elements or `aria-label`.
-- [x] Strict Light Theme enforcement — clean, crisp contrast suitable for homeowners during emergencies.
+1. **Top Bar Header:**
+   - Left: Location info (Dynamic per State/City) + Dispatch Email (`dispatch@apexplumber.com`)
+   - Right: Working Hours (`24/7 Mon - Sun Emergency Response`) + Social links / State Switcher.
+2. **Main Navigation Header (`ApexNavbar.tsx`):**
+   - Brand Logo: "Apex Plumber" in Trust Slate & Royal Blue with Drop & Wrench emblem
+   - Nav Menu: Home, About Us, Services, Projects, Team, Estimator, Reviews, Blog, Contact
+   - Right Box: Call Anytime with Phone Icon (`tel:`) + "Book Online" primary button.
+3. **Hero Section (`Ready To Help You.`):**
+   - Subtitle: `:: Highly Trained Staff`
+   - Heading: `Ready To Help You.`
+   - Body: `We are certified company. We provide best plumbing services for you & your company with zero overtime fees.`
+   - CTAs: [Book Online] primary button + [Emergency Hotline] direct call badge
+   - Plumber Cutout Image with backdrop badge and rating pill.
+4. **3 Features Grid Under Hero (`wpo-features-section`):**
+   - 1. `Book Online` (Online intake & schedule)
+   - 2. `We Arrive` (Under 35-min GPS van arrival)
+   - 3. `Solve Problem` (Master licensed diagnosis & repair)
+5. **About Us Section (`Over 25+ Years Experience In Plumbing Service`):**
+   - 25+ Years Experience floating circle badge + dual image montage.
+   - Core checklist (On-Time Guarantee, Upfront Pricing, Licensed Master Plumbers).
+   - Emergency hotline signature box.
+6. **Best Services We Offer (6 Plumco Cards):**
+   - Kitchen Plumbing
+   - Gas Line Services
+   - Water Line Repair
+   - Bathroom Plumbing
+   - Basement Plumbing
+   - Remodeling & Repiping
+7. **Fun Fact / Counter Section (`We Are Provide Always Different`):**
+   - Royal Blue (`#0052da`) full-width band
+   - Customer Review rating + 4 live counters (Running Projects, Team Members, Happy Clients, Awards Won).
+8. **Our Latest Projects Gallery (Interactive Tabs):**
+   - Categories: `ALL PROJECTS`, `BATHROOM`, `GAS LINE`, `KITCHEN`, `DRAIN & SEWER`
+   - High-res project cards with hover overlays and zoom inspection.
+9. **Dedicated Team Members:**
+   - Master Plumbers with titles, verified license tags, and contact links.
+10. **Online Booking For Appointments Form:**
+    - Embedded 60-second appointment booking intake form on deep navy background.
+11. **Testimonial Slider / Grid (`What People's Say`):**
+    - 5-Star verified homeowner feedback with quotes and client avatars.
+12. **Latest News & Blog:**
+    - 3 insightful plumbing maintenance articles with publication dates and author tags.
+13. **Plumco Signature Footer:**
+    - Quick links, newsletter subscription, services list, licensing notice, and copyright.
+14. **Global Utilities:**
+    - Interactive State/City Switcher updating all phone numbers & municipal licenses
+    - Canvas-confetti emergency dispatch confirmation ticket modal
+    - Sticky mobile dock for 360px screens.
