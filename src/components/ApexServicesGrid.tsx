@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { PLUMCO_SERVICES, PlumcoService } from "@/data/plumcoData";
 import { useLocation } from "@/context/LocationContext";
 import {
@@ -37,32 +38,36 @@ export function ApexServicesGrid() {
   };
 
   return (
-    <section id="services" className="py-16 sm:py-24 bg-[#f4f8fe] border-b border-slate-200/80">
+    <section id="services" className="py-14 sm:py-20 lg:py-24 bg-[#f4f8fe] border-b border-slate-200/80 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <div className="text-center max-w-2xl mx-auto mb-14">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: Master Trade Services</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Specialized Services I Personally Handle
           </h2>
-          <p className="mt-3 text-sm sm:text-base text-[#4c5165] leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165] leading-relaxed">
             Every job listed below is completed by me personally using commercial-grade Spartan hydro-jetters, SeeSnake HD video cameras, and ProPress copper tools.
           </p>
         </div>
 
         {/* 6 Specialized Services Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {PLUMCO_SERVICES.map((srv) => {
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {PLUMCO_SERVICES.map((srv, index) => {
             const IconComponent = iconMap[srv.iconName] || Wrench;
             return (
-              <div
+              <motion.div
                 key={srv.id}
-                className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100"
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-30px" }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1"
               >
                 {/* Image Header */}
-                <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
                   <Image
                     src={srv.img}
                     alt={srv.title}
@@ -72,49 +77,48 @@ export function ApexServicesGrid() {
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Floating Icon */}
-                  <div className="absolute -bottom-5 right-6 w-12 h-12 rounded-xl bg-[#0052da] text-white flex items-center justify-center shadow-lg group-hover:bg-[#253041] transition-colors">
-                    <IconComponent className="w-6 h-6" />
+                  <div className="absolute -bottom-4 sm:-bottom-5 right-5 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0052da] text-white flex items-center justify-center shadow-lg group-hover:bg-[#253041] transition-colors">
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
 
                   {/* Starting Price Pill */}
-                  <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs text-[#253041] px-3 py-1 rounded-md text-xs font-mono font-bold shadow-sm">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-xs text-[#253041] px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono font-bold shadow-sm">
                     Starting from ${srv.startingPrice}
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-7 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between">
                   <div>
-                    <h3 className="text-xl font-bold text-[#253041] group-hover:text-[#0052da] transition-colors mb-2.5">
+                    <h3 className="text-base sm:text-xl font-bold text-[#253041] group-hover:text-[#0052da] transition-colors mb-2">
                       {srv.title}
                     </h3>
-                    <p className="text-sm text-[#4c5165] leading-relaxed">
+                    <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed mb-4">
                       {srv.desc}
                     </p>
                   </div>
 
-                  {/* Bottom Action */}
-                  <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                  <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
                     <button
                       type="button"
                       onClick={() => handleBookService(srv)}
-                      className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0052da] group-hover:text-[#0041ae] transition-colors"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0052da] group-hover:underline cursor-pointer"
                     >
-                      <span>Book With Dave</span>
-                      <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                      <span>Book This Service</span>
+                      <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </button>
 
                     <a
                       href={`tel:${currentLocation.phoneRaw}`}
-                      className="text-xs font-bold text-slate-500 hover:text-[#0052da] flex items-center gap-1 font-mono"
-                      title="Direct Call"
+                      className="text-slate-400 hover:text-[#0052da] transition p-1.5 rounded-lg hover:bg-blue-50"
+                      title="Call about this service"
+                      aria-label={`Call Dave about ${srv.title}`}
                     >
-                      <PhoneCall className="w-3.5 h-3.5 text-[#0052da]" />
-                      <span>Call Cell</span>
+                      <PhoneCall className="w-4 h-4" />
                     </a>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

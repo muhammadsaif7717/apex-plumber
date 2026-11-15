@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useMemo } from "react";
+import { motion } from "framer-motion";
 import { useLocation } from "@/context/LocationContext";
 import {
   CheckCircle,
@@ -128,23 +129,35 @@ export function ApexEstimator() {
   };
 
   return (
-    <section id="cost-calculator" className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+    <section id="cost-calculator" className="py-14 sm:py-20 lg:py-24 bg-slate-50 border-b border-slate-200 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.5 }}
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-12"
+        >
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: Upfront Pricing Engine</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Plumbing Repair Cost Estimator
           </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base">
+          <p className="mt-3 text-slate-600 text-xs sm:text-sm md:text-base">
             No guessing games or surprise fees. Calculate an instant flat-rate estimate tailored to your property in {currentLocation.primaryCity}.
           </p>
-        </div>
+        </motion.div>
 
         {/* 3-Step Interactive Container */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-lg p-6 sm:p-10 max-w-5xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, margin: "-40px" }}
+          transition={{ duration: 0.6 }}
+          className="bg-white rounded-2xl border border-slate-200 shadow-lg p-5 sm:p-8 lg:p-10 max-w-5xl mx-auto"
+        >
           {/* Step 1: Repair Type */}
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-3">
@@ -304,7 +317,7 @@ export function ApexEstimator() {
               </span>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

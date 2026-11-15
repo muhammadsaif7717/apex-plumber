@@ -7,11 +7,11 @@ import { ApexServicesGrid } from "@/components/ApexServicesGrid";
 import { ApexFunFact } from "@/components/ApexFunFact";
 import { ApexWhyHireMe } from "@/components/ApexWhyHireMe";
 import { ApexProjects } from "@/components/ApexProjects";
-import { ApexAppointment } from "@/components/ApexAppointment";
-import { ApexEstimator } from "@/components/ApexEstimator";
-import { ApexCoverage } from "@/components/ApexCoverage";
 import { ApexTestimonials } from "@/components/ApexTestimonials";
+import { ApexEstimator } from "@/components/ApexEstimator";
 import { ApexBlog } from "@/components/ApexBlog";
+import { ApexCoverage } from "@/components/ApexCoverage";
+import { ApexAppointment } from "@/components/ApexAppointment";
 import { ApexFooter } from "@/components/ApexFooter";
 import { ApexBookingModal } from "@/components/ApexBookingModal";
 import { ApexMobileDock } from "@/components/ApexMobileDock";
@@ -24,7 +24,7 @@ export default function Home() {
         <ApexNavbar />
 
         <main className="flex-1">
-          {/* 1. Personal Hero: Hi, I'm Dave Vance — Ready To Help You */}
+          {/* 1. Personal Hero: Hi, I'm Dave Vance — Ready To Help You (100vh banner) */}
           <ApexHero />
 
           {/* 2. How I Work With You: 3 Direct Steps */}
@@ -45,27 +45,29 @@ export default function Home() {
           {/* 7. Solved Case Studies & Project Gallery */}
           <ApexProjects />
 
-          {/* 8. Direct Hire / Appointment Booking Intake */}
-          <ApexAppointment />
+          {/* 8. What Neighbors Say About Dave (5-Star Reviews) */}
+          <ApexTestimonials />
 
           {/* 9. Upfront Pricing Estimator */}
           <ApexEstimator />
 
-          {/* 10. Regional Coverage Areas */}
+          {/* 10. Dave's Practical Plumbing Advice & Blog */}
+          <ApexBlog />
+
+          {/* 11. Regional Coverage Areas */}
           <ApexCoverage />
 
-          {/* 11. What Neighbors Say About Dave */}
-          <ApexTestimonials />
-
-          {/* 12. Dave's Practical Plumbing Advice & Blog */}
-          <ApexBlog />
+          {/* 12. Direct Hire / Appointment Booking Intake (Contact Form) */}
+          <ApexAppointment />
         </main>
 
-        {/* 13. Personal Master Plumber Footer */}
+        {/* Global Footer */}
         <ApexFooter />
 
-        {/* Global Floating Modals & Mobile Emergency Dock */}
+        {/* Floating Interactive Modal */}
         <ApexBookingModal />
+
+        {/* Sticky Mobile Bottom Dock (Hidden on Large Screens) */}
         <ApexMobileDock />
       </div>
     </LocationProvider>
