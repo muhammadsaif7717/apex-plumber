@@ -1,41 +1,31 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48" fill="none">
   <defs>
-    <linearGradient id="apexBg" x1="4" y1="4" x2="44" y2="44" gradientUnits="userSpaceOnUse">
+    <linearGradient id="apexBg" x1="0" y1="0" x2="48" y2="48" gradientUnits="userSpaceOnUse">
       <stop offset="0%" stop-color="#0052da" />
-      <stop offset="100%" stop-color="#002d80" />
-    </linearGradient>
-    <linearGradient id="dropGrad" x1="24" y1="12" x2="24" y2="36" gradientUnits="userSpaceOnUse">
-      <stop offset="0%" stop-color="#ffffff" />
-      <stop offset="100%" stop-color="#dbeafe" />
+      <stop offset="100%" stop-color="#002b80" />
     </linearGradient>
   </defs>
 
-  <!-- Shield Base with Smooth Curves -->
-  <path
-    d="M24 3L40 9V22C40 32.5 33 39.5 24 45C15 39.5 8 32.5 8 22V9L24 3Z"
-    fill="url(#apexBg)"
-  />
+  <!-- Rounded App Tile Base -->
+  <rect width="48" height="48" rx="12" fill="url(#apexBg)" />
+  <rect x="1" y="1" width="46" height="46" rx="11" stroke="#ffffff" stroke-opacity="0.2" stroke-width="1.5" />
 
-  <!-- Subtle Inner Border -->
-  <path
-    d="M24 5.5L38 10.8V22C38 31.2 31.8 37.6 24 42.6C16.2 37.6 10 31.2 10 22V10.8L24 5.5Z"
-    stroke="#ffffff"
-    stroke-opacity="0.25"
-    stroke-width="1.5"
-  />
+  <!-- Water Pipe Section -->
+  <rect x="8" y="21" width="32" height="6" rx="2" fill="#ffffff" fill-opacity="0.3" />
+  <rect x="6" y="19" width="4" height="10" rx="1.5" fill="#ffffff" fill-opacity="0.5" />
+  <rect x="38" y="19" width="4" height="10" rx="1.5" fill="#ffffff" fill-opacity="0.5" />
 
-  <!-- Water Droplet -->
-  <path
-    d="M24 13C24 13 16 23.5 16 28.5C16 32.9 19.6 36.5 24 36.5C28.4 36.5 32 32.9 32 28.5C32 23.5 24 13 24 13Z"
-    fill="url(#dropGrad)"
-  />
+  <!-- Heavy Duty Pipe Wrench Handle (Rescue Orange) -->
+  <path d="M14 38L25 25" stroke="#f97316" stroke-width="4.5" stroke-linecap="round" />
+  <!-- Wrench Adjustment Knurl -->
+  <circle cx="25" cy="25" r="2.8" fill="#ffb703" />
 
-  <!-- Precision Cross-Wrench / Pipeline Core (Orange Rescue Accent) -->
-  <path
-    d="M20 28.5H28M24 24.5V32.5"
-    stroke="#0052da"
-    stroke-width="2.5"
-    stroke-linecap="round"
-  />
-  <circle cx="24" cy="28.5" r="2" fill="#f97316" />
+  <!-- Wrench Hook Jaw (Gripping top of pipe) -->
+  <path d="M25 24L28 16H20V20" stroke="#ffffff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" />
+  <!-- Wrench Heel Jaw (Gripping bottom of pipe) -->
+  <path d="M24 27L30 29" stroke="#ffffff" stroke-width="2.8" stroke-linecap="round" />
+
+  <!-- Fresh Water Droplet -->
+  <path d="M33 7C33 7 28 12.5 28 16C28 18.8 30.2 21 33 21C35.8 21 38 18.8 38 16C38 12.5 33 7 33 7Z" fill="#38bdf8" />
+  <path d="M32 13C32 13 30.5 15 30.5 16.5" stroke="#ffffff" stroke-width="1" stroke-linecap="round" />
 </svg>
