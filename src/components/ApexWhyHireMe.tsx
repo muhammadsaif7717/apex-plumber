@@ -132,7 +132,7 @@ export function ApexWhyHireMe() {
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
             <button
               type="button"
-              onClick={() => openBookingModal({ urgency: "standard" })}
+              onClick={() => openBookingModal({ urgency: "sameday" })}
               className="btn-plumco text-xs sm:text-sm font-bold py-3 px-5 w-full sm:w-auto text-center cursor-pointer whitespace-nowrap"
             >
               <CalendarCheck className="w-4 h-4" />

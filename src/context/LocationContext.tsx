@@ -6,7 +6,7 @@ import { LOCATIONS, DEFAULT_LOCATION_KEY, LocationData } from "@/data/locations"
 export interface BookingFormState {
   serviceId?: string;
   issueDescription?: string;
-  urgency?: "emergency" | "sameday" | "flexible";
+  urgency?: "emergency" | "sameday" | "flexible" | "standard";
   estimatedPriceRange?: string;
   propertyType?: string;
   zipCode?: string;
