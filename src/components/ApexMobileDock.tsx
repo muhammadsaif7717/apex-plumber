@@ -10,22 +10,22 @@ export function ApexMobileDock() {
   return (
     <div className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-slate-200 shadow-2xl p-2 pb-[calc(0.6rem+env(safe-area-inset-bottom))] lg:hidden">
       <div className="max-w-md mx-auto grid grid-cols-3 gap-1.5 xs:gap-2">
-        {/* Direct Call Button (Dave's Direct Cell) */}
+        {/* Direct Call Button (Apex Hotline) */}
         <a
           href={`tel:${currentLocation.phoneRaw}`}
           className="col-span-1 bg-[#0052da] hover:bg-[#0041ae] active:bg-[#00348c] text-white rounded-xl py-2 px-1 flex flex-col items-center justify-center text-center shadow-md shadow-[#0052da]/25 active:scale-95 transition cursor-pointer"
-          aria-label={`Call Dave Vance directly at ${currentLocation.phone}`}
+          aria-label={`Call Apex Plumber at ${currentLocation.phone}`}
         >
           <PhoneCall className="w-3.5 h-3.5 fill-white mb-0.5" />
           <span className="text-[11px] font-black tracking-tight leading-none whitespace-nowrap">
-            Call Dave
+            Call Apex
           </span>
           <span className="text-[8px] xs:text-[9px] opacity-90 font-mono mt-0.5 whitespace-nowrap">
-            Direct Cell Line
+            24/7 Hotline
           </span>
         </a>
 
-        {/* Hire Dave Direct Modal Trigger */}
+        {/* Book Apex Service Trigger */}
         <button
           type="button"
           onClick={() => openBookingModal({ urgency: "emergency" })}
@@ -33,7 +33,7 @@ export function ApexMobileDock() {
         >
           <CalendarCheck className="w-3.5 h-3.5 mb-0.5" />
           <span className="text-[11px] font-bold tracking-tight leading-none whitespace-nowrap">
-            Hire Dave
+            Book Online
           </span>
           <span className="text-[8px] xs:text-[9px] text-amber-300 font-mono mt-0.5 whitespace-nowrap">
             Free Estimate

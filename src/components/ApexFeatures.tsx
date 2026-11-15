@@ -55,7 +55,7 @@ export function ApexFeatures() {
                     onClick={() => openBookingModal({ urgency: "emergency" })}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052da] group-hover:underline cursor-pointer"
                   >
-                    <span>Contact Dave / Get Estimate</span>
+                    <span>Request Service / Get Estimate</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

@@ -49,7 +49,7 @@ export function ApexAppointment() {
     <section id="contact" className="py-16 sm:py-20 lg:py-24 bg-[#253041] text-white relative scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Direct Access to Dave */}
+          {/* Left Column: Direct Access to Apex Plumber */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -58,15 +58,15 @@ export function ApexAppointment() {
             className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left"
           >
             <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#ffb600] uppercase tracking-widest font-mono">
-              <span>:: Direct Booking With Dave</span>
+              <span>:: Book Apex Plumber</span>
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              Hire Me Directly For Your Plumbing Need.
+              Schedule Your Master Plumbing Service Today.
             </h2>
 
             <p className="text-slate-300 text-xs sm:text-sm md:text-base leading-relaxed">
-              Have a burst pipe, broken heater, or backed up sewer? Send your info below and it goes straight to my mobile phone. I reply within 10 minutes during active service hours.
+              Have a burst pipe, broken heater, or backed up sewer? Send your information below and it routes straight to our on-call master technicians. We respond promptly during active service hours.
             </p>
 
             {/* Direct Contact Card */}
@@ -77,7 +77,7 @@ export function ApexAppointment() {
                 </div>
                 <div>
                   <div className="text-[10px] sm:text-xs uppercase font-mono text-slate-400 font-bold">
-                    Dave Vance&apos;s Direct Cell Phone
+                    Apex Plumber 24/7 Dispatch Hotline
                   </div>
                   <a
                     href={`tel:${currentLocation.phoneRaw}`}
@@ -194,11 +194,11 @@ export function ApexAppointment() {
                     className="w-full btn-plumco py-3 sm:py-3.5 text-xs sm:text-sm md:text-base font-extrabold flex items-center justify-center gap-2 mt-2 cursor-pointer shadow-md"
                   >
                     <Send className="w-4 h-4" />
-                    <span>Send Directly To Dave</span>
+                    <span>Send Request To Apex Plumber</span>
                   </button>
 
                   <div className="text-center text-[10px] sm:text-[11px] text-slate-500 pt-1">
-                    🔒 No sales pitch • Dave personally reads every single message
+                    🔒 No sales pressure • Certified master technicians review every message
                   </div>
                 </form>
               ) : (
@@ -207,10 +207,10 @@ export function ApexAppointment() {
                     <CheckCircle2 className="w-8 h-8 sm:w-10 sm:h-10" />
                   </div>
                   <h3 className="text-xl sm:text-2xl font-black text-[#253041]">
-                    Message Sent Directly to Dave!
+                    Request Sent to Apex Plumber Dispatch!
                   </h3>
                   <p className="text-xs sm:text-sm text-slate-600 max-w-sm mx-auto">
-                    Your request ticket <strong className="font-mono text-[#0052da] font-black">{ticketId}</strong> has been received by Master Plumber Dave Vance. Dave will call you shortly.
+                    Your request ticket <strong className="font-mono text-[#0052da] font-black">{ticketId}</strong> has been received by our master technicians. We will call you shortly.
                   </p>
                   <div className="pt-2">
                     <button

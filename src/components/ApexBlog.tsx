@@ -23,7 +23,7 @@ export function ApexBlog() {
             <span>:: Plumbing Tips &amp; Advice</span>
           </div>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
-            Dave&apos;s Practical Plumbing Advice
+            Apex Plumber Practical Plumbing Advice
           </h2>
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
             Homeowner guides, diagnostic insights, and winterization advice written directly from 25 years of master plumbing experience.

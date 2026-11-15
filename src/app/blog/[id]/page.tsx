@@ -27,7 +27,7 @@ export async function generateMetadata({ params }: BlogPageProps) {
   const blog = PLUMCO_BLOGS.find((b) => b.id === id);
   if (!blog) return { title: "Blog Post Not Found" };
   return {
-    title: `${blog.title} — Dave Vance Master Plumber`,
+    title: `${blog.title} — Apex Plumber Master Certified`,
     description: blog.excerpt,
   };
 }
@@ -56,11 +56,11 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           </Link>
 
           <a
-            href="tel:+15128862739"
+            href="tel:+18005552739"
             className="btn-plumco text-xs font-bold py-2 px-3.5"
           >
             <PhoneCall className="w-3.5 h-3.5" />
-            <span>Call Dave Direct</span>
+            <span>Call Apex Plumber</span>
           </a>
         </div>
       </header>
@@ -135,7 +135,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           <div className="w-20 h-20 rounded-full overflow-hidden bg-slate-100 shrink-0 border-2 border-[#0052da]">
             <Image
               src="https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/Image-Plumber.png"
-              alt="Dave Vance - Master Plumber"
+              alt="Apex Plumber - Master Certified Plumber"
               width={160}
               height={160}
               unoptimized
@@ -146,30 +146,30 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           <div className="space-y-1.5 text-center sm:text-left flex-1">
             <div className="flex flex-wrap items-center justify-center sm:justify-start gap-2">
               <h4 className="text-base font-black text-[#253041]">
-                Dave Vance
+                Apex Plumber Master Team
               </h4>
               <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded bg-blue-100 text-[#0052da]">
-                Licensed Master Plumber
+                Licensed &amp; Certified
               </span>
             </div>
             <p className="text-xs text-slate-600 leading-relaxed">
-              25+ years of hands-on residential and commercial plumbing troubleshooting. I write these guides to help local homeowners protect their foundations and avoid costly water damage.
+              25+ years of hands-on residential and commercial plumbing troubleshooting. We publish these homeowner guides to help families protect their foundations, prevent leaks, and make informed choices.
             </p>
           </div>
 
           <a
-            href="tel:+15128862739"
+            href="tel:+18005552739"
             className="btn-plumco text-xs font-bold py-3 px-5 shrink-0"
           >
             <PhoneCall className="w-3.5 h-3.5" />
-            <span>Call Dave</span>
+            <span>Call Apex Plumber</span>
           </a>
         </div>
 
         {/* Related Articles */}
         <div className="mt-16 pt-12 border-t border-slate-200">
           <h3 className="text-xl font-black text-[#253041] mb-6">
-            More Practical Plumbing Tips from Dave:
+            More Practical Plumbing Tips from Apex Plumber:
           </h3>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             {otherBlogs.map((b) => (

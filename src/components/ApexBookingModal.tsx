@@ -116,7 +116,7 @@ function ApexBookingModalContent({
             </div>
             <div>
               <h3 className="font-extrabold text-base leading-tight">
-                {isSuccess ? "Service Dispatched" : "Direct Request to Dave Vance"}
+                {isSuccess ? "Service Dispatched" : "Apex Plumber Priority Request"}
               </h3>
               <p className="text-[11px] text-slate-300 font-mono">
                 Licensed Master Plumber • {currentLocation.licenseNumber}
@@ -278,18 +278,18 @@ function ApexBookingModalContent({
                   className="w-full btn-plumco py-3.5 px-4 text-sm font-extrabold flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
-                    <span>Notifying Dave&apos;s Mobile Van...</span>
+                    <span>Dispatching Apex Plumber Van...</span>
                   ) : (
                     <>
                       <Zap className="w-4 h-4 fill-white" />
-                      <span>Confirm &amp; Alert Dave Now</span>
+                      <span>Confirm &amp; Alert Dispatch Unit</span>
                     </>
                   )}
                 </button>
               </div>
 
               <div className="text-center text-[11px] text-slate-500 pt-1">
-                Zero dispatch commitment • Dave personally handles your service call
+                Zero dispatch commitment • Certified master plumbers assigned to your call
               </div>
             </form>
           ) : (
@@ -300,13 +300,13 @@ function ApexBookingModalContent({
 
               <div>
                 <span className="text-xs uppercase font-mono font-bold text-emerald-600 tracking-wider">
-                  Dave Has Been Notified
+                  Apex Plumber Dispatched
                 </span>
                 <h4 className="text-xl font-black text-slate-900 mt-1">
-                  Dave Vance Is En Route In His Mobile Van
+                  Master Technician En Route In Mobile Van
                 </h4>
                 <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto">
-                  Your request has reached Dave directly. He is loading the necessary tools and will call your phone prior to arrival.
+                  Your request has reached our active emergency unit. Our master technician is loading tools and will call your phone prior to arrival.
                 </p>
               </div>
 
@@ -338,14 +338,14 @@ function ApexBookingModalContent({
                 </div>
               </div>
 
-              {/* Dave Profile Badge */}
+              {/* Apex Profile Badge */}
               <div className="bg-blue-50/60 border border-blue-200 rounded-xl p-3.5 text-left text-xs max-w-sm mx-auto flex items-center gap-3">
                 <div className="w-10 h-10 rounded-full bg-[#0052da] text-white flex items-center justify-center shrink-0">
                   <Truck className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">
-                    Dave Vance (Master Plumber)
+                    Apex Plumber Emergency Unit
                   </div>
                   <div className="text-[11px] text-slate-600 font-mono">
                     Mobile Workshop • {currentLocation.licenseNumber}
@@ -359,7 +359,7 @@ function ApexBookingModalContent({
                   className="w-full btn-plumco py-3 text-sm font-extrabold flex items-center justify-center gap-2"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Call Dave&apos;s Direct Cell: {currentLocation.phone}</span>
+                  <span>Call Dispatch Hotline: {currentLocation.phone}</span>
                 </a>
 
                 <button

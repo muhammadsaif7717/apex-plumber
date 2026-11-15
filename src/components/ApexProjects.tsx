@@ -97,7 +97,7 @@ export function ApexProjects() {
                         <strong className="text-slate-700">Problem:</strong> {proj.problem}
                       </div>
                       <div>
-                        <strong className="text-emerald-700">Dave&apos;s Solution:</strong> {proj.outcome}
+                        <strong className="text-emerald-700">Apex Plumber Solution:</strong> {proj.outcome}
                       </div>
                     </div>
                   </div>

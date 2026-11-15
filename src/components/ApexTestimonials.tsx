@@ -82,7 +82,7 @@ export function ApexTestimonials() {
             <span>:: Verified Customer Reviews</span>
           </div>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
-            What Neighbors Say About Dave
+            What Neighbors Say About Apex Plumber
           </h2>
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
             Real feedback from verified homeowners and property managers across the United States. Over 850+ five-star ratings.
@@ -227,14 +227,14 @@ export function ApexTestimonials() {
           </div>
         </div>
 
-        {/* Bottom Callout / Hire Dave Prompt */}
+        {/* Bottom Callout / Book Apex Prompt */}
         <div className="mt-12 text-center">
           <button
             type="button"
             onClick={() => openBookingModal({ urgency: "emergency" })}
             className="btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-5 sm:px-6 cursor-pointer"
           >
-            <span>Experience Dave&apos;s 5-Star Craftsmanship</span>
+            <span>Experience Apex Plumber&apos;s 5-Star Service</span>
           </button>
         </div>
       </div>

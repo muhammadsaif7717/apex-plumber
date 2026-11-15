@@ -112,7 +112,7 @@ export function ApexServicesGrid() {
                       href={`tel:${currentLocation.phoneRaw}`}
                       className="text-slate-400 hover:text-[#0052da] transition p-1.5 rounded-lg hover:bg-blue-50"
                       title="Call about this service"
-                      aria-label={`Call Dave about ${srv.title}`}
+                      aria-label={`Call Apex Plumber about ${srv.title}`}
                     >
                       <PhoneCall className="w-4 h-4" />
                     </a>

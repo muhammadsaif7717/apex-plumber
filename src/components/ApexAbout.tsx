@@ -10,8 +10,8 @@ export function ApexAbout() {
   const { currentLocation, openBookingModal } = useLocation();
 
   const personalGuarantees = [
-    "I personally perform 100% of the work — no apprentices, no strangers.",
-    "Guaranteed flat-rate quote in writing before I turn a single wrench.",
+    "Every job handled by certified master plumbers — never inexperienced helpers.",
+    "Guaranteed flat-rate quote in writing before we turn a single wrench.",
     "Non-destructive acoustic & HD video scopes save thousands in unnecessary demolition.",
     "Clean Home Pledge: Shoe booties, drop cloths, and 100% sanitized workspaces.",
   ];
@@ -20,7 +20,7 @@ export function ApexAbout() {
     <section id="about" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-slate-100 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
-          {/* Left Column: Dave's Work Montage */}
+          {/* Left Column: Apex Work Montage */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -32,7 +32,7 @@ export function ApexAbout() {
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <Image
                   src="https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/about-img-2.jpg"
-                  alt="Dave Vance - Master Plumber Workmanship"
+                  alt="Apex Plumber - Master Certified Workmanship"
                   width={600}
                   height={500}
                   unoptimized
@@ -46,7 +46,7 @@ export function ApexAbout() {
                   25+
                 </div>
                 <div className="text-[11px] sm:text-xs font-extrabold leading-tight">
-                  Years Solo Master Experience
+                  Years Master Field Experience
                 </div>
               </div>
 
@@ -60,7 +60,7 @@ export function ApexAbout() {
             </div>
           </motion.div>
 
-          {/* Right Column: Dave's Story */}
+          {/* Right Column: Apex Plumber Story */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -69,7 +69,7 @@ export function ApexAbout() {
             className="lg:col-span-6 space-y-4 sm:space-y-6 mt-4 lg:mt-0"
           >
             <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono">
-              <span>:: Meet Your Personal Plumber</span>
+              <span>:: About Apex Plumber</span>
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight leading-tight">
@@ -77,7 +77,7 @@ export function ApexAbout() {
             </h2>
 
             <p className="text-xs xs:text-sm sm:text-base text-[#4c5165] leading-relaxed">
-              Hi, I&apos;m Dave Vance. After watching corporate plumbing franchises bill homeowners inflated prices while sending junior trainees who guess their way through repairs, I chose to stay 100% independent. When you call me, you get my undivided attention, my commercial-grade tools, and my personal guarantee.
+              At <strong className="text-[#253041] font-bold">Apex Plumber</strong>, we built our reputation on master craftsmanship, transparent flat-rate pricing, and rapid emergency dispatch. After watching corporate plumbing franchises bill homeowners inflated rates while sending junior trainees who guess their way through repairs, we committed to an elite standard: certified master technicians, state-of-the-art tools, and our ironclad warranty on every repair.
             </p>
 
             {/* Guarantees Checklist */}
@@ -100,7 +100,7 @@ export function ApexAbout() {
                 className="btn-plumco text-xs sm:text-sm font-bold py-3 px-5 cursor-pointer whitespace-nowrap"
               >
                 <CalendarCheck className="w-4 h-4" />
-                <span>Schedule With Dave</span>
+                <span>Schedule With Apex Plumber</span>
               </button>
 
               <a
@@ -112,7 +112,7 @@ export function ApexAbout() {
                 </div>
                 <div className="text-left">
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                    Call Dave Directly
+                    Call Apex Plumber
                   </div>
                   <div className="text-xs sm:text-sm font-black text-[#253041] font-mono group-hover:text-[#0052da] transition whitespace-nowrap">
                     {currentLocation.phone}

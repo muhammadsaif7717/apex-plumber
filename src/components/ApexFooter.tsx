@@ -28,17 +28,17 @@ export function ApexFooter() {
     <footer className="bg-[#253041] text-slate-300 pt-16 pb-24 lg:pb-16 border-t border-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-slate-700">
-          {/* Col 1: Personal Brand Info */}
+          {/* Col 1: Brand Info */}
           <div className="lg:col-span-4 space-y-4">
-            <ApexLogo className="text-white" />
+            <ApexLogo inverted showSubtitle />
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              Independent Licensed Master Plumber Dave Vance. Delivering direct personal service, precision camera diagnostics, and flat-rate honest pricing to local families.
+              Apex Plumber delivers elite residential and commercial plumbing services with 24/7 rapid dispatch, precision camera diagnostics, and guaranteed upfront flat-rate pricing.
             </p>
 
             <div className="space-y-2 pt-2 text-xs">
               <div className="flex items-center gap-2.5 text-slate-300">
                 <MapPin className="w-4 h-4 text-[#0052da] shrink-0" />
-                <span>Mobile Van Base: {currentLocation.localAddress}</span>
+                <span>Service Hub: {currentLocation.localAddress}</span>
               </div>
               <div className="flex items-center gap-2.5 text-slate-300">
                 <PhoneCall className="w-4 h-4 text-[#0052da] shrink-0" />
@@ -46,12 +46,12 @@ export function ApexFooter() {
                   href={`tel:${currentLocation.phoneRaw}`}
                   className="font-mono font-bold hover:text-white transition"
                 >
-                  Direct Cell: {currentLocation.phone}
+                  Dispatch: {currentLocation.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5 text-slate-300">
                 <Mail className="w-4 h-4 text-[#0052da] shrink-0" />
-                <span>dave@apexplumber.com</span>
+                <span>dispatch@apexplumber.com</span>
               </div>
               <div className="flex items-center gap-2.5 text-slate-400 font-mono text-[11px] pt-1">
                 <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
@@ -68,12 +68,12 @@ export function ApexFooter() {
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a href="#about" className="hover:text-white transition">
-                  About Dave
+                  About Apex Plumber
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  My Services
+                  Our Services
                 </a>
               </li>
               <li>
@@ -83,7 +83,7 @@ export function ApexFooter() {
               </li>
               <li>
                 <a href="#why-hire-me" className="hover:text-white transition">
-                  Why Hire Me
+                  Why Apex Plumber
                 </a>
               </li>
               <li>
@@ -93,17 +93,17 @@ export function ApexFooter() {
               </li>
               <li>
                 <a href="#reviews" className="hover:text-white transition">
-                  Neighbor Reviews
+                  Customer Reviews
                 </a>
               </li>
               <li>
                 <a href="#blog" className="hover:text-white transition">
-                  Plumbing Tips
+                  Plumbing Tips &amp; Blog
                 </a>
               </li>
               <li>
                 <a href="#contact" className="hover:text-white transition">
-                  Hire Dave
+                  Book Service
                 </a>
               </li>
             </ul>
@@ -148,13 +148,13 @@ export function ApexFooter() {
             </ul>
           </div>
 
-          {/* Col 4: Dave's Newsletter & Advice */}
+          {/* Col 4: Newsletter & Advice */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-sm font-black uppercase tracking-wider text-white">
               SEASONAL ADVICE
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              Get Dave&apos;s seasonal winter freeze alerts, water heater maintenance tips, and coupon specials for local homeowners.
+              Get seasonal winter freeze alerts, water heater maintenance tips, and exclusive specials from Apex Plumber.
             </p>
 
             <form onSubmit={handleNewsletter} className="space-y-2">
@@ -176,7 +176,7 @@ export function ApexFooter() {
               {newsletterSubscribed && (
                 <div className="text-[11px] text-emerald-400 flex items-center gap-1 font-semibold">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Subscribed! Dave will send seasonal alerts.</span>
+                  <span>Subscribed! Apex Plumber will send seasonal alerts.</span>
                 </div>
               )}
             </form>
@@ -208,14 +208,14 @@ export function ApexFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © 2026 Dave Vance • Master Plumber. All rights reserved.
+            © 2026 Apex Plumber. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <span>Direct Master Craftsman</span>
+            <span>Certified Master Services</span>
             <span>•</span>
             <span>$2M Fully Insured</span>
             <span>•</span>
-            <span>Zero Overtime Night Surcharges</span>
+            <span>Zero Overtime Surcharges</span>
           </div>
         </div>
       </div>

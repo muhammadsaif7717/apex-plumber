@@ -24,34 +24,34 @@ export default function Home() {
         <ApexNavbar />
 
         <main className="flex-1">
-          {/* 1. Personal Hero: Hi, I'm Dave Vance — Ready To Help You (100vh banner) */}
+          {/* 1. Hero: Apex Plumber — Ready To Help You (100vh banner) */}
           <ApexHero />
 
-          {/* 2. How I Work With You: 3 Direct Steps */}
+          {/* 2. How We Work: 3 Direct Steps */}
           <ApexFeatures />
 
-          {/* 3. About Dave: 25+ Years Solo Master Craftsmanship */}
+          {/* 3. About Apex Plumber: 25+ Years Master Craftsmanship */}
           <ApexAbout />
 
-          {/* 4. Specialized Services Personally Handled */}
+          {/* 4. Specialized Services Handled by Certified Masters */}
           <ApexServicesGrid />
 
           {/* 5. Career Milestones & 850+ 5-Star Reviews */}
           <ApexFunFact />
 
-          {/* 6. Why Hire Me Directly vs Corporate Franchises */}
+          {/* 6. Why Choose Apex Plumber vs Corporate Franchises */}
           <ApexWhyHireMe />
 
           {/* 7. Solved Case Studies & Project Gallery */}
           <ApexProjects />
 
-          {/* 8. What Neighbors Say About Dave (5-Star Reviews) */}
+          {/* 8. What Neighbors Say About Apex Plumber (5-Star Reviews) */}
           <ApexTestimonials />
 
           {/* 9. Upfront Pricing Estimator */}
           <ApexEstimator />
 
-          {/* 10. Dave's Practical Plumbing Advice & Blog */}
+          {/* 10. Apex Plumber Practical Plumbing Advice & Blog */}
           <ApexBlog />
 
           {/* 11. Regional Coverage Areas */}

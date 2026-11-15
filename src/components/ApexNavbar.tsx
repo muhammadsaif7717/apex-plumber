@@ -184,7 +184,7 @@ export function ApexNavbar() {
             href="/#hero"
             onClick={(e) => handleNavClick(e, "hero")}
             className="shrink-0 flex items-center"
-            aria-label="Dave Vance - Master Plumber Home"
+            aria-label="Apex Plumber Home"
           >
             <ApexLogo className="h-8 xs:h-9 sm:h-10" />
           </Link>
@@ -219,7 +219,7 @@ export function ApexNavbar() {
             <a
               href={`tel:${currentLocation.phoneRaw}`}
               className="inline-flex items-center gap-1.5 px-2.5 xs:px-3 py-1.5 sm:py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#0052da] text-xs sm:text-sm font-extrabold font-mono transition whitespace-nowrap"
-              aria-label={`Call Dave directly at ${currentLocation.phone}`}
+              aria-label={`Call Apex Plumber at ${currentLocation.phone}`}
             >
               <PhoneCall className="w-3.5 h-3.5 shrink-0" />
               <span className="hidden sm:inline whitespace-nowrap">
@@ -228,14 +228,14 @@ export function ApexNavbar() {
               <span className="sm:hidden text-xs font-bold">Call</span>
             </a>
 
-            {/* Hire Dave Primary Button */}
+            {/* Book Apex Plumber Primary Button */}
             <button
               type="button"
               onClick={() => openBookingModal({ urgency: "emergency" })}
               className="btn-plumco text-xs sm:text-sm font-bold py-1.5 sm:py-2 px-3 xs:px-3.5 sm:px-4 shadow-sm whitespace-nowrap cursor-pointer"
             >
               <CalendarCheck className="w-3.5 h-3.5 shrink-0" />
-              <span className="whitespace-nowrap">Hire Dave</span>
+              <span className="whitespace-nowrap">Book Service</span>
             </button>
 
             {/* Mobile Hamburger Drawer Toggle */}
@@ -283,7 +283,7 @@ export function ApexNavbar() {
                 className="w-full btn-plumco-dark py-2.5 text-xs font-bold text-center flex items-center justify-center gap-2"
               >
                 <PhoneCall className="w-3.5 h-3.5" />
-                <span>Call Dave Direct: {currentLocation.phone}</span>
+                <span>Call Apex Plumber: {currentLocation.phone}</span>
               </a>
 
               <button
@@ -295,7 +295,7 @@ export function ApexNavbar() {
                 className="w-full btn-plumco py-2.5 text-xs font-bold flex items-center justify-center gap-2 cursor-pointer"
               >
                 <CalendarCheck className="w-3.5 h-3.5" />
-                <span>Book Direct / Hire Dave</span>
+                <span>Book Direct / Hire Apex</span>
               </button>
             </div>
           </div>

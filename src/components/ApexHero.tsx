@@ -41,7 +41,7 @@ export function ApexHero() {
       {/* Main Centered Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full my-auto relative z-10 py-4 sm:py-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-          {/* Left Column: Dave Vance's Pitch & Direct Value */}
+          {/* Left Column: Apex Plumber Value & Direct CTAs */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -56,7 +56,7 @@ export function ApexHero() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/90 text-[#0052da] text-xs font-bold font-mono shadow-xs"
             >
               <span className="w-2 h-2 rounded-full bg-[#0052da] animate-pulse" />
-              <span>Dave Vance • Master Plumber {currentLocation.licenseNumber}</span>
+              <span>Apex Plumber • Master Certified {currentLocation.licenseNumber}</span>
             </motion.div>
 
             {/* Grand Headline */}
@@ -76,7 +76,7 @@ export function ApexHero() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-xs xs:text-sm sm:text-base md:text-lg text-[#4c5165] leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal"
             >
-              Busted pipe, sewer backup, or cold water heater? Call me directly. No middlemen, no sales commissions, and no junior apprentices. I arrive personally in my fully-equipped mobile workshop van and fix it right the first time.
+              Busted pipe, sewer backup, or cold water heater? Call Apex Plumber directly. No middlemen, no sales commissions, and no junior apprentices. We arrive in fully-equipped mobile workshop vans and fix it right the first time.
             </motion.p>
 
             {/* Direct Action Buttons */}
@@ -92,7 +92,7 @@ export function ApexHero() {
                 className="w-full sm:w-auto btn-plumco text-xs xs:text-sm sm:text-base font-extrabold py-3 sm:py-3.5 px-5 sm:px-8 text-center shadow-lg cursor-pointer whitespace-nowrap"
               >
                 <CalendarCheck className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                <span>Hire Me / Book Direct</span>
+                <span>Book Apex Plumber</span>
               </button>
 
               <a
@@ -104,7 +104,7 @@ export function ApexHero() {
                 </div>
                 <div className="flex flex-col text-left">
                   <span className="text-[9px] sm:text-[10px] uppercase font-mono text-slate-500 font-bold leading-none">
-                    Direct Cell Line
+                    24/7 Dispatch Hotline
                   </span>
                   <span className="font-mono text-xs sm:text-sm font-extrabold text-[#0052da]">
                     {currentLocation.phone}
@@ -138,7 +138,7 @@ export function ApexHero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Dave Vance's Cutout Plumber Image */}
+          {/* Right Column: Master Plumber Hero Image */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -153,7 +153,7 @@ export function ApexHero() {
               <div className="relative z-10 w-full h-full flex items-end justify-center">
                 <Image
                   src="https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/Image-Plumber.png"
-                  alt="Dave Vance - Master Plumber"
+                  alt="Apex Plumber - Master Certified Technician"
                   width={460}
                   height={510}
                   priority
@@ -173,9 +173,9 @@ export function ApexHero() {
                   25+
                 </div>
                 <div className="text-[10px] sm:text-xs font-bold text-[#253041] leading-tight text-left">
-                  Years Solo Craft <br />
+                  Years Master Craft <br />
                   <span className="text-[8px] sm:text-[9px] font-normal text-slate-500">
-                    Zero Apprentices
+                    Zero Subcontractors
                   </span>
                 </div>
               </motion.div>
