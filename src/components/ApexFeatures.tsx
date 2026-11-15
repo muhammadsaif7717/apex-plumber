@@ -15,7 +15,7 @@ export function ApexFeatures() {
   };
 
   return (
-    <section className="relative -mt-6 sm:-mt-10 z-20 pb-16">
+    <section id="features" className="relative -mt-6 sm:-mt-10 z-20 pb-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {PLUMCO_FEATURES.map((feat) => {

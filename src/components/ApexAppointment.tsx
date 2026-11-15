@@ -95,7 +95,7 @@ export function ApexAppointment() {
 
           {/* Right Column: Appointment Form Card */}
           <div className="lg:col-span-7">
-            <div className="bg-white rounded-3xl p-7 sm:p-10 text-[#253041] shadow-2xl">
+            <div className="bg-white rounded-2xl sm:rounded-3xl p-5 xs:p-6 sm:p-10 text-[#253041] shadow-2xl">
               {!isSuccess ? (
                 <form onSubmit={handleSubmit} className="space-y-4">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
