@@ -10,48 +10,48 @@ export interface PlumcoService {
 export const PLUMCO_SERVICES: PlumcoService[] = [
   {
     id: "kitchen-plumbing",
-    title: "Kitchen Plumbing",
-    desc: "Complete sink installations, garbage disposal repairs, high-pressure leak isolation, and dishwashing line connections.",
+    title: "Kitchen Plumbing & Fixtures",
+    desc: "I personally repair stubborn kitchen clogs, install high-end sink basins, replace failed garbage disposals, and re-pipe supply lines.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/service-thumb-1.jpg",
     iconName: "UtensilsCrossed",
     startingPrice: 149,
   },
   {
     id: "gas-line-services",
-    title: "Gas Line Services",
-    desc: "Certified master gas fitting, flexible CSST supply lines, high-BTU kitchen stoves, and emergency methane shutoff valves.",
+    title: "Gas Line Fitting & Leak Isolation",
+    desc: "Certified master gas fitter. I test line pressures with digital manometers, replace CSST tubing, and install automatic seismic shutoff valves.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/service-thumb-2.jpg",
     iconName: "Flame",
     startingPrice: 249,
   },
   {
     id: "water-line-repair",
-    title: "Water Line Repair",
-    desc: "Non-invasive electronic acoustic leak detection, Pro-Press copper crimping, and high-efficiency PEX-A whole-house repiping.",
+    title: "Water Line & Slab Leak Detection",
+    desc: "Using non-invasive acoustic sensors and thermal imaging, I pinpoint hidden slab leaks without tearing up your finished floors.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/service-thumb-3.jpg",
     iconName: "Droplets",
     startingPrice: 189,
   },
   {
     id: "bathroom-plumbing",
-    title: "Bathroom Plumbing",
-    desc: "Same-day toilet overflow clearance, luxury walk-in shower valves, high-pressure tub faucets, and bidet fixtures.",
+    title: "Bathroom Plumbing & Toilet Backups",
+    desc: "From emergency toilet overflows to custom walk-in shower valves and freestanding tubs, I ensure zero leaks and flawless water pressure.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/service-thumb-4.jpg",
     iconName: "Bath",
     startingPrice: 165,
   },
   {
     id: "basement-plumbing",
-    title: "Basement Plumbing",
-    desc: "Heavy-duty cast-iron sump pumps, smart dual-battery backup systems, and flood protection check valves.",
+    title: "Basement Sump Pumps & Flood Defense",
+    desc: "I install commercial-grade cast-iron sump pumps equipped with smart dual-battery backup systems to protect your finished basement.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/service-thumb-5.jpg",
     iconName: "ShieldAlert",
     startingPrice: 220,
   },
   {
     id: "remodeling-service",
-    title: "Remodeling & Repiping",
-    desc: "Architectural plumbing reconfiguration, tankless water heater retrofits, and no-dig trenchless sewer epoxy pipelining.",
+    title: "Remodeling & Trenchless Sewer Relining",
+    desc: "I restore collapsed or root-infested sewer pipes with no-dig structural epoxy pipelining, preserving your lawn, driveway, and landscaping.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/service-thumb-6.jpg",
     iconName: "Wrench",
     startingPrice: 350,
@@ -70,22 +70,22 @@ export const PLUMCO_FEATURES: PlumcoFeature[] = [
   {
     id: "book-online",
     step: "01",
-    title: "Book Online",
-    desc: "Fast 60-second online intake or direct instant call to our 24/7 master plumber dispatch line.",
+    title: "Call / Book Me Direct",
+    desc: "You talk directly with me—never a third-party call center or dispatcher. I listen to your issue and give honest advice.",
     iconName: "CalendarCheck",
   },
   {
     id: "we-arrive",
     step: "02",
-    title: "We Arrive",
-    desc: "GPS-tracked mobile service van stocked with 1,500+ OEM replacement parts arrives in under 35 mins.",
+    title: "I Arrive In My Mobile Workshop",
+    desc: "I pull up in my own service van stocked with 1,500+ OEM parts, thermal cameras, and a 4,000 PSI hydro-jetter.",
     iconName: "Truck",
   },
   {
     id: "solve-problem",
     step: "03",
-    title: "Solve Problem",
-    desc: "Licensed master technicians resolve leaks, clogs, and water heater failures with flat-rate quotes.",
+    title: "I Solve It & Guarantee It",
+    desc: "I fix the root issue right then and there. You get a firm flat rate in writing and my personal 10-year workmanship warranty.",
     iconName: "CheckCircle2",
   },
 ];
@@ -96,6 +96,8 @@ export interface PlumcoProject {
   category: "BATHROOM" | "GAS LINE" | "KITCHEN" | "DRAIN & SEWER";
   img: string;
   client: string;
+  problem: string;
+  outcome: string;
 }
 
 export const PLUMCO_PROJECTS: PlumcoProject[] = [
@@ -104,81 +106,54 @@ export const PLUMCO_PROJECTS: PlumcoProject[] = [
     title: "Commercial Kitchen Sink & Waste Line",
     category: "KITCHEN",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/project-1.jpg",
-    client: "Downtown Bistro",
+    client: "Downtown Bistro (Owner: Sarah L.)",
+    problem: "Grease buildup caused recurring drain backups during dinner rush.",
+    outcome: "Cleaned with 4,000 PSI hydro-scrubber and upgraded trap fittings.",
   },
   {
     id: "proj-2",
     title: "Master Bathroom Luxury Fixtures & Drain",
     category: "BATHROOM",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/project-2.jpg",
-    client: "Residential Estate",
+    client: "Residential Homeowner (Miller Family)",
+    problem: "Corroded copper shower valve was leaking into bedroom drywall.",
+    outcome: "Replaced with thermostatic brass cartridge and ProPress fittings.",
   },
   {
     id: "proj-3",
     title: "High-BTU Gas Line & Valve Manifold",
     category: "GAS LINE",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/project-3.jpg",
-    client: "Suburban Residence",
+    client: "Chef Michael (Home Kitchen)",
+    problem: "New 6-burner commercial stove required upgraded 1-inch gas line.",
+    outcome: "Installed CSST flexible conduit, passed city inspection in 1 day.",
   },
   {
     id: "proj-4",
     title: "Cast Iron Sewer Pipe Video & Jetting",
     category: "DRAIN & SEWER",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/project-4.jpg",
-    client: "Historic Brownstone",
+    client: "Oak Ridge Residence",
+    problem: "Tree roots had penetrated sewer lateral under driveway.",
+    outcome: "Hydro-jetted roots and installed epoxy cured-in-place sleeve.",
   },
   {
     id: "proj-5",
     title: "Modern Walk-In Shower Thermostatic Valve",
     category: "BATHROOM",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/project-5.jpg",
-    client: "Condo Tower",
+    client: "David & Elena G.",
+    problem: "Low water pressure and erratic water temperature scalding.",
+    outcome: "Installed pressure-balanced Hansgrohe valve and PEX-A lines.",
   },
   {
     id: "proj-6",
     title: "Commercial Gas Meter Seismic Safety Shutoff",
     category: "GAS LINE",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/project-6.jpg",
-    client: "Office Complex",
-  },
-];
-
-export interface PlumcoTeam {
-  name: string;
-  role: string;
-  license: string;
-  img: string;
-  phone: string;
-}
-
-export const PLUMCO_TEAM: PlumcoTeam[] = [
-  {
-    name: "Henry Barton",
-    role: "Master Plumber & Team Leader",
-    license: "Master Plumber #48920",
-    img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/team-1.jpg",
-    phone: "(800) 555-0192",
-  },
-  {
-    name: "Mattie Washington",
-    role: "Commercial Systems Specialist",
-    license: "Journeyman Tech #31402",
-    img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/team-2.jpg",
-    phone: "(800) 555-0193",
-  },
-  {
-    name: "Winifred Harmon",
-    role: "Hydro-Jetting & Sewer Lead",
-    license: "Rooter Specialist #89123",
-    img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/team-3.jpg",
-    phone: "(800) 555-0194",
-  },
-  {
-    name: "Shelia Lawrence",
-    role: "Gas & Boiler Certified Inspector",
-    license: "Gas Fitter Master #55201",
-    img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/team-4.jpg",
-    phone: "(800) 555-0195",
+    client: "Westlake Office Park",
+    problem: "Outdated mechanical shutoff failed municipal safety audit.",
+    outcome: "Installed calibrated seismic earthquake shutoff valve.",
   },
 ];
 
@@ -197,7 +172,7 @@ export const PLUMCO_BLOGS: PlumcoBlog[] = [
     id: "blog-1",
     title: "5 Warning Signs Your Main Sewer Line Is Backing Up",
     date: "14 November, 2026",
-    author: "Henry Barton",
+    author: "Dave Vance",
     comments: 4,
     excerpt: "Gurgling toilets, slow draining bathtubs, and sewer odors can indicate invasive tree root blockages before disaster strikes.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/blog-1.jpg",
@@ -206,16 +181,16 @@ export const PLUMCO_BLOGS: PlumcoBlog[] = [
     id: "blog-2",
     title: "Tankless vs Standard Water Heaters: Which Saves More?",
     date: "10 November, 2026",
-    author: "Mattie Washington",
+    author: "Dave Vance",
     comments: 7,
-    excerpt: "Analyze energy efficiency ratings, gas combustion ROI, and upfront installation costs for residential homes.",
+    excerpt: "As someone who has installed over 600 water heaters, here is my honest analysis of gas combustion ROI and long-term maintenance costs.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/blog-2.jpg",
   },
   {
     id: "blog-3",
     title: "How Hydro-Jetting Scours 40 Years of Grease & Scale",
     date: "06 November, 2026",
-    author: "Winifred Harmon",
+    author: "Dave Vance",
     comments: 2,
     excerpt: "Why 4,000 PSI high-velocity water scrubbing is 10x more effective than standard mechanical snake augers.",
     img: "https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/blog-3.jpg",

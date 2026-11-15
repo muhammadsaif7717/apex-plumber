@@ -39,20 +39,20 @@ export function ApexServicesGrid() {
   return (
     <section id="services" className="py-16 sm:py-24 bg-[#f4f8fe] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Plumco Section Header */}
+        {/* Section Header */}
         <div className="text-center max-w-2xl mx-auto mb-14">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
-            <span>:: Best Service We Offer</span>
+            <span>:: Master Trade Services</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
-            Best Service We Offer
+            Specialized Services I Personally Handle
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#4c5165] leading-relaxed">
-            Professional plumbing solutions delivered by certified technicians across {currentLocation.primaryCity}. Upfront pricing and zero overtime surcharges.
+            Every job listed below is completed by me personally using commercial-grade Spartan hydro-jetters, SeeSnake HD video cameras, and ProPress copper tools.
           </p>
         </div>
 
-        {/* 6 Plumco Cards Grid */}
+        {/* 6 Specialized Services Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PLUMCO_SERVICES.map((srv) => {
             const IconComponent = iconMap[srv.iconName] || Wrench;
@@ -71,36 +71,36 @@ export function ApexServicesGrid() {
                     unoptimized
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  {/* Floating Service Icon */}
+                  {/* Floating Icon */}
                   <div className="absolute -bottom-5 right-6 w-12 h-12 rounded-xl bg-[#0052da] text-white flex items-center justify-center shadow-lg group-hover:bg-[#253041] transition-colors">
                     <IconComponent className="w-6 h-6" />
                   </div>
 
                   {/* Starting Price Pill */}
                   <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-xs text-[#253041] px-3 py-1 rounded-md text-xs font-mono font-bold shadow-sm">
-                    From ${srv.startingPrice}
+                    Starting from ${srv.startingPrice}
                   </div>
                 </div>
 
-                {/* Card Content */}
+                {/* Content */}
                 <div className="p-7 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-xl font-bold text-[#253041] group-hover:text-[#0052da] transition-colors mb-2.5">
                       {srv.title}
                     </h3>
-                    <p className="text-sm text-[#4c5165] leading-relaxed line-clamp-3">
+                    <p className="text-sm text-[#4c5165] leading-relaxed">
                       {srv.desc}
                     </p>
                   </div>
 
-                  {/* Card Bottom CTA */}
+                  {/* Bottom Action */}
                   <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
                     <button
                       type="button"
                       onClick={() => handleBookService(srv)}
                       className="inline-flex items-center gap-1.5 text-xs font-extrabold text-[#0052da] group-hover:text-[#0041ae] transition-colors"
                     >
-                      <span>Book Service</span>
+                      <span>Book With Dave</span>
                       <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                     </button>
 
@@ -110,7 +110,7 @@ export function ApexServicesGrid() {
                       title="Direct Call"
                     >
                       <PhoneCall className="w-3.5 h-3.5 text-[#0052da]" />
-                      <span>Call</span>
+                      <span>Call Cell</span>
                     </a>
                   </div>
                 </div>

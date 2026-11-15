@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import { PLUMCO_PROJECTS } from "@/data/plumcoData";
-import { ExternalLink } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 
 export function ApexProjects() {
   const [activeTab, setActiveTab] = useState<string>("ALL");
@@ -16,18 +16,18 @@ export function ApexProjects() {
       : PLUMCO_PROJECTS.filter((p) => p.category === activeTab);
 
   return (
-    <section id="projects" className="py-16 sm:py-24 bg-white border-b border-slate-100">
+    <section id="projects" className="py-16 sm:py-24 bg-[#f4f8fe] border-b border-slate-200/80">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
         <div className="text-center max-w-2xl mx-auto mb-12">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
-            <span>:: Our Latest Project</span>
+            <span>:: Case Studies &amp; Solved Work</span>
           </div>
           <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
-            Our Latest Project
+            Recent Projects I Personally Solved
           </h2>
           <p className="mt-3 text-sm sm:text-base text-[#4c5165]">
-            Explore real-world commercial & residential plumbing engineering executed by our licensed master technicians.
+            Explore real plumbing challenges I have diagnosed and resolved for local residential homeowners and commercial restaurants.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export function ApexProjects() {
               className={`px-5 py-2.5 rounded-lg text-xs font-extrabold tracking-wider transition ${
                 activeTab === cat
                   ? "bg-[#0052da] text-white shadow-md shadow-[#0052da]/25"
-                  : "bg-slate-100 hover:bg-slate-200 text-[#253041]"
+                  : "bg-white hover:bg-slate-100 text-[#253041] border border-slate-200"
               }`}
             >
               {cat === "ALL" ? "ALL PROJECTS" : cat}
@@ -54,36 +54,46 @@ export function ApexProjects() {
           {filteredProjects.map((proj) => (
             <div
               key={proj.id}
-              className="group relative rounded-2xl overflow-hidden shadow-md bg-slate-100 h-80 sm:h-96"
+              className="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col group hover:shadow-xl hover:border-blue-200 transition-all duration-300"
             >
-              <Image
-                src={proj.img}
-                alt={proj.title}
-                width={600}
-                height={500}
-                unoptimized
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-              />
-
-              {/* Gradient Dark Overlay on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#253041] via-[#253041]/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-6 flex flex-col justify-end text-white">
-                <span className="text-[11px] font-mono text-[#ffb600] font-bold uppercase tracking-wider mb-1">
+              <div className="relative h-56 w-full overflow-hidden bg-slate-100">
+                <Image
+                  src={proj.img}
+                  alt={proj.title}
+                  width={600}
+                  height={400}
+                  unoptimized
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+                <span className="absolute top-4 left-4 bg-[#253041]/90 text-white text-[10px] font-mono font-bold px-2.5 py-1 rounded-md uppercase tracking-wider backdrop-blur-xs">
                   {proj.category}
                 </span>
-                <h3 className="text-lg font-bold leading-snug mb-1">
-                  {proj.title}
-                </h3>
-                <p className="text-xs text-slate-300">
-                  Client: {proj.client}
-                </p>
+              </div>
 
-                <div className="mt-4 pt-3 border-t border-white/20 flex items-center justify-between">
-                  <span className="text-xs font-semibold text-white/90">
-                    Master Workmanship Verified
-                  </span>
-                  <div className="w-8 h-8 rounded-full bg-[#0052da] text-white flex items-center justify-center">
-                    <ExternalLink className="w-4 h-4" />
+              <div className="p-6 flex-1 flex flex-col justify-between">
+                <div>
+                  <h3 className="text-base font-extrabold text-[#253041] mb-2 leading-snug">
+                    {proj.title}
+                  </h3>
+                  <div className="text-[11px] text-[#0052da] font-mono font-bold mb-3">
+                    Client: {proj.client}
                   </div>
+
+                  <div className="space-y-2 text-xs text-[#4c5165] bg-slate-50 p-3 rounded-xl border border-slate-100">
+                    <div>
+                      <strong className="text-slate-700">Problem:</strong> {proj.problem}
+                    </div>
+                    <div>
+                      <strong className="text-emerald-700">Dave&apos;s Solution:</strong> {proj.outcome}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-5 pt-3 border-t border-slate-100 flex items-center justify-between text-xs font-semibold text-slate-500">
+                  <span className="flex items-center gap-1.5 text-emerald-600 font-bold">
+                    <CheckCircle2 className="w-4 h-4" />
+                    Inspected &amp; Code Passed
+                  </span>
                 </div>
               </div>
             </div>

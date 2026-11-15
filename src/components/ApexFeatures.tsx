@@ -47,10 +47,10 @@ export function ApexFeatures() {
                 <div className="mt-5 pt-4 border-t border-slate-100">
                   <button
                     type="button"
-                    onClick={() => openBookingModal({ urgency: "sameday" })}
+                    onClick={() => openBookingModal({ urgency: "emergency" })}
                     className="inline-flex items-center gap-1.5 text-xs font-bold text-[#0052da] group-hover:underline"
                   >
-                    <span>Learn More / Dispatch</span>
+                    <span>Contact Dave / Get Estimate</span>
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>

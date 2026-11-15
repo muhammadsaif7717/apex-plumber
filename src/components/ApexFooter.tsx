@@ -27,19 +27,18 @@ export function ApexFooter() {
   return (
     <footer className="bg-[#253041] text-slate-300 pt-16 pb-24 lg:pb-16 border-t border-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-slate-700">
-          {/* Col 1: Brand & Contact Info */}
+          {/* Col 1: Personal Brand Info */}
           <div className="lg:col-span-4 space-y-4">
             <ApexLogo className="text-white" />
             <p className="text-xs text-slate-400 leading-relaxed max-w-sm">
-              Management Plumbing includes a broad range of activities, and the many firms and their members often define these practices with master precision.
+              Independent Licensed Master Plumber Dave Vance. Delivering direct personal service, precision camera diagnostics, and flat-rate honest pricing to local families.
             </p>
 
             <div className="space-y-2 pt-2 text-xs">
               <div className="flex items-center gap-2.5 text-slate-300">
                 <MapPin className="w-4 h-4 text-[#0052da] shrink-0" />
-                <span>{currentLocation.localAddress}</span>
+                <span>Mobile Van Base: {currentLocation.localAddress}</span>
               </div>
               <div className="flex items-center gap-2.5 text-slate-300">
                 <PhoneCall className="w-4 h-4 text-[#0052da] shrink-0" />
@@ -47,16 +46,16 @@ export function ApexFooter() {
                   href={`tel:${currentLocation.phoneRaw}`}
                   className="font-mono font-bold hover:text-white transition"
                 >
-                  {currentLocation.phone}
+                  Direct Cell: {currentLocation.phone}
                 </a>
               </div>
               <div className="flex items-center gap-2.5 text-slate-300">
                 <Mail className="w-4 h-4 text-[#0052da] shrink-0" />
-                <span>dispatch@apexplumber.com</span>
+                <span>dave@apexplumber.com</span>
               </div>
               <div className="flex items-center gap-2.5 text-slate-400 font-mono text-[11px] pt-1">
                 <ShieldCheck className="w-4 h-4 text-emerald-400 shrink-0" />
-                <span>{currentLocation.licenseNumber}</span>
+                <span>{currentLocation.licenseNumber} ({currentLocation.licenseAuthority})</span>
               </div>
             </div>
           </div>
@@ -64,125 +63,127 @@ export function ApexFooter() {
           {/* Col 2: Quick Links */}
           <div className="lg:col-span-2 space-y-4">
             <h4 className="text-sm font-black uppercase tracking-wider text-white">
-              QUICK LINK
+              NAVIGATION
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a href="#about" className="hover:text-white transition">
-                  About Us
+                  About Dave
+                </a>
+              </li>
+              <li>
+                <a href="#services" className="hover:text-white transition">
+                  My Services
                 </a>
               </li>
               <li>
                 <a href="#projects" className="hover:text-white transition">
-                  Projects
+                  Case Studies
                 </a>
               </li>
               <li>
-                <a href="#services" className="hover:text-white transition">
-                  Services
+                <a href="#why-hire-me" className="hover:text-white transition">
+                  Why Hire Me
                 </a>
               </li>
               <li>
                 <a href="#cost-calculator" className="hover:text-white transition">
-                  Cost Estimator
+                  Pricing Estimator
                 </a>
               </li>
               <li>
                 <a href="#reviews" className="hover:text-white transition">
-                  Reviews
+                  Neighbor Reviews
                 </a>
               </li>
               <li>
                 <a href="#blog" className="hover:text-white transition">
-                  Our Blog
+                  Plumbing Tips
                 </a>
               </li>
               <li>
                 <a href="#contact" className="hover:text-white transition">
-                  Contact
+                  Hire Dave
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 3: Our Services */}
+          {/* Col 3: Specialized Capabilities */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-sm font-black uppercase tracking-wider text-white">
-              OUR SERVICES
+              MY SPECIALTIES
             </h4>
             <ul className="space-y-2 text-xs text-slate-400">
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  Kitchen Plumbing
+                  Emergency Burst Pipes
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  Gas Line Services
+                  4,000 PSI Hydro-Jetting
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  Water Line Repair
+                  Tankless Water Heaters
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  Bathroom Plumbing
+                  Gas Line Fitting &amp; Leaks
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  Basement Plumbing
+                  Bathroom Fixture Installations
                 </a>
               </li>
               <li>
                 <a href="#services" className="hover:text-white transition">
-                  Remodeling &amp; Repiping
+                  Trenchless Sewer Relining
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Col 4: Newsletter */}
+          {/* Col 4: Dave's Newsletter & Advice */}
           <div className="lg:col-span-3 space-y-4">
             <h4 className="text-sm font-black uppercase tracking-wider text-white">
-              NEWSLETTER
+              SEASONAL ADVICE
             </h4>
             <p className="text-xs text-slate-400 leading-relaxed">
-              You will be notified when something new appears or emergency winterization alerts are issued.
+              Get Dave&apos;s seasonal winter freeze alerts, water heater maintenance tips, and coupon specials for local homeowners.
             </p>
 
             <form onSubmit={handleNewsletter} className="space-y-2">
-              <div className="relative">
-                <input
-                  type="email"
-                  required
-                  placeholder="Email Address"
-                  value={newsletterEmail}
-                  onChange={(e) => setNewsletterEmail(e.target.value)}
-                  className="w-full bg-[#162132] border border-slate-700 rounded-lg px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#0052da] outline-none"
-                />
-              </div>
+              <input
+                type="email"
+                required
+                placeholder="Your Email Address"
+                value={newsletterEmail}
+                onChange={(e) => setNewsletterEmail(e.target.value)}
+                className="w-full bg-[#162132] border border-slate-700 rounded-lg px-4 py-3 text-xs text-white placeholder-slate-500 focus:border-[#0052da] outline-none"
+              />
               <button
                 type="submit"
                 className="w-full btn-plumco py-3 text-xs font-bold flex items-center justify-center gap-1.5"
               >
-                <span>Send Now</span>
+                <span>Subscribe For Tips</span>
                 <Send className="w-3.5 h-3.5" />
               </button>
               {newsletterSubscribed && (
                 <div className="text-[11px] text-emerald-400 flex items-center gap-1 font-semibold">
                   <CheckCircle className="w-3 h-3" />
-                  <span>Subscribed successfully!</span>
+                  <span>Subscribed! Dave will send seasonal alerts.</span>
                 </div>
               )}
             </form>
 
-            {/* Regional Market Switcher Quick Pills */}
             <div className="pt-2">
               <span className="text-[10px] uppercase font-mono font-bold text-slate-500 block mb-1.5">
-                Active Markets:
+                Regional Licenses:
               </span>
               <div className="flex flex-wrap gap-1.5">
                 {Object.values(allLocations).map((loc) => (
@@ -196,7 +197,7 @@ export function ApexFooter() {
                         : "bg-[#162132] text-slate-400 hover:text-white"
                     }`}
                   >
-                    {loc.stateCode}
+                    {loc.stateCode} ({loc.primaryCity})
                   </button>
                 ))}
               </div>
@@ -207,20 +208,14 @@ export function ApexFooter() {
         {/* Bottom Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
           <div>
-            © 2026 Apex Plumber Network, LLC. All rights reserved.
+            © 2026 Dave Vance • Master Plumber. All rights reserved.
           </div>
           <div className="flex items-center gap-4">
-            <a href="#" className="hover:text-white transition">
-              Privacy Policy
-            </a>
+            <span>Direct Master Craftsman</span>
             <span>•</span>
-            <a href="#" className="hover:text-white transition">
-              Terms of Service
-            </a>
+            <span>$2M Fully Insured</span>
             <span>•</span>
-            <a href="#" className="hover:text-white transition">
-              License Directory
-            </a>
+            <span>Zero Overtime Night Surcharges</span>
           </div>
         </div>
       </div>

@@ -79,7 +79,7 @@ function ApexBookingModalContent({
 
     setTimeout(() => {
       setIsSubmitting(false);
-      const generatedTicket = `APX-${Math.floor(1000 + Math.random() * 9000)}`;
+      const generatedTicket = `DAVE-${Math.floor(1000 + Math.random() * 9000)}`;
       setTicketId(generatedTicket);
       setIsSuccess(true);
 
@@ -89,7 +89,7 @@ function ApexBookingModalContent({
           particleCount: 100,
           spread: 70,
           origin: { y: 0.6 },
-          colors: ["#2563EB", "#F97316", "#10B981", "#1E3A8A"],
+          colors: ["#0052da", "#ffb600", "#10B981", "#162132"],
         });
       } catch (err) {
         console.error("Confetti error", err);
@@ -109,17 +109,17 @@ function ApexBookingModalContent({
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-slate-950/70 backdrop-blur-xs animate-in fade-in duration-200">
       <div className="relative w-full max-w-lg bg-white rounded-2xl shadow-2xl border border-slate-200 overflow-hidden max-h-[90vh] flex flex-col">
         {/* Modal Top Header */}
-        <div className="bg-slate-900 text-white p-5 flex items-center justify-between border-b border-slate-800">
+        <div className="bg-[#253041] text-white p-5 flex items-center justify-between border-b border-slate-700">
           <div className="flex items-center gap-2.5">
-            <div className="w-8 h-8 rounded-lg bg-orange-500 text-white flex items-center justify-center font-bold">
+            <div className="w-8 h-8 rounded-lg bg-[#0052da] text-white flex items-center justify-center font-bold">
               <Zap className="w-4 h-4 fill-white" />
             </div>
             <div>
               <h3 className="font-extrabold text-base leading-tight">
-                {isSuccess ? "Dispatch Confirmed" : "Priority Plumber Dispatch"}
+                {isSuccess ? "Service Dispatched" : "Direct Request to Dave Vance"}
               </h3>
-              <p className="text-[11px] text-slate-400 font-mono">
-                {currentLocation.companyName}
+              <p className="text-[11px] text-slate-300 font-mono">
+                Licensed Master Plumber • {currentLocation.licenseNumber}
               </p>
             </div>
           </div>
@@ -127,7 +127,7 @@ function ApexBookingModalContent({
           <button
             type="button"
             onClick={closeBookingModal}
-            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition focus-visible:ring-2 focus-visible:ring-orange-500"
+            className="p-1.5 text-slate-400 hover:text-white rounded-lg hover:bg-slate-800 transition"
             aria-label="Close modal"
           >
             <X className="w-5 h-5" />
@@ -138,7 +138,6 @@ function ApexBookingModalContent({
         <div className="p-6 overflow-y-auto">
           {!isSuccess ? (
             <form onSubmit={handleSubmit} className="space-y-4">
-              {/* Urgency Pill Toggle */}
               <div>
                 <span className="block text-xs font-bold text-slate-700 mb-1.5">
                   Required Response Speed:
@@ -149,13 +148,13 @@ function ApexBookingModalContent({
                     onClick={() => setFormData({ ...formData, urgency: "emergency" })}
                     className={`p-2.5 rounded-lg border text-xs font-bold text-left transition flex items-center justify-between ${
                       formData.urgency === "emergency"
-                        ? "bg-orange-50 border-orange-500 text-orange-950 ring-1 ring-orange-500"
+                        ? "bg-blue-50 border-[#0052da] text-[#0052da] ring-1 ring-[#0052da]"
                         : "bg-slate-50 border-slate-200 text-slate-600"
                     }`}
                   >
-                    <span>🚨 Under 45 Mins</span>
-                    <span className="text-[10px] font-mono text-orange-600 font-extrabold">
-                      Active Burst/Leak
+                    <span>🚨 Immediate Emergency</span>
+                    <span className="text-[10px] font-mono text-[#0052da] font-extrabold">
+                      &lt; 35 Mins
                     </span>
                   </button>
 
@@ -164,23 +163,23 @@ function ApexBookingModalContent({
                     onClick={() => setFormData({ ...formData, urgency: "sameday" })}
                     className={`p-2.5 rounded-lg border text-xs font-bold text-left transition flex items-center justify-between ${
                       formData.urgency === "sameday"
-                        ? "bg-blue-50 border-blue-500 text-blue-950 ring-1 ring-blue-500"
+                        ? "bg-blue-50 border-[#0052da] text-[#0052da] ring-1 ring-[#0052da]"
                         : "bg-slate-50 border-slate-200 text-slate-600"
                     }`}
                   >
-                    <span>📅 Same-Day Window</span>
-                    <span className="text-[10px] font-mono text-blue-600 font-bold">
-                      Scheduled
+                    <span>📅 Scheduled Same-Day</span>
+                    <span className="text-[10px] font-mono text-slate-500 font-bold">
+                      2-Hr Window
                     </span>
                   </button>
                 </div>
               </div>
 
-              {/* Full Name & Phone */}
+              {/* Name & Phone */}
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div>
                   <label htmlFor="modal-name" className="block text-xs font-bold text-slate-800 mb-1">
-                    Homeowner / Business Name *
+                    Your Name *
                   </label>
                   <input
                     id="modal-name"
@@ -189,13 +188,13 @@ function ApexBookingModalContent({
                     placeholder="e.g. John Miller"
                     value={formData.name}
                     onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:border-blue-600 outline-none"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:border-[#0052da] outline-none"
                   />
                 </div>
 
                 <div>
                   <label htmlFor="modal-phone" className="block text-xs font-bold text-slate-800 mb-1">
-                    Primary Phone Number *
+                    Your Phone Number *
                   </label>
                   <input
                     id="modal-phone"
@@ -204,12 +203,12 @@ function ApexBookingModalContent({
                     placeholder="e.g. (555) 000-0000"
                     value={formData.phone}
                     onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 font-mono focus:bg-white focus:border-blue-600 outline-none"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 font-mono focus:bg-white focus:border-[#0052da] outline-none"
                   />
                 </div>
               </div>
 
-              {/* Street Address & ZIP */}
+              {/* Street & ZIP */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="sm:col-span-2">
                   <label htmlFor="modal-street" className="block text-xs font-bold text-slate-800 mb-1">
@@ -222,7 +221,7 @@ function ApexBookingModalContent({
                     placeholder="e.g. 1204 Oak Ridge Dr"
                     value={formData.street}
                     onChange={(e) => setFormData({ ...formData, street: e.target.value })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:border-blue-600 outline-none"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:border-[#0052da] outline-none"
                   />
                 </div>
 
@@ -238,15 +237,15 @@ function ApexBookingModalContent({
                     placeholder="e.g. 78701"
                     value={formData.zip}
                     onChange={(e) => setFormData({ ...formData, zip: e.target.value.replace(/\D/g, "") })}
-                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 font-mono focus:bg-white focus:border-blue-600 outline-none"
+                    className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 font-mono focus:bg-white focus:border-[#0052da] outline-none"
                   />
                 </div>
               </div>
 
-              {/* Plumbing Issue Description */}
+              {/* Issue Description */}
               <div>
                 <label htmlFor="modal-issue" className="block text-xs font-bold text-slate-800 mb-1">
-                  Describe the Issue & Symptoms
+                  Describe What Happened
                 </label>
                 <textarea
                   id="modal-issue"
@@ -254,7 +253,7 @@ function ApexBookingModalContent({
                   placeholder="e.g. Water heater leaking from base, or kitchen drain bubbling up into dishwasher."
                   value={formData.issue}
                   onChange={(e) => setFormData({ ...formData, issue: e.target.value })}
-                  className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:border-blue-600 outline-none resize-none"
+                  className="w-full bg-slate-50 border border-slate-300 rounded-lg px-3 py-2 text-sm text-slate-900 focus:bg-white focus:border-[#0052da] outline-none resize-none"
                 />
               </div>
 
@@ -272,30 +271,28 @@ function ApexBookingModalContent({
                 </p>
               )}
 
-              {/* Action Buttons */}
               <div className="pt-2">
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full py-3.5 px-4 bg-orange-600 hover:bg-orange-700 active:bg-orange-800 disabled:opacity-70 text-white font-extrabold rounded-xl text-sm transition-all shadow-md shadow-orange-600/25 flex items-center justify-center gap-2"
+                  className="w-full btn-plumco py-3.5 px-4 text-sm font-extrabold flex items-center justify-center gap-2"
                 >
                   {isSubmitting ? (
-                    <span>Allocating Van Telemetry...</span>
+                    <span>Notifying Dave&apos;s Mobile Van...</span>
                   ) : (
                     <>
                       <Zap className="w-4 h-4 fill-white" />
-                      <span>Confirm & Dispatch Plumber Now</span>
+                      <span>Confirm &amp; Alert Dave Now</span>
                     </>
                   )}
                 </button>
               </div>
 
               <div className="text-center text-[11px] text-slate-500 pt-1">
-                Zero dispatch fee commitment • Licensed master technicians only
+                Zero dispatch commitment • Dave personally handles your service call
               </div>
             </form>
           ) : (
-            /* Success State with Live Ticket */
             <div className="text-center py-4 space-y-5">
               <div className="w-16 h-16 rounded-full bg-emerald-100 text-emerald-600 mx-auto flex items-center justify-center shadow-inner">
                 <CheckCircle2 className="w-10 h-10" />
@@ -303,20 +300,20 @@ function ApexBookingModalContent({
 
               <div>
                 <span className="text-xs uppercase font-mono font-bold text-emerald-600 tracking-wider">
-                  Mobile Unit Dispatched
+                  Dave Has Been Notified
                 </span>
                 <h4 className="text-xl font-black text-slate-900 mt-1">
-                  Technician En Route to Your Address
+                  Dave Vance Is En Route In His Mobile Van
                 </h4>
                 <p className="text-xs text-slate-600 mt-1 max-w-sm mx-auto">
-                  A licensed master plumber has been allocated. You will receive an SMS tracking link momentarily.
+                  Your request has reached Dave directly. He is loading the necessary tools and will call your phone prior to arrival.
                 </p>
               </div>
 
-              {/* Ticket ID Display */}
+              {/* Ticket ID */}
               <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 max-w-xs mx-auto text-left">
                 <div className="text-[10px] uppercase font-mono font-bold text-slate-400">
-                  Emergency Dispatch Ticket ID
+                  Direct Dispatch Ticket
                 </div>
                 <div className="flex items-center justify-between mt-1">
                   <span className="text-2xl font-black font-mono text-slate-900 tracking-wider">
@@ -336,22 +333,22 @@ function ApexBookingModalContent({
                   </button>
                 </div>
                 <div className="mt-2 pt-2 border-t border-slate-200 text-[11px] text-slate-500 flex items-center gap-1.5">
-                  <Clock className="w-3.5 h-3.5 text-orange-500" />
-                  <span>ETA: ~{currentLocation.averageArrival}</span>
+                  <Clock className="w-3.5 h-3.5 text-amber-500" />
+                  <span>Estimated Arrival: ~{currentLocation.averageArrival}</span>
                 </div>
               </div>
 
-              {/* Live Technician Card */}
+              {/* Dave Profile Badge */}
               <div className="bg-blue-50/60 border border-blue-200 rounded-xl p-3.5 text-left text-xs max-w-sm mx-auto flex items-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-blue-600 text-white flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-full bg-[#0052da] text-white flex items-center justify-center shrink-0">
                   <Truck className="w-5 h-5" />
                 </div>
                 <div>
                   <div className="font-bold text-slate-900">
-                    Master Technician Dave M.
+                    Dave Vance (Master Plumber)
                   </div>
                   <div className="text-[11px] text-slate-600 font-mono">
-                    Service Van #418 • {currentLocation.licenseNumber}
+                    Mobile Workshop • {currentLocation.licenseNumber}
                   </div>
                 </div>
               </div>
@@ -359,10 +356,10 @@ function ApexBookingModalContent({
               <div className="pt-2 flex flex-col gap-2">
                 <a
                   href={`tel:${currentLocation.phoneRaw}`}
-                  className="w-full py-3 bg-orange-600 hover:bg-orange-700 text-white font-extrabold rounded-xl text-sm transition flex items-center justify-center gap-2 shadow-sm"
+                  className="w-full btn-plumco py-3 text-sm font-extrabold flex items-center justify-center gap-2"
                 >
                   <PhoneCall className="w-4 h-4" />
-                  <span>Call Dispatcher Direct: {currentLocation.phone}</span>
+                  <span>Call Dave&apos;s Direct Cell: {currentLocation.phone}</span>
                 </a>
 
                 <button
@@ -370,7 +367,7 @@ function ApexBookingModalContent({
                   onClick={closeBookingModal}
                   className="w-full py-2.5 text-slate-600 hover:text-slate-800 text-xs font-semibold"
                 >
-                  Done & Close Window
+                  Done &amp; Close Window
                 </button>
               </div>
             </div>
