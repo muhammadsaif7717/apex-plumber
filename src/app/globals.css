@@ -23,6 +23,15 @@ body {
   overflow-x: hidden;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+/* Eliminate paint flashes and blinking on transformed elements */
+article, section, .group, .btn-plumco, .btn-plumco-dark {
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  transform: translateZ(0);
 }
 
 /* Plumco Primary Button */

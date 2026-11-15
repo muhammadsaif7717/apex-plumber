@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { Check, X, ShieldCheck, PhoneCall, CalendarCheck } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
@@ -45,13 +44,7 @@ export function ApexWhyHireMe() {
     <section id="why-hire-me" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-slate-100 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-10 sm:mb-14"
-        >
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: The Apex Plumber Advantage</span>
           </div>
@@ -61,16 +54,10 @@ export function ApexWhyHireMe() {
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
             Save thousands and eliminate guesswork. We deliver elite master plumbing services with honest flat rates and zero corporate runaround.
           </p>
-        </motion.div>
+        </div>
 
-        {/* Comparison Table Card */}
-        <motion.div
-          initial={{ opacity: 0, y: 25 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.6 }}
-          className="max-w-5xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xl overflow-hidden"
-        >
+        {/* Comparison Table Card (Stable, No Blinking) */}
+        <div className="max-w-5xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
           <div className="overflow-x-auto">
             <table className="w-full text-left border-collapse min-w-[520px]">
               <thead>
@@ -138,7 +125,7 @@ export function ApexWhyHireMe() {
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

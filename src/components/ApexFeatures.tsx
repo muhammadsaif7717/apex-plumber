@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import { PLUMCO_FEATURES } from "@/data/plumcoData";
 import { CalendarCheck, Truck, CheckCircle2, ArrowRight } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
@@ -19,16 +18,12 @@ export function ApexFeatures() {
     <section id="features" className="relative -mt-6 sm:-mt-10 z-20 pb-12 sm:pb-16 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
-          {PLUMCO_FEATURES.map((feat, index) => {
+          {PLUMCO_FEATURES.map((feat) => {
             const IconComponent = iconMap[feat.iconName] || CheckCircle2;
             return (
-              <motion.div
+              <div
                 key={feat.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-40px" }}
-                transition={{ duration: 0.5, delay: index * 0.15 }}
-                className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-100 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/10 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-100 shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/10 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5"
               >
                 <div>
                   <div className="flex items-center justify-between mb-4 sm:mb-5">
@@ -59,7 +54,7 @@ export function ApexFeatures() {
                     <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                   </button>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

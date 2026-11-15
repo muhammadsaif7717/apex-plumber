@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { useLocation } from "@/context/LocationContext";
 import { CheckCircle2, PhoneCall, Award, CalendarCheck } from "lucide-react";
 
@@ -21,13 +20,7 @@ export function ApexAbout() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Apex Work Montage */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 relative"
-          >
+          <div className="lg:col-span-6 relative">
             <div className="relative mx-auto max-w-md lg:max-w-none">
               <div className="rounded-2xl sm:rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
                 <Image
@@ -58,16 +51,10 @@ export function ApexAbout() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Apex Plumber Story */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-6 space-y-4 sm:space-y-6 mt-4 lg:mt-0"
-          >
+          <div className="lg:col-span-6 space-y-4 sm:space-y-6 mt-4 lg:mt-0">
             <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono">
               <span>:: About Apex Plumber</span>
             </div>
@@ -120,7 +107,7 @@ export function ApexAbout() {
                 </div>
               </a>
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

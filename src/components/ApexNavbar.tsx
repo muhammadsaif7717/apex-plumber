@@ -45,24 +45,34 @@ export function ApexNavbar() {
   const [stateDropdownOpen, setStateDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Active ScrollSpy implementation
+  // Optimized non-flickering Active ScrollSpy implementation
   useEffect(() => {
+    let ticking = false;
+
     const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          const isScrolled = window.scrollY > 20;
+          setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
 
-      const sectionIds = NAV_LINKS.map((l) => l.id);
-      const scrollPosition = window.scrollY + 160;
+          const sectionIds = NAV_LINKS.map((l) => l.id);
+          const scrollPosition = window.scrollY + 160;
 
-      for (let i = sectionIds.length - 1; i >= 0; i--) {
-        const el = document.getElementById(sectionIds[i]);
-        if (el && el.offsetTop <= scrollPosition) {
-          setActiveSection(sectionIds[i]);
-          return;
-        }
-      }
-      // If at top
-      if (window.scrollY < 200) {
-        setActiveSection("hero");
+          let current = "hero";
+          for (let i = sectionIds.length - 1; i >= 0; i--) {
+            const el = document.getElementById(sectionIds[i]);
+            if (el && el.offsetTop <= scrollPosition) {
+              current = sectionIds[i];
+              break;
+            }
+          }
+          if (window.scrollY < 200) {
+            current = "hero";
+          }
+          setActiveSection((prev) => (prev !== current ? current : prev));
+          ticking = false;
+        });
+        ticking = true;
       }
     };
 

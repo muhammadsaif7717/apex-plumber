@@ -2,7 +2,6 @@
 
 import React from "react";
 import Image from "next/image";
-import { motion } from "framer-motion";
 import { PLUMCO_SERVICES, PlumcoService } from "@/data/plumcoData";
 import { useLocation } from "@/context/LocationContext";
 import {
@@ -46,25 +45,21 @@ export function ApexServicesGrid() {
             <span>:: Master Trade Services</span>
           </div>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
-            Specialized Services I Personally Handle
+            Specialized Services Handled by Certified Masters
           </h2>
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165] leading-relaxed">
-            Every job listed below is completed by me personally using commercial-grade Spartan hydro-jetters, SeeSnake HD video cameras, and ProPress copper tools.
+            Every service call is handled by certified master plumbers equipped with Spartan 4,000 PSI hydro-jetters, SeeSnake HD video inspection scopes, and ProPress precision copper tools.
           </p>
         </div>
 
-        {/* 6 Specialized Services Grid */}
+        {/* 6 Specialized Services Grid (Stable, No Blinking) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {PLUMCO_SERVICES.map((srv, index) => {
+          {PLUMCO_SERVICES.map((srv) => {
             const IconComponent = iconMap[srv.iconName] || Wrench;
             return (
-              <motion.div
+              <div
                 key={srv.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1"
+                className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1.5"
               >
                 {/* Image Header */}
                 <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
@@ -118,7 +113,7 @@ export function ApexServicesGrid() {
                     </a>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             );
           })}
         </div>

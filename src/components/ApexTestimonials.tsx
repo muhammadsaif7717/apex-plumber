@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { REVIEWS, ReviewItem } from "@/data/reviews";
 import {
   Star,
@@ -71,13 +70,7 @@ export function ApexTestimonials() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-10 sm:mb-14"
-        >
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: Verified Customer Reviews</span>
           </div>
@@ -103,90 +96,81 @@ export function ApexTestimonials() {
             <span className="text-slate-300 hidden sm:inline">•</span>
             <span className="text-emerald-700 font-bold flex items-center gap-1">
               <ShieldCheck className="w-3.5 h-3.5 text-emerald-600" />
-              100% Solo Craftsmanship
+              100% Certified Masters
             </span>
           </div>
-        </motion.div>
+        </div>
 
-        {/* 3 Review Cards Showcase (Side-by-Side) */}
+        {/* 3 Review Cards Showcase (Stable, No Blinking) */}
         <div className="relative">
-          <AnimatePresence mode="wait">
-            <motion.div
-              key={currentPage}
-              initial={{ opacity: 0, y: 15 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -15 }}
-              transition={{ duration: 0.35 }}
-              className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8"
-            >
-              {displayedReviews.map((rev) => {
-                const badge = getSourceBadge(rev.verifiedSource);
-                const BadgeIcon = badge.icon;
-                const initials = rev.author
-                  .split(" ")
-                  .map((n) => n[0])
-                  .slice(0, 2)
-                  .join("");
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+            {displayedReviews.map((rev) => {
+              const badge = getSourceBadge(rev.verifiedSource);
+              const BadgeIcon = badge.icon;
+              const initials = rev.author
+                .split(" ")
+                .map((n) => n[0])
+                .slice(0, 2)
+                .join("");
 
-                return (
-                  <div
-                    key={rev.id}
-                    className="bg-[#f4f8fe] rounded-2xl p-5 sm:p-7 border border-slate-100 shadow-md hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 relative overflow-hidden"
-                  >
-                    {/* Ambient subtle quote watermark */}
-                    <Quote className="w-16 h-16 text-[#0052da]/5 absolute -top-2 -right-2 pointer-events-none" />
+              return (
+                <div
+                  key={rev.id}
+                  className="bg-[#f4f8fe] rounded-2xl p-5 sm:p-7 border border-slate-100 shadow-md hover:shadow-xl hover:border-blue-200 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1.5 relative overflow-hidden"
+                >
+                  {/* Ambient subtle quote watermark */}
+                  <Quote className="w-16 h-16 text-[#0052da]/5 absolute -top-2 -right-2 pointer-events-none" />
 
-                    <div>
-                      {/* Rating & Verified Source Row */}
-                      <div className="flex items-center justify-between gap-2 mb-3.5">
-                        <div className="flex items-center text-amber-400">
-                          {[...Array(rev.rating)].map((_, i) => (
-                            <Star
-                              key={i}
-                              className="w-4 h-4 fill-amber-400 text-amber-400"
-                            />
-                          ))}
-                        </div>
-
-                        <span
-                          className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badge.bg}`}
-                        >
-                          <BadgeIcon className="w-3 h-3 shrink-0" />
-                          <span>{badge.label}</span>
-                        </span>
+                  <div>
+                    {/* Rating & Verified Source Row */}
+                    <div className="flex items-center justify-between gap-2 mb-3.5">
+                      <div className="flex items-center text-amber-400">
+                        {[...Array(rev.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 fill-amber-400 text-amber-400"
+                          />
+                        ))}
                       </div>
 
-                      {/* Scenario Title */}
-                      <h3 className="text-sm sm:text-base font-extrabold text-[#253041] mb-2 leading-snug group-hover:text-[#0052da] transition-colors">
-                        &ldquo;{rev.scenarioTitle}&rdquo;
-                      </h3>
-
-                      {/* Comment text */}
-                      <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed mb-4 italic line-clamp-4">
-                        {rev.comment}
-                      </p>
+                      <span
+                        className={`inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[10px] font-bold border ${badge.bg}`}
+                      >
+                        <BadgeIcon className="w-3 h-3 shrink-0" />
+                        <span>{badge.label}</span>
+                      </span>
                     </div>
 
-                    {/* Author & Service Footer */}
-                    <div className="pt-3.5 border-t border-slate-200/80 flex items-center gap-3">
-                      <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0052da] text-white flex items-center justify-center font-bold text-xs font-mono shrink-0 shadow-xs">
-                        {initials}
-                      </div>
+                    {/* Scenario Title */}
+                    <h3 className="text-sm sm:text-base font-extrabold text-[#253041] mb-2 leading-snug group-hover:text-[#0052da] transition-colors">
+                      &ldquo;{rev.scenarioTitle}&rdquo;
+                    </h3>
 
-                      <div className="min-w-0 flex-1">
-                        <h4 className="text-xs sm:text-sm font-black text-[#253041] truncate">
-                          {rev.author}
-                        </h4>
-                        <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">
-                          {rev.city}, {rev.stateCode} • {rev.serviceRendered}
-                        </div>
+                    {/* Comment text */}
+                    <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed mb-4 italic line-clamp-4">
+                      {rev.comment}
+                    </p>
+                  </div>
+
+                  {/* Author & Service Footer */}
+                  <div className="pt-3.5 border-t border-slate-200/80 flex items-center gap-3">
+                    <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#0052da] text-white flex items-center justify-center font-bold text-xs font-mono shrink-0 shadow-xs">
+                      {initials}
+                    </div>
+
+                    <div className="min-w-0 flex-1">
+                      <h4 className="text-xs sm:text-sm font-black text-[#253041] truncate">
+                        {rev.author}
+                      </h4>
+                      <div className="text-[10px] sm:text-[11px] text-slate-500 font-medium truncate">
+                        {rev.city}, {rev.stateCode} • {rev.serviceRendered}
                       </div>
                     </div>
                   </div>
-                );
-              })}
-            </motion.div>
-          </AnimatePresence>
+                </div>
+              );
+            })}
+          </div>
 
           {/* Carousel & Pagination Navigation Controls */}
           <div className="mt-8 sm:mt-10 flex items-center justify-center gap-4">

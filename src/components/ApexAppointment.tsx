@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState } from "react";
-import { motion } from "framer-motion";
 import confetti from "canvas-confetti";
 import { useLocation } from "@/context/LocationContext";
 import {
@@ -50,13 +49,7 @@ export function ApexAppointment() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Direct Access to Apex Plumber */}
-          <motion.div
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left"
-          >
+          <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left">
             <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#ffb600] uppercase tracking-widest font-mono">
               <span>:: Book Apex Plumber</span>
             </div>
@@ -98,16 +91,10 @@ export function ApexAppointment() {
                 </span>
               </div>
             </div>
-          </motion.div>
+          </div>
 
           {/* Right Column: Appointment Form Card */}
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true, margin: "-40px" }}
-            transition={{ duration: 0.6 }}
-            className="lg:col-span-7"
-          >
+          <div className="lg:col-span-7">
             <div className="bg-white rounded-2xl sm:rounded-3xl p-4 xs:p-6 sm:p-8 lg:p-10 text-[#253041] shadow-2xl">
               {!isSuccess ? (
                 <form onSubmit={handleSubmit} className="space-y-3.5 sm:space-y-4">
@@ -224,7 +211,7 @@ export function ApexAppointment() {
                 </div>
               )}
             </div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -3,7 +3,6 @@
 import React from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { PLUMCO_BLOGS } from "@/data/plumcoData";
 import { User, MessageCircle, ArrowRight, Clock } from "lucide-react";
 
@@ -12,13 +11,7 @@ export function ApexBlog() {
     <section id="blog" className="py-14 sm:py-20 lg:py-24 bg-[#f4f8fe] border-b border-slate-200/80 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-40px" }}
-          transition={{ duration: 0.5 }}
-          className="text-center max-w-2xl mx-auto mb-10 sm:mb-14"
-        >
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: Plumbing Tips &amp; Advice</span>
           </div>
@@ -28,18 +21,14 @@ export function ApexBlog() {
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
             Homeowner guides, diagnostic insights, and winterization advice written directly from 25 years of master plumbing experience.
           </p>
-        </motion.div>
+        </div>
 
-        {/* 3 Blog Cards Grid */}
+        {/* 3 Blog Cards Grid (Stable, No Blinking) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {PLUMCO_BLOGS.map((blog, index) => (
-            <motion.article
+          {PLUMCO_BLOGS.map((blog) => (
+            <article
               key={blog.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-30px" }}
-              transition={{ duration: 0.5, delay: index * 0.12 }}
-              className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-[#0052da]/10 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1"
+              className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-xl hover:shadow-[#0052da]/10 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1.5"
             >
               {/* Blog Image */}
               <Link
@@ -101,7 +90,7 @@ export function ApexBlog() {
                   </Link>
                 </div>
               </div>
-            </motion.article>
+            </article>
           ))}
         </div>
       </div>

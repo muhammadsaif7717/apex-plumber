@@ -50,12 +50,12 @@ export function ApexHero() {
           >
             {/* Master Plumber Tag */}
             <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.1, duration: 0.5 }}
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1, duration: 0.4 }}
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/90 text-[#0052da] text-xs font-bold font-mono shadow-xs"
             >
-              <span className="w-2 h-2 rounded-full bg-[#0052da] animate-pulse" />
+              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-xs" />
               <span>Apex Plumber • Master Certified {currentLocation.licenseNumber}</span>
             </motion.div>
 
@@ -205,10 +205,10 @@ export function ApexHero() {
           className="inline-flex flex-col items-center gap-1 text-slate-400 hover:text-[#0052da] transition group cursor-pointer"
           aria-label="Scroll to explore features"
         >
-          <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-widest uppercase opacity-75 group-hover:opacity-100">
+          <span className="text-[9px] sm:text-[10px] font-mono font-bold tracking-widest uppercase opacity-75 group-hover:opacity-100 transition-opacity">
             Scroll To Explore
           </span>
-          <ChevronDown className="w-4 h-4 animate-bounce text-[#0052da]" />
+          <ChevronDown className="w-4 h-4 text-[#0052da] group-hover:translate-y-0.5 transition-transform" />
         </button>
       </div>
     </section>
