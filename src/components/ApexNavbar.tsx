@@ -25,9 +25,11 @@ const NAV_LINKS: NavLinkItem[] = [
   { name: "About", href: "#about", id: "about" },
   { name: "Services", href: "#services", id: "services" },
   { name: "Why Me", href: "#why-hire-me", id: "why-hire-me" },
+  { name: "Process", href: "#process", id: "process" },
   { name: "Projects", href: "#projects", id: "projects" },
   { name: "Reviews", href: "#reviews", id: "reviews" },
-  { name: "Blog", href: "#blog", id: "blog" },
+  { name: "Areas", href: "#service-areas", id: "service-areas" },
+  { name: "FAQ", href: "#faq", id: "faq" },
   { name: "Contact", href: "#contact", id: "contact" },
 ];
 
@@ -228,7 +230,7 @@ export function ApexNavbar() {
             {/* Quick Call Button */}
             <a
               href={`tel:${currentLocation.phoneRaw}`}
-              className="inline-flex items-center gap-1.5 px-2.5 xs:px-3 py-1.5 sm:py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#0052da] text-xs sm:text-sm font-extrabold font-mono transition whitespace-nowrap"
+              className="inline-flex items-center gap-1 px-2 xs:px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#0052da] text-xs sm:text-sm font-extrabold font-mono transition whitespace-nowrap"
               aria-label={`Call Apex Plumber at ${currentLocation.phone}`}
             >
               <PhoneCall className="w-3.5 h-3.5 shrink-0" />
@@ -238,11 +240,11 @@ export function ApexNavbar() {
               <span className="sm:hidden text-xs font-bold">Call</span>
             </a>
 
-            {/* Book Apex Plumber Primary Button */}
+            {/* Book Apex Plumber Primary Button (Visible on screens >= 640px or sm) */}
             <button
               type="button"
               onClick={() => openBookingModal({ urgency: "emergency" })}
-              className="btn-plumco text-xs sm:text-sm font-bold py-1.5 sm:py-2 px-3 xs:px-3.5 sm:px-4 shadow-sm whitespace-nowrap cursor-pointer"
+              className="hidden! sm:inline-flex! btn-plumco text-xs sm:text-sm font-bold py-1.5 sm:py-2 px-3 xs:px-3.5 sm:px-4 shadow-sm whitespace-nowrap cursor-pointer"
             >
               <CalendarCheck className="w-3.5 h-3.5 shrink-0" />
               <span className="whitespace-nowrap">Book Service</span>

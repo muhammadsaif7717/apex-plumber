@@ -79,7 +79,7 @@ function ApexBookingModalContent({
 
     setTimeout(() => {
       setIsSubmitting(false);
-      const generatedTicket = `DAVE-${Math.floor(1000 + Math.random() * 9000)}`;
+      const generatedTicket = `APEX-${Math.floor(1000 + Math.random() * 9000)}`;
       setTicketId(generatedTicket);
       setIsSuccess(true);
 

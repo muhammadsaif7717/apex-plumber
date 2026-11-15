@@ -1,156 +1,235 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import { useLocation } from "@/context/LocationContext";
 import {
   MapPin,
   PhoneCall,
   Clock,
   ShieldCheck,
-  Building2,
+  CheckCircle2,
+  Navigation,
+  Search,
+  CalendarCheck,
 } from "lucide-react";
 
 export function ApexCoverage() {
-  const {
-    currentLocation,
-    selectedStateKey,
-    setSelectedStateKey,
-    allLocations,
-    setSelectedCity,
-  } = useLocation();
+  const { currentLocation, openBookingModal } = useLocation();
+
+  const [zipInput, setZipInput] = useState("");
+  const [zipResult, setZipResult] = useState<{
+    searched: boolean;
+    available: boolean;
+    areaName: string;
+  } | null>(null);
+
+  const neighborhoods = [
+    { name: "Central Austin", zips: "78701, 78702, 78703, 78704, 78705" },
+    { name: "Round Rock", zips: "78664, 78665, 78681" },
+    { name: "Cedar Park & Leander", zips: "78613, 78641, 78645" },
+    { name: "Pflugerville", zips: "78660, 78691" },
+    { name: "Westlake & Lakeway", zips: "78746, 78734, 78738" },
+    { name: "Georgetown", zips: "78626, 78628, 78633" },
+    { name: "Buda & Kyle", zips: "78610, 78640" },
+    { name: "North Austin / Arboretum", zips: "78758, 78759, 78727" },
+  ];
+
+  const handleZipCheck = (e: React.FormEvent) => {
+    e.preventDefault();
+    const cleanZip = zipInput.trim();
+    if (!cleanZip) return;
+
+    // Check if zip or partial matches any known zip
+    const matched = neighborhoods.find((n) => n.zips.includes(cleanZip));
+    if (matched || (cleanZip.startsWith("78") && cleanZip.length === 5)) {
+      setZipResult({
+        searched: true,
+        available: true,
+        areaName: matched ? matched.name : `${currentLocation.primaryCity} Metro Area`,
+      });
+    } else {
+      setZipResult({
+        searched: true,
+        available: true, // As personal plumber we still serve nearby or on custom request
+        areaName: `${currentLocation.primaryCity} Extended Radius`,
+      });
+    }
+  };
 
   return (
-    <section id="coverage" className="py-16 sm:py-24 bg-slate-50 border-b border-slate-200">
+    <section
+      id="service-areas"
+      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200 scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-12">
+        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
-            <span>:: Service Area Coverage</span>
+            <span>:: Local Territory</span>
           </div>
-          <h2 className="text-3xl sm:text-5xl font-black text-[#253041] tracking-tight">
-            Select Your State &amp; Metro Market
+          <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
+            Areas I Personally Serve
           </h2>
-          <p className="mt-3 text-slate-600 text-sm sm:text-base">
-            Switch markets to view live local dispatch hotlines, municipal master plumber licenses, and dedicated regional fleet telemetry.
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600">
+            Based locally in {currentLocation.primaryCity}, I provide prompt on-site plumbing services across a 35-mile radius. Zero travel surcharges within my primary service area.
           </p>
         </div>
 
-        {/* State Selection Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-10">
-          {Object.values(allLocations).map((loc) => {
-            const isActive = loc.id === selectedStateKey;
-            return (
-              <button
-                key={loc.id}
-                type="button"
-                onClick={() => setSelectedStateKey(loc.id)}
-                className={`flex items-center gap-2.5 px-4 sm:px-5 py-3 rounded-xl border text-sm font-bold transition shadow-xs ${
-                  isActive
-                    ? "bg-slate-900 border-slate-900 text-white shadow-md"
-                    : "bg-white border-slate-200 text-slate-700 hover:bg-slate-100/80"
-                }`}
-              >
-                <span className="font-mono text-xs px-1.5 py-0.5 rounded bg-slate-800 text-orange-400">
-                  {loc.stateCode}
-                </span>
-                <span>{loc.state}</span>
-                <span className="text-xs opacity-75 font-normal">
-                  ({loc.primaryCity})
-                </span>
-              </button>
-            );
-          })}
-        </div>
-
-        {/* Active State Detail Spotlight Card */}
-        <div className="bg-white rounded-2xl border border-slate-200 shadow-xl overflow-hidden max-w-5xl mx-auto">
-          {/* Header Strip */}
-          <div className="bg-gradient-to-r from-blue-900 via-slate-900 to-blue-950 text-white p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
-            <div>
-              <div className="flex items-center gap-2 text-xs font-mono text-orange-400 font-bold uppercase tracking-wider mb-1">
-                <span>Active Regional Hub</span>
-                <span>•</span>
-                <span>{currentLocation.activeVans} GPS-Tracked Vans</span>
-              </div>
-              <h3 className="text-2xl sm:text-3xl font-black tracking-tight">
-                {currentLocation.companyName}
+        {/* Main Coverage Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
+          {/* Left Column: Interactive Neighborhood List & ZIP Lookup */}
+          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+            {/* Interactive ZIP Checker */}
+            <div className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-lg">
+              <h3 className="text-base sm:text-lg font-black text-[#253041] mb-2 flex items-center gap-2">
+                <Navigation className="w-5 h-5 text-[#0052da]" />
+                <span>Check If I Serve Your Street or Neighborhood</span>
               </h3>
-              <p className="text-xs sm:text-sm text-slate-300 mt-1">
-                {currentLocation.specialtyTag}
+              <p className="text-xs sm:text-sm text-slate-500 mb-4">
+                Enter your 5-digit ZIP code below for immediate service verification:
               </p>
-            </div>
 
-            <a
-              href={`tel:${currentLocation.phoneRaw}`}
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-orange-600 hover:bg-orange-700 text-white text-sm font-bold shadow-md transition shrink-0 active:scale-95"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>{currentLocation.phone}</span>
-            </a>
-          </div>
-
-          {/* Body Information */}
-          <div className="p-6 sm:p-8 grid grid-cols-1 md:grid-cols-3 gap-6 border-b border-slate-100">
-            {/* Arrival Telemetry */}
-            <div className="space-y-1">
-              <span className="text-[11px] font-mono uppercase font-bold text-slate-400 tracking-wider">
-                Average Emergency Arrival
-              </span>
-              <div className="text-xl font-black text-slate-900 font-mono flex items-center gap-2">
-                <Clock className="w-5 h-5 text-orange-500" />
-                <span>{currentLocation.averageArrival}</span>
-              </div>
-              <p className="text-xs text-slate-500">
-                Continuous 24/7 mobile readiness across municipal borders.
-              </p>
-            </div>
-
-            {/* License Authority */}
-            <div className="space-y-1">
-              <span className="text-[11px] font-mono uppercase font-bold text-slate-400 tracking-wider">
-                Municipal Master License
-              </span>
-              <div className="text-base font-bold text-slate-900 font-mono flex items-center gap-2">
-                <ShieldCheck className="w-5 h-5 text-emerald-600 shrink-0" />
-                <span className="truncate">{currentLocation.licenseNumber}</span>
-              </div>
-              <p className="text-xs text-slate-500 truncate">
-                {currentLocation.licenseAuthority}
-              </p>
-            </div>
-
-            {/* Local Headquarters */}
-            <div className="space-y-1">
-              <span className="text-[11px] font-mono uppercase font-bold text-slate-400 tracking-wider">
-                Regional Dispatch Yard
-              </span>
-              <div className="text-xs font-bold text-slate-900 flex items-center gap-2">
-                <Building2 className="w-4 h-4 text-blue-600 shrink-0" />
-                <span>{currentLocation.localAddress}</span>
-              </div>
-              <p className="text-xs text-slate-500">
-                Fully bonded, state-regulated commercial facility.
-              </p>
-            </div>
-          </div>
-
-          {/* Cities Covered in Region */}
-          <div className="p-6 sm:p-8 bg-slate-50/50">
-            <span className="text-xs font-bold font-mono uppercase text-slate-500 block mb-3">
-              Metro Cities Served Under 45-Minute Dispatch Guarantee:
-            </span>
-            <div className="flex flex-wrap gap-2">
-              {currentLocation.cities.map((city) => (
+              <form onSubmit={handleZipCheck} className="flex flex-col sm:flex-row gap-2.5">
+                <div className="relative flex-1">
+                  <input
+                    type="text"
+                    maxLength={5}
+                    placeholder="Enter 5-Digit ZIP (e.g. 78701)"
+                    value={zipInput}
+                    onChange={(e) => setZipInput(e.target.value.replace(/\D/g, ""))}
+                    className="w-full bg-[#f4f8fe] border border-slate-200 rounded-xl px-4 py-3 text-sm font-mono font-bold text-[#253041] placeholder:text-slate-400 placeholder:font-normal focus:bg-white focus:border-[#0052da] outline-none transition"
+                  />
+                </div>
                 <button
-                  key={city}
-                  type="button"
-                  onClick={() => setSelectedCity(city)}
-                  className="bg-white hover:bg-blue-50 border border-slate-200 hover:border-blue-400 text-slate-800 text-xs font-semibold px-3 py-1.5 rounded-lg transition flex items-center gap-1.5 shadow-2xs"
+                  type="submit"
+                  className="btn-plumco text-xs sm:text-sm font-bold py-3 px-6 cursor-pointer flex items-center justify-center gap-2 whitespace-nowrap shadow-sm"
                 >
-                  <MapPin className="w-3 h-3 text-orange-500" />
-                  <span>{city} Metro</span>
+                  <Search className="w-4 h-4" />
+                  <span>Verify Availability</span>
                 </button>
-              ))}
+              </form>
+
+              {zipResult && (
+                <div className="mt-4 p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 flex items-center justify-between gap-3 animate-in fade-in duration-200">
+                  <div className="flex items-center gap-2.5">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600 shrink-0" />
+                    <span className="text-xs sm:text-sm font-bold text-emerald-900">
+                      Yes! You are in my primary dispatch zone ({zipResult.areaName}).
+                    </span>
+                  </div>
+                  <button
+                    type="button"
+                    onClick={() => openBookingModal({ urgency: "emergency" })}
+                    className="text-xs font-black text-[#0052da] underline hover:text-[#0041ae] whitespace-nowrap cursor-pointer"
+                  >
+                    Book Now
+                  </button>
+                </div>
+              )}
+            </div>
+
+            {/* Neighborhoods Pill Grid */}
+            <div className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-lg flex-1">
+              <div className="flex items-center justify-between mb-4">
+                <span className="text-xs font-mono font-bold uppercase text-slate-500 tracking-wider">
+                  Primary Communities &amp; Suburbs:
+                </span>
+                <span className="text-[11px] font-mono font-bold text-emerald-600 bg-emerald-50 px-2 py-0.5 rounded-md border border-emerald-200">
+                  Daily Route
+                </span>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                {neighborhoods.map((n) => (
+                  <div
+                    key={n.name}
+                    className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-200 transition flex flex-col justify-between group"
+                  >
+                    <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-[#253041] group-hover:text-[#0052da]">
+                      <MapPin className="w-3.5 h-3.5 text-[#0052da] shrink-0" />
+                      <span>{n.name}</span>
+                    </div>
+                    <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono mt-1 pl-5">
+                      ZIP: {n.zips}
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Visual Local Service Hub Card */}
+          <div className="lg:col-span-5 bg-[#253041] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+            {/* Ambient Background Accent */}
+            <div className="absolute -top-20 -right-20 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="space-y-5 relative z-10">
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-900/60 border border-blue-400/30 text-xs font-mono font-bold text-blue-200">
+                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
+                <span>On-Call Service Radius: 35 Miles</span>
+              </div>
+
+              <div>
+                <h3 className="text-xl sm:text-2xl font-black text-white tracking-tight">
+                  Prompt, Direct Dispatch To Your Door
+                </h3>
+                <p className="text-xs sm:text-sm text-slate-300 mt-2 leading-relaxed">
+                  I operate a fully equipped mobile plumbing workshop stocked with commercial diagnostics, leak locators, ProPress fittings, and standard replacement parts for immediate same-day solutions.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-2 gap-3 pt-2">
+                <div className="bg-slate-800/80 rounded-xl p-3 border border-slate-700">
+                  <div className="flex items-center gap-1.5 text-amber-400 text-xs font-bold font-mono">
+                    <Clock className="w-3.5 h-3.5 shrink-0" />
+                    <span>Avg Response</span>
+                  </div>
+                  <div className="text-base sm:text-lg font-black font-mono text-white mt-1">
+                    {currentLocation.averageArrival}
+                  </div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Emergency Calls</div>
+                </div>
+
+                <div className="bg-slate-800/80 rounded-xl p-3 border border-slate-700">
+                  <div className="flex items-center gap-1.5 text-emerald-400 text-xs font-bold font-mono">
+                    <ShieldCheck className="w-3.5 h-3.5 shrink-0" />
+                    <span>State License</span>
+                  </div>
+                  <div className="text-xs sm:text-sm font-black font-mono text-white mt-1 truncate">
+                    {currentLocation.licenseNumber}
+                  </div>
+                  <div className="text-[10px] text-slate-400 mt-0.5">Master Plumber</div>
+                </div>
+              </div>
+            </div>
+
+            <div className="pt-6 mt-6 border-t border-slate-700/80 space-y-3 relative z-10">
+              <div className="flex items-center gap-2 text-xs text-slate-300">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Zero travel surcharges within {currentLocation.primaryCity} metro</span>
+              </div>
+              <div className="flex items-center gap-2 text-xs text-slate-300">
+                <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0" />
+                <span>Available for planned projects &amp; 24/7 emergencies</span>
+              </div>
+
+              <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+                <button
+                  type="button"
+                  onClick={() => openBookingModal({ urgency: "emergency" })}
+                  className="btn-plumco text-xs sm:text-sm font-bold py-3 px-4 w-full flex items-center justify-center gap-2 cursor-pointer shadow-md"
+                >
+                  <CalendarCheck className="w-4 h-4" />
+                  <span>Book Service In My Area</span>
+                </button>
+                <a
+                  href={`tel:${currentLocation.phoneRaw}`}
+                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs sm:text-sm font-bold border border-slate-700 transition"
+                >
+                  <PhoneCall className="w-4 h-4 text-[#ffb600]" />
+                  <span>Call Directly</span>
+                </a>
+              </div>
             </div>
           </div>
         </div>

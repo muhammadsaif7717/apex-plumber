@@ -16,12 +16,12 @@ export function ApexLogo({
   return (
     <div className={`flex items-center gap-2.5 sm:gap-3 select-none ${className}`}>
       {/* Practical Plumbing Icon: Heavy-Duty Pipe Wrench & Pipe Water Flow */}
-      <div className="relative flex items-center justify-center w-10 h-10 sm:w-11 sm:h-11 rounded-xl bg-gradient-to-br from-[#0052da] via-[#0042b3] to-[#002e82] text-white shadow-md shadow-[#0052da]/25 shrink-0 border border-white/20">
+      <div className="relative flex items-center justify-center w-8 h-8 xs:w-9 xs:h-9 sm:w-11 sm:h-11 rounded-lg sm:rounded-xl bg-gradient-to-br from-[#0052da] via-[#0042b3] to-[#002e82] text-white shadow-md shadow-[#0052da]/25 shrink-0 border border-white/20">
         <svg
           viewBox="0 0 40 40"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
-          className="w-6 h-6 sm:w-7 sm:h-7"
+          className="w-5 h-5 sm:w-7 sm:h-7"
         >
           {/* Water Pipe Section (Horizontal Pipe Conduit) */}
           <rect
@@ -82,19 +82,19 @@ export function ApexLogo({
       <div className="flex flex-col text-left leading-none">
         <div className="flex items-center gap-1 sm:gap-1.5">
           <span
-            className={`text-xl sm:text-2xl font-black tracking-tight font-sans ${
+            className={`text-base xs:text-lg sm:text-2xl font-black tracking-tight font-sans ${
               inverted ? "text-white" : "text-[#253041]"
             }`}
           >
             APEX
           </span>
-          <span className="text-xl sm:text-2xl font-black tracking-tight text-[#0052da] font-sans">
+          <span className="text-base xs:text-lg sm:text-2xl font-black tracking-tight text-[#0052da] font-sans">
             PLUMBER
           </span>
         </div>
         {showSubtitle && (
           <span
-            className={`text-[9px] sm:text-[10px] font-bold tracking-widest uppercase mt-1 font-mono ${
+            className={`hidden xs:block text-[8px] sm:text-[10px] font-bold tracking-widest uppercase mt-0.5 sm:mt-1 font-mono ${
               inverted ? "text-slate-400" : "text-slate-500"
             }`}
           >

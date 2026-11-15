@@ -1,129 +1,151 @@
 "use client";
 
 import React from "react";
-import { Check, X, ShieldCheck, PhoneCall, CalendarCheck } from "lucide-react";
+import {
+  MessageSquare,
+  UserCheck,
+  Receipt,
+  Award,
+  Clock,
+  ShieldCheck,
+  CalendarCheck,
+  PhoneCall,
+  CheckCircle2,
+} from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
 export function ApexWhyHireMe() {
   const { currentLocation, openBookingModal } = useLocation();
 
-  const comparisonRows = [
+  const reasons = [
     {
-      feature: "Who Performs The Repair?",
-      apex: "Apex Plumber Certified Master Technicians (25+ Yrs Exp)",
-      franchise: "Entry-level junior apprentice or revolving subcontractor",
+      id: "direct-comm",
+      title: "Direct Communication",
+      desc: "Speak and coordinate directly with me—the licensed master plumber who actually turns the wrench, not an outsourced call center or dispatcher.",
+      icon: MessageSquare,
+      badge: "No Middlemen",
     },
     {
-      feature: "Upfront Pricing Guarantee",
-      apex: "Firm, transparent flat-rate in writing before turning a wrench",
-      franchise: "Hourly ticking clock + unexpected travel & diagnostic surcharges",
+      id: "personal-attention",
+      title: "Personal Attention",
+      desc: "Every home receives dedicated, unhurried focus. I take on one job at a time so your plumbing problem gets the full attention it deserves.",
+      icon: UserCheck,
+      badge: "1-on-1 Focus",
     },
     {
-      feature: "Sales Commission Pressure",
-      apex: "Zero sales quotas. We only recommend repairs you genuinely need",
-      franchise: "High-pressure sales commissions & aggressive replacement quotas",
+      id: "honest-estimates",
+      title: "Honest Upfront Estimates",
+      desc: "Firm, transparent flat-rate pricing provided in writing before turning a single bolt. No hidden truck fees, no surprises, no high-pressure upsells.",
+      icon: Receipt,
+      badge: "Firm Flat Rates",
     },
     {
-      feature: "Communication Access",
-      apex: "Direct priority phone dispatch with your dedicated master plumber",
-      franchise: "Offshore robotic call centers & frustrating hold queues",
+      id: "quality-workmanship",
+      title: "Quality Master Workmanship",
+      desc: "Over 25 years of hands-on field experience. I utilize commercial-grade fittings, Ridgid ProPress copper systems, and precise code compliance.",
+      icon: Award,
+      badge: "25+ Yrs Master",
     },
     {
-      feature: "Workmanship Warranty",
-      apex: "Apex Plumber 10-Year Comprehensive Warranty Protection",
-      franchise: "30-day limited warranty buried in corporate fine print",
+      id: "flexible-scheduling",
+      title: "Flexible Scheduling",
+      desc: "Respect for your time with punctual arrival windows, same-day emergency dispatch, and weekend availability when urgent leaks occur.",
+      icon: Clock,
+      badge: "Prompt Arrival",
     },
     {
-      feature: "Equipment On Every Truck",
-      apex: "4,000 PSI hydro-jetter, HD SeeSnake fiber cameras, ProPress copper tools",
-      franchise: "Basic manual tools (requires scheduling expensive second trips)",
+      id: "personal-accountability",
+      title: "Personal Accountability",
+      desc: "My name and reputation ride on every repair. I personally stand behind every installation with a comprehensive 10-year workmanship warranty.",
+      icon: ShieldCheck,
+      badge: "10-Yr Warranty",
     },
   ];
 
   return (
-    <section id="why-hire-me" className="py-14 sm:py-20 lg:py-24 bg-white border-b border-slate-100 scroll-mt-24">
+    <section
+      id="why-hire-me"
+      className="py-14 sm:py-20 lg:py-24 bg-white border-b border-slate-100 scroll-mt-24"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        {/* Section Header */}
+        <div className="text-center max-w-2xl mx-auto mb-12 sm:mb-16">
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: The Apex Plumber Advantage</span>
           </div>
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
-            Why Choose Apex Plumber vs Franchises
+            Why Homeowners Choose to Work With Me
           </h2>
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
-            Save thousands and eliminate guesswork. We deliver elite master plumbing services with honest flat rates and zero corporate runaround.
+            Experience the difference of partnering directly with an experienced, independent master plumber who cares about your home as much as you do.
           </p>
         </div>
 
-        {/* Comparison Table Card (Stable, No Blinking) */}
-        <div className="max-w-5xl mx-auto bg-white rounded-2xl sm:rounded-3xl border border-slate-200 shadow-xl overflow-hidden">
-          <div className="overflow-x-auto">
-            <table className="w-full text-left border-collapse min-w-[520px]">
-              <thead>
-                <tr className="border-b border-slate-200">
-                  <th className="p-3.5 sm:p-5 lg:p-6 text-xs sm:text-sm font-extrabold text-[#253041] bg-slate-50 w-2/5">
-                    Service Standard
-                  </th>
-                  <th className="p-3.5 sm:p-5 lg:p-6 text-xs sm:text-sm font-black text-white bg-[#0052da] w-3/10">
-                    <div className="flex items-center gap-1.5 whitespace-nowrap">
-                      <ShieldCheck className="w-4 h-4 shrink-0 text-amber-300" />
-                      <span>Apex Plumber (Masters)</span>
+        {/* 6 Icon-Based Reason Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+          {reasons.map((reason) => {
+            const Icon = reason.icon;
+            return (
+              <div
+                key={reason.id}
+                className="bg-[#f8fbff] rounded-2xl p-6 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#0052da]/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+              >
+                <div>
+                  <div className="flex items-center justify-between mb-4">
+                    <div className="w-12 h-12 rounded-xl bg-blue-100/80 text-[#0052da] group-hover:bg-[#0052da] group-hover:text-white flex items-center justify-center transition-colors shadow-xs">
+                      <Icon className="w-6 h-6" />
                     </div>
-                  </th>
-                  <th className="p-3.5 sm:p-5 lg:p-6 text-xs sm:text-sm font-bold text-slate-500 bg-slate-100 w-3/10 whitespace-nowrap">
-                    Big Corporate Franchises
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-slate-100 text-xs sm:text-sm">
-                {comparisonRows.map((row, idx) => (
-                  <tr key={idx} className="hover:bg-blue-50/30 transition-colors">
-                    <td className="p-3.5 sm:p-5 lg:p-6 font-bold text-[#253041]">
-                      {row.feature}
-                    </td>
-                    <td className="p-3.5 sm:p-5 lg:p-6 bg-blue-50/50 font-semibold text-[#0052da]">
-                      <div className="flex items-start gap-1.5">
-                        <Check className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" />
-                        <span>{row.apex}</span>
-                      </div>
-                    </td>
-                    <td className="p-3.5 sm:p-5 lg:p-6 text-slate-500">
-                      <div className="flex items-start gap-1.5">
-                        <X className="w-4 h-4 text-red-500 shrink-0 mt-0.5" />
-                        <span>{row.franchise}</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+                    <span className="font-mono text-xs font-bold px-2.5 py-1 rounded-full bg-white border border-slate-200 text-[#0052da]">
+                      {reason.badge}
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg sm:text-xl font-black text-[#253041] mb-2.5">
+                    {reason.title}
+                  </h3>
+
+                  <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed">
+                    {reason.desc}
+                  </p>
+                </div>
+
+                <div className="mt-5 pt-4 border-t border-blue-100/70 flex items-center gap-1.5 text-xs font-semibold text-emerald-600">
+                  <CheckCircle2 className="w-4 h-4 shrink-0" />
+                  <span>Guaranteed On Every Service Call</span>
+                </div>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Bottom Banner with Personal Reassurance */}
+        <div className="mt-12 sm:mt-16 bg-slate-50 border border-slate-200 rounded-2xl sm:rounded-3xl p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-5">
+          <div className="text-center md:text-left space-y-1">
+            <h4 className="text-base sm:text-lg font-black text-[#253041]">
+              Need an honest second opinion on a quote?
+            </h4>
+            <p className="text-xs sm:text-sm text-slate-600">
+              I will happily review any competitor&apos;s diagnosis or invoice for free before you spend your hard-earned money.
+            </p>
           </div>
 
-          {/* Bottom Table Bar with CTA */}
-          <div className="bg-slate-50 border-t border-slate-200 p-4 sm:p-6 flex flex-col sm:flex-row items-center justify-between gap-4">
-            <div className="text-xs text-slate-600 text-center sm:text-left">
-              <strong>Need a reliable second opinion?</strong> We will review any competitor&apos;s quote for free before you spend a dime.
-            </div>
+          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
+            <button
+              type="button"
+              onClick={() => openBookingModal({ urgency: "standard" })}
+              className="btn-plumco text-xs sm:text-sm font-bold py-3 px-5 w-full sm:w-auto text-center cursor-pointer whitespace-nowrap"
+            >
+              <CalendarCheck className="w-4 h-4" />
+              <span>Book a Service Call</span>
+            </button>
 
-            <div className="flex items-center gap-3 shrink-0 w-full sm:w-auto">
-              <button
-                type="button"
-                onClick={() => openBookingModal({ urgency: "emergency" })}
-                className="btn-plumco text-xs font-bold py-2.5 px-4 w-full sm:w-auto cursor-pointer whitespace-nowrap"
-              >
-                <CalendarCheck className="w-3.5 h-3.5" />
-                <span>Book Apex Plumber</span>
-              </button>
-
-              <a
-                href={`tel:${currentLocation.phoneRaw}`}
-                className="hidden sm:inline-flex items-center gap-1.5 px-3 py-2 rounded-lg bg-white border border-slate-200 text-[#0052da] text-xs font-mono font-bold hover:bg-blue-50 transition whitespace-nowrap"
-              >
-                <PhoneCall className="w-3.5 h-3.5" />
-                <span>{currentLocation.phone}</span>
-              </a>
-            </div>
+            <a
+              href={`tel:${currentLocation.phoneRaw}`}
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#0052da] text-xs sm:text-sm font-mono font-bold hover:bg-blue-50 transition shadow-xs whitespace-nowrap"
+            >
+              <PhoneCall className="w-4 h-4" />
+              <span>{currentLocation.phone}</span>
+            </a>
           </div>
         </div>
       </div>

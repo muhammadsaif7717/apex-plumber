@@ -22,11 +22,11 @@ export function ApexFunFact() {
           {/* Left Column */}
           <div className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left">
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black tracking-tight leading-tight">
-              Why 850+ Local Homeowners Call Apex Plumber First.
+              Why 850+ Local Homeowners Call Me First.
             </h2>
 
             <p className="text-blue-100 text-xs xs:text-sm sm:text-base leading-relaxed">
-              When plumbing emergencies strike, you need certified master technicians who diagnose accurately and fix it right the first time. We deliver rapid emergency response, commercial-grade equipment, and upfront transparent pricing.
+              When plumbing emergencies strike, you need a dedicated master craftsman who diagnoses accurately and solves it right the first time. I deliver rapid response, commercial-grade equipment, and upfront transparent flat-rate pricing.
             </p>
 
             <div className="inline-flex items-center gap-3 sm:gap-4 bg-white/10 backdrop-blur-xs border border-white/20 rounded-2xl p-3.5 sm:p-5 text-left">

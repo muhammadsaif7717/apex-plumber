@@ -9,8 +9,8 @@ export function ApexAbout() {
   const { currentLocation, openBookingModal } = useLocation();
 
   const personalGuarantees = [
-    "Every job handled by certified master plumbers — never inexperienced helpers.",
-    "Guaranteed flat-rate quote in writing before we turn a single wrench.",
+    "Every job handled personally by me—a licensed master plumber, never apprentices.",
+    "Guaranteed flat-rate quote in writing before I turn a single wrench.",
     "Non-destructive acoustic & HD video scopes save thousands in unnecessary demolition.",
     "Clean Home Pledge: Shoe booties, drop cloths, and 100% sanitized workspaces.",
   ];
@@ -60,11 +60,11 @@ export function ApexAbout() {
             </div>
 
             <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight leading-tight">
-              Over 25+ Years of Dedicated Master Craftsmanship
+              Meet Your Local Independent Master Plumber
             </h2>
 
             <p className="text-xs xs:text-sm sm:text-base text-[#4c5165] leading-relaxed">
-              At <strong className="text-[#253041] font-bold">Apex Plumber</strong>, we built our reputation on master craftsmanship, transparent flat-rate pricing, and rapid emergency dispatch. After watching corporate plumbing franchises bill homeowners inflated rates while sending junior trainees who guess their way through repairs, we committed to an elite standard: certified master technicians, state-of-the-art tools, and our ironclad warranty on every repair.
+              Hi, I&apos;m your dedicated Master Plumber at <strong className="text-[#253041] font-bold">Apex Plumber</strong>. For over 25 years, I&apos;ve built my reputation on personal craftsmanship, transparent flat-rate pricing, and honest advice. When you call Apex Plumber, you deal directly with me—never a revolving door of junior apprentices or subcontracted laborers. I arrive fully equipped in my mobile workshop and solve your plumbing problems right the first time.
             </p>
 
             {/* Guarantees Checklist */}

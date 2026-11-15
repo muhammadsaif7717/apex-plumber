@@ -34,48 +34,50 @@ article, section, .group, .btn-plumco, .btn-plumco-dark {
   transform: translateZ(0);
 }
 
-/* Plumco Primary Button */
-.btn-plumco {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #0052da;
-  color: #ffffff;
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 14px 32px;
-  transition: all 0.25s ease;
-  box-shadow: 0 8px 24px -4px rgba(0, 82, 218, 0.3);
-}
+@layer components {
+  /* Plumco Primary Button */
+  .btn-plumco {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #0052da;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 14px 32px;
+    transition: all 0.25s ease;
+    box-shadow: 0 8px 24px -4px rgba(0, 82, 218, 0.3);
+  }
 
-.btn-plumco:hover {
-  background-color: #0041ae;
-  transform: translateY(-2px);
-  box-shadow: 0 12px 28px -4px rgba(0, 82, 218, 0.4);
-}
+  .btn-plumco:hover {
+    background-color: #0041ae;
+    transform: translateY(-2px);
+    box-shadow: 0 12px 28px -4px rgba(0, 82, 218, 0.4);
+  }
 
-.btn-plumco:active {
-  transform: translateY(0);
-}
+  .btn-plumco:active {
+    transform: translateY(0);
+  }
 
-/* Plumco Dark Button */
-.btn-plumco-dark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  background-color: #253041;
-  color: #ffffff;
-  font-weight: 700;
-  border-radius: 8px;
-  padding: 14px 32px;
-  transition: all 0.25s ease;
-}
+  /* Plumco Dark Button */
+  .btn-plumco-dark {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background-color: #253041;
+    color: #ffffff;
+    font-weight: 700;
+    border-radius: 8px;
+    padding: 14px 32px;
+    transition: all 0.25s ease;
+  }
 
-.btn-plumco-dark:hover {
-  background-color: #162132;
-  transform: translateY(-2px);
+  .btn-plumco-dark:hover {
+    background-color: #162132;
+    transform: translateY(-2px);
+  }
 }
 
 /* Subtle scrollbar */

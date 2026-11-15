@@ -35,8 +35,8 @@ export function ApexHero() {
       className="relative min-h-[100dvh] lg:h-[100dvh] pt-20 xs:pt-22 sm:pt-26 pb-4 sm:pb-6 flex flex-col justify-between bg-gradient-to-b from-[#f4f8fe] via-[#f7faff] to-white border-b border-slate-100 overflow-hidden"
     >
       {/* Ambient background glows */}
-      <div className="absolute top-1/4 right-0 w-[450px] lg:w-[600px] h-[450px] lg:h-[600px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none -mr-40" />
-      <div className="absolute bottom-10 left-0 w-[350px] lg:w-[500px] h-[350px] lg:h-[500px] bg-blue-50/60 rounded-full blur-2xl pointer-events-none -ml-20" />
+      <div className="absolute top-1/4 right-0 w-[280px] sm:w-[450px] lg:w-[600px] h-[280px] sm:h-[450px] lg:h-[600px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none -mr-20 lg:-mr-40" />
+      <div className="absolute bottom-10 left-0 w-[240px] sm:w-[350px] lg:w-[500px] h-[240px] sm:h-[350px] lg:h-[500px] bg-blue-50/60 rounded-full blur-2xl pointer-events-none -ml-10 lg:-ml-20" />
 
       {/* Main Centered Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full my-auto relative z-10 py-4 sm:py-6">
@@ -56,7 +56,7 @@ export function ApexHero() {
               className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/90 text-[#0052da] text-xs font-bold font-mono shadow-xs"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-xs" />
-              <span>Apex Plumber • Master Certified {currentLocation.licenseNumber}</span>
+              <span>YOUR LOCAL, INDEPENDENT PLUMBING PROFESSIONAL • {currentLocation.licenseNumber}</span>
             </motion.div>
 
             {/* Grand Headline */}
@@ -66,7 +66,7 @@ export function ApexHero() {
               transition={{ delay: 0.2, duration: 0.6 }}
               className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-[#253041] tracking-tight leading-[1.08]"
             >
-              Ready To Help You.
+              Reliable Plumbing Services, Delivered Personally.
             </motion.h1>
 
             {/* Bio */}
@@ -76,7 +76,7 @@ export function ApexHero() {
               transition={{ delay: 0.3, duration: 0.6 }}
               className="text-xs xs:text-sm sm:text-base md:text-lg text-[#4c5165] leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal"
             >
-              Busted pipe, sewer backup, or cold water heater? Call Apex Plumber directly. No middlemen, no sales commissions, and no junior apprentices. We arrive in fully-equipped mobile workshop vans and fix it right the first time.
+              From everyday plumbing repairs to complex installations, I provide dependable workmanship, honest communication, and personalized service for every customer. No middlemen, no sales commissions, and no junior apprentices.
             </motion.p>
 
             {/* Direct Action Buttons */}
@@ -92,7 +92,7 @@ export function ApexHero() {
                 className="w-full sm:w-auto btn-plumco text-xs xs:text-sm sm:text-base font-extrabold py-3 sm:py-3.5 px-5 sm:px-8 text-center shadow-lg cursor-pointer whitespace-nowrap"
               >
                 <CalendarCheck className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                <span>Book Apex Plumber</span>
+                <span>Book a Service</span>
               </button>
 
               <a
@@ -104,7 +104,7 @@ export function ApexHero() {
                 </div>
                 <div className="flex flex-col text-left">
                   <span className="text-[9px] sm:text-[10px] uppercase font-mono text-slate-500 font-bold leading-none">
-                    24/7 Dispatch Hotline
+                    Direct Line • Call Me Now
                   </span>
                   <span className="font-mono text-xs sm:text-sm font-extrabold text-[#0052da]">
                     {currentLocation.phone}

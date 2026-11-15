@@ -6,11 +6,13 @@ import { ApexAbout } from "@/components/ApexAbout";
 import { ApexServicesGrid } from "@/components/ApexServicesGrid";
 import { ApexFunFact } from "@/components/ApexFunFact";
 import { ApexWhyHireMe } from "@/components/ApexWhyHireMe";
+import { ApexWorkProcess } from "@/components/ApexWorkProcess";
 import { ApexProjects } from "@/components/ApexProjects";
 import { ApexTestimonials } from "@/components/ApexTestimonials";
 import { ApexEstimator } from "@/components/ApexEstimator";
 import { ApexBlog } from "@/components/ApexBlog";
 import { ApexCoverage } from "@/components/ApexCoverage";
+import { ApexFAQ } from "@/components/ApexFAQ";
 import { ApexAppointment } from "@/components/ApexAppointment";
 import { ApexFooter } from "@/components/ApexFooter";
 import { ApexBookingModal } from "@/components/ApexBookingModal";
@@ -24,40 +26,46 @@ export default function Home() {
         <ApexNavbar />
 
         <main className="flex-1">
-          {/* 1. Hero: Apex Plumber — Ready To Help You (100vh banner) */}
+          {/* 1. Hero: Reliable Plumbing Services, Delivered Personally */}
           <ApexHero />
 
-          {/* 2. How We Work: 3 Direct Steps */}
+          {/* 2. Direct Advantages: 3 Fast Steps */}
           <ApexFeatures />
 
-          {/* 3. About Apex Plumber: 25+ Years Master Craftsmanship */}
+          {/* 3. About Apex Plumber: 25+ Years Solo Master Craftsmanship */}
           <ApexAbout />
 
-          {/* 4. Specialized Services Handled by Certified Masters */}
+          {/* 4. Specialized Services Handled Personally */}
           <ApexServicesGrid />
 
           {/* 5. Career Milestones & 850+ 5-Star Reviews */}
           <ApexFunFact />
 
-          {/* 6. Why Choose Apex Plumber vs Corporate Franchises */}
+          {/* 6. Why Homeowners Choose to Work With Me (6 Core Values) */}
           <ApexWhyHireMe />
 
-          {/* 7. Solved Case Studies & Project Gallery */}
+          {/* 7. My Work Process: 4-Step Seamless Workflow */}
+          <ApexWorkProcess />
+
+          {/* 8. Solved Case Studies & Project Gallery */}
           <ApexProjects />
 
-          {/* 8. What Neighbors Say About Apex Plumber (5-Star Reviews) */}
+          {/* 9. Customer Reviews & Testimonials */}
           <ApexTestimonials />
 
-          {/* 9. Upfront Pricing Estimator */}
+          {/* 10. Upfront Pricing Estimator */}
           <ApexEstimator />
 
-          {/* 10. Apex Plumber Practical Plumbing Advice & Blog */}
-          <ApexBlog />
-
-          {/* 11. Regional Coverage Areas */}
+          {/* 11. Areas I Personally Serve */}
           <ApexCoverage />
 
-          {/* 12. Direct Hire / Appointment Booking Intake (Contact Form) */}
+          {/* 12. Apex Plumber Practical Plumbing Advice & Blog */}
+          <ApexBlog />
+
+          {/* 13. Frequently Asked Questions (FAQ Accordion) */}
+          <ApexFAQ />
+
+          {/* 14. Direct Hire / Appointment Booking Intake (Contact Form) */}
           <ApexAppointment />
         </main>
 
