@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useLocation } from "@/context/LocationContext";
 import { ApexLogo } from "./ApexLogo";
 import { WhatsAppIcon } from "./ApexWhatsAppWidget";
@@ -27,22 +28,30 @@ const NAV_LINKS: NavLinkItem[] = [
   { name: "Reviews", href: "/#reviews", id: "reviews" },
   { name: "Areas", href: "/#service-areas", id: "service-areas" },
   { name: "FAQ", href: "/#faq", id: "faq" },
-  { name: "Blog", href: "/blog", id: "blog" },
   { name: "Contact", href: "/#contact", id: "contact" },
+  { name: "Blog", href: "/blog", id: "blog" },
 ];
 
 export function ApexNavbar() {
+  const pathname = usePathname();
+  const isBlogPage = pathname.startsWith("/blog");
+
   const {
     currentLocation,
     openBookingModal,
   } = useLocation();
 
-  const [activeSection, setActiveSection] = useState<string>("hero");
+  const [activeSection, setActiveSection] = useState<string>(isBlogPage ? "blog" : "hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Optimized non-flickering Active ScrollSpy implementation
   useEffect(() => {
+    if (isBlogPage) {
+      setActiveSection("blog");
+      return;
+    }
+
     let ticking = false;
 
     const handleScroll = () => {
@@ -51,7 +60,7 @@ export function ApexNavbar() {
           const isScrolled = window.scrollY > 20;
           setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
 
-          const sectionIds = NAV_LINKS.map((l) => l.id);
+          const sectionIds = NAV_LINKS.filter((l) => l.id !== "blog").map((l) => l.id);
           const scrollPosition = window.scrollY + 120;
 
           let current = "hero";
@@ -75,7 +84,7 @@ export function ApexNavbar() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [isBlogPage]);
 
   // Lock body scroll when mobile drawer is open
   useEffect(() => {
@@ -138,7 +147,7 @@ export function ApexNavbar() {
           {/* Desktop Navigation Links with Active ScrollSpy Highlighting */}
           <div className="hidden lg:flex items-center gap-0.5 xl:gap-1.5">
             {NAV_LINKS.map((link) => {
-              const isActive = activeSection === link.id;
+              const isActive = isBlogPage ? link.id === "blog" : activeSection === link.id;
               return (
                 <a
                   key={link.name}
@@ -231,7 +240,7 @@ export function ApexNavbar() {
         {/* Drawer Navigation Links (Scrollable) */}
         <div className="flex-1 overflow-y-auto p-4 space-y-1">
           {NAV_LINKS.map((link) => {
-            const isActive = activeSection === link.id;
+            const isActive = isBlogPage ? link.id === "blog" : activeSection === link.id;
             return (
               <a
                 key={link.name}
