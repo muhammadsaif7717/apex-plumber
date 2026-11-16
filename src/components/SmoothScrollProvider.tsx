@@ -23,14 +23,22 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
 
     rafId = requestAnimationFrame(raf);
 
+    // Expose lenis instance to window for clean navbar coordination
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
     // Sync window anchor link clicks with Lenis smooth scroll
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a");
       if (target && target.hash && target.hash.startsWith("#") && target.origin === window.location.origin) {
+        if (target.hash === "#" || target.hash === "#hero") {
+          e.preventDefault();
+          lenis.scrollTo(0, { duration: 1.1 });
+          return;
+        }
         const element = document.querySelector(target.hash);
         if (element) {
           e.preventDefault();
-          lenis.scrollTo(element, { offset: -70, duration: 1.2 });
+          lenis.scrollTo(element, { offset: 0, duration: 1.1 });
         }
       }
     };
@@ -40,6 +48,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     return () => {
       cancelAnimationFrame(rafId);
       document.removeEventListener("click", handleAnchorClick);
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
       lenis.destroy();
     };
   }, []);

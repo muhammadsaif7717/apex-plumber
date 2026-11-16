@@ -45,7 +45,10 @@ export function ApexNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Optimized non-flickering Active ScrollSpy implementation
+  const isClickScrollingRef = React.useRef(false);
+  const clickScrollTimerRef = React.useRef<NodeJS.Timeout | null>(null);
+
+  // Optimized viewport-based Active ScrollSpy implementation
   useEffect(() => {
     if (isBlogPage) {
       setActiveSection("blog");
@@ -60,21 +63,32 @@ export function ApexNavbar() {
           const isScrolled = window.scrollY > 20;
           setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
 
-          const sectionIds = NAV_LINKS.filter((l) => l.id !== "blog").map((l) => l.id);
-          const scrollPosition = window.scrollY + 120;
+          if (!isClickScrollingRef.current) {
+            let current = "hero";
+            if (window.scrollY < 120) {
+              current = "hero";
+            } else if (
+              window.innerHeight + window.scrollY >=
+              document.documentElement.scrollHeight - 80
+            ) {
+              current = "contact";
+            } else {
+              const sectionIds = NAV_LINKS.filter((l) => l.id !== "blog").map((l) => l.id);
+              const focalPoint = 200;
 
-          let current = "hero";
-          for (let i = sectionIds.length - 1; i >= 0; i--) {
-            const el = document.getElementById(sectionIds[i]);
-            if (el && el.offsetTop <= scrollPosition) {
-              current = sectionIds[i];
-              break;
+              for (let i = sectionIds.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sectionIds[i]);
+                if (el) {
+                  const rect = el.getBoundingClientRect();
+                  if (rect.top <= focalPoint) {
+                    current = sectionIds[i];
+                    break;
+                  }
+                }
+              }
             }
+            setActiveSection((prev) => (prev !== current ? current : prev));
           }
-          if (window.scrollY < 160) {
-            current = "hero";
-          }
-          setActiveSection((prev) => (prev !== current ? current : prev));
           ticking = false;
         });
         ticking = true;
@@ -83,7 +97,12 @@ export function ApexNavbar() {
 
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (clickScrollTimerRef.current) {
+        clearTimeout(clickScrollTimerRef.current);
+      }
+    };
   }, [isBlogPage]);
 
   // Lock body scroll when mobile drawer is open
@@ -110,15 +129,44 @@ export function ApexNavbar() {
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
       e.preventDefault();
-      const topOffset = 70; // Height of fixed navbar
-      const elementPosition = targetElement.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - topOffset;
 
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: "smooth",
-      });
+      // Immediately activate the clicked link and lock scrollspy temporarily
+      isClickScrollingRef.current = true;
       setActiveSection(targetId);
+
+      if (clickScrollTimerRef.current) {
+        clearTimeout(clickScrollTimerRef.current);
+      }
+      clickScrollTimerRef.current = setTimeout(() => {
+        isClickScrollingRef.current = false;
+      }, 1100);
+
+      // Check if global Lenis smooth scrolling instance is available
+      const lenis = (
+        window as unknown as {
+          __lenis?: { scrollTo: (t: Element | number, opts?: unknown) => void };
+        }
+      ).__lenis;
+
+      if (lenis && typeof lenis.scrollTo === "function") {
+        if (targetId === "hero") {
+          lenis.scrollTo(0, { duration: 1.1 });
+        } else {
+          lenis.scrollTo(targetElement, { offset: 0, duration: 1.1 });
+        }
+      } else {
+        if (targetId === "hero") {
+          window.scrollTo({ top: 0, behavior: "smooth" });
+        } else {
+          const topOffset = 80;
+          const elementPosition = targetElement.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - topOffset;
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth",
+          });
+        }
+      }
     }
   };
 
