@@ -56,16 +56,16 @@ export const LOCATIONS: Record<string, LocationData> = {
     state: "California",
     stateCode: "CA",
     primaryCity: "Los Angeles",
-    cities: ["Los Angeles", "San Diego", "Orange County", "San Jose", "Pasadena", "Long Beach"],
+    cities: ["Los Angeles", "Pasadena", "Santa Monica", "Beverly Hills", "Glendale", "Burbank", "Culver City", "Long Beach"],
     companyName: "Apex Plumber of Greater Los Angeles",
     phone: "(213) 640-APEX",
     phoneRaw: "+12136402739",
     licenseNumber: "CA C-36 #1094321",
-    licenseAuthority: "California CSLB Class C-36 Plumbing License",
-    averageArrival: "38 Minutes",
-    activeVans: 22,
-    coverageCounties: ["Los Angeles", "Orange", "San Diego", "Santa Clara", "Riverside"],
-    specialtyTag: "Earthquake Gas Shutoff & Trenchless Sewer Restoration",
+    licenseAuthority: "California Contractors State License Board (CSLB)",
+    averageArrival: "35 Minutes",
+    activeVans: 1,
+    coverageCounties: ["Los Angeles County"],
+    specialtyTag: "Earthquake Gas Valves, Copper Repiping & Trenchless Sewer",
     localAddress: "1920 E 7th St, Arts District, Los Angeles, CA 90021",
   },
   newyork: {
@@ -104,4 +104,4 @@ export const LOCATIONS: Record<string, LocationData> = {
   },
 };
 
-export const DEFAULT_LOCATION_KEY = "texas";
+export const DEFAULT_LOCATION_KEY = "california";

@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export function ApexFooter() {
-  const { currentLocation, allLocations, setSelectedStateKey } = useLocation();
+  const { currentLocation } = useLocation();
   const [newsletterEmail, setNewsletterEmail] = useState("");
   const [newsletterSubscribed, setNewsletterSubscribed] = useState(false);
 
@@ -183,23 +183,11 @@ export function ApexFooter() {
 
             <div className="pt-2">
               <span className="text-[10px] uppercase font-mono font-bold text-slate-500 block mb-1.5">
-                Regional Licenses:
+                California Licensing:
               </span>
-              <div className="flex flex-wrap gap-1.5">
-                {Object.values(allLocations).map((loc) => (
-                  <button
-                    key={loc.id}
-                    type="button"
-                    onClick={() => setSelectedStateKey(loc.id)}
-                    className={`text-[10px] px-2 py-0.5 rounded font-mono transition ${
-                      loc.id === currentLocation.id
-                        ? "bg-[#0052da] text-white font-bold"
-                        : "bg-[#162132] text-slate-400 hover:text-white"
-                    }`}
-                  >
-                    {loc.stateCode} ({loc.primaryCity})
-                  </button>
-                ))}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#162132] border border-slate-700 text-xs font-mono text-emerald-400">
+                <ShieldCheck className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
+                <span>CSLB C-36 Master License #1094321 (CA)</span>
               </div>
             </div>
           </div>

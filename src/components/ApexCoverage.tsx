@@ -24,14 +24,14 @@ export function ApexCoverage() {
   } | null>(null);
 
   const neighborhoods = [
-    { name: "Central Austin", zips: "78701, 78702, 78703, 78704, 78705" },
-    { name: "Round Rock", zips: "78664, 78665, 78681" },
-    { name: "Cedar Park & Leander", zips: "78613, 78641, 78645" },
-    { name: "Pflugerville", zips: "78660, 78691" },
-    { name: "Westlake & Lakeway", zips: "78746, 78734, 78738" },
-    { name: "Georgetown", zips: "78626, 78628, 78633" },
-    { name: "Buda & Kyle", zips: "78610, 78640" },
-    { name: "North Austin / Arboretum", zips: "78758, 78759, 78727" },
+    { name: "Downtown LA & Arts District", zips: "90012, 90013, 90014, 90015, 90021" },
+    { name: "Pasadena & Glendale", zips: "91101, 91105, 91201, 91204, 91205" },
+    { name: "Santa Monica & Venice", zips: "90401, 90403, 90405, 90291" },
+    { name: "Hollywood & Silver Lake", zips: "90028, 90068, 90026, 90039" },
+    { name: "Beverly Hills & West Hollywood", zips: "90210, 90212, 90069" },
+    { name: "Culver City & Mar Vista", zips: "90230, 90232, 90066" },
+    { name: "Burbank & Studio City", zips: "91501, 91505, 91604, 91607" },
+    { name: "Long Beach & South Bay", zips: "90802, 90803, 90501, 90503" },
   ];
 
   const handleZipCheck = (e: React.FormEvent) => {
@@ -39,9 +39,9 @@ export function ApexCoverage() {
     const cleanZip = zipInput.trim();
     if (!cleanZip) return;
 
-    // Check if zip or partial matches any known zip
+    // Check if zip or partial matches any known California / LA zip
     const matched = neighborhoods.find((n) => n.zips.includes(cleanZip));
-    if (matched || (cleanZip.startsWith("78") && cleanZip.length === 5)) {
+    if (matched || ((cleanZip.startsWith("90") || cleanZip.startsWith("91")) && cleanZip.length === 5)) {
       setZipResult({
         searched: true,
         available: true,

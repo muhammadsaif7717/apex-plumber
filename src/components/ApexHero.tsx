@@ -8,7 +8,6 @@ import {
   CalendarCheck,
   PhoneCall,
   Star,
-  Clock,
   UserCheck,
   ChevronDown,
 } from "lucide-react";
@@ -40,25 +39,25 @@ export function ApexHero() {
 
       {/* Main Centered Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full my-auto relative z-10 py-4 sm:py-6">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-5 lg:gap-10 items-center">
           {/* Left Column: Apex Plumber Value & Direct CTAs (Order 2 on mobile, Order 1 on desktop) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="order-2 lg:order-1 lg:col-span-7 space-y-3.5 sm:space-y-5 text-center lg:text-left"
+            className="order-2 lg:order-1 lg:col-span-7 space-y-3 sm:space-y-5 text-center lg:text-left"
           >
-            {/* Grand Headline */}
+            {/* Grand Headline (Elegantly proportioned across mobile to 4K) */}
             <motion.h1
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.2, duration: 0.6 }}
-              className="text-3xl xs:text-4xl sm:text-5xl md:text-6xl xl:text-7xl font-black text-[#253041] tracking-tight leading-[1.08]"
+              className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-[#253041] tracking-tight leading-[1.12]"
             >
               Reliable Plumbing Services, Delivered Personally.
             </motion.h1>
 
-            {/* Bio */}
+            {/* Bio (Comfortable readable scale) */}
             <motion.p
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
@@ -68,17 +67,17 @@ export function ApexHero() {
               From everyday plumbing repairs to complex installations, I provide dependable workmanship, honest communication, and personalized service for every customer. No middlemen, no sales commissions, and no junior apprentices.
             </motion.p>
 
-            {/* Direct Action Buttons */}
+            {/* Direct Action Buttons (Comfortable ergonomic touch targets) */}
             <motion.div
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.4, duration: 0.6 }}
-              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2.5 sm:gap-4 pt-1"
+              className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 xs:gap-2.5 sm:gap-4 pt-0.5 sm:pt-1"
             >
               <button
                 type="button"
                 onClick={() => openBookingModal({ urgency: "emergency" })}
-                className="w-full sm:w-auto btn-plumco text-xs xs:text-sm sm:text-base font-extrabold py-3 sm:py-3.5 px-5 sm:px-8 text-center shadow-lg cursor-pointer whitespace-nowrap"
+                className="w-full sm:w-auto btn-plumco text-xs xs:text-sm sm:text-base font-extrabold py-2.5 xs:py-3 sm:py-3.5 px-4 xs:px-6 sm:px-8 text-center shadow-md cursor-pointer whitespace-nowrap"
               >
                 <CalendarCheck className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
                 <span>Book a Service</span>
@@ -86,13 +85,13 @@ export function ApexHero() {
 
               <a
                 href={`tel:${currentLocation.phoneRaw}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-[#253041] font-bold text-xs sm:text-sm shadow-xs transition hover:border-[#0052da] cursor-pointer whitespace-nowrap"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-2.5 px-3.5 sm:px-6 py-2 xs:py-2.5 sm:py-3.5 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-[#253041] font-bold text-xs sm:text-sm shadow-xs transition hover:border-[#0052da] cursor-pointer whitespace-nowrap"
               >
-                <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-blue-50 text-[#0052da] flex items-center justify-center shrink-0">
-                  <PhoneCall className="w-3.5 h-3.5 sm:w-4 sm:h-4 fill-[#0052da]" />
+                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-50 text-[#0052da] flex items-center justify-center shrink-0">
+                  <PhoneCall className="w-3 h-3 sm:w-4 sm:h-4 fill-[#0052da]" />
                 </div>
                 <div className="flex flex-col text-left">
-                  <span className="text-[9px] sm:text-[10px] uppercase font-mono text-slate-500 font-bold leading-none">
+                  <span className="text-[8px] xs:text-[9px] sm:text-[10px] uppercase font-mono text-slate-500 font-bold leading-none">
                     Direct Line • Call Me Now
                   </span>
                   <span className="font-mono text-xs sm:text-sm font-extrabold text-[#0052da]">
@@ -107,21 +106,21 @@ export function ApexHero() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.5, duration: 0.6 }}
-              className="pt-3 sm:pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-3 sm:gap-6 text-xs font-semibold"
+              className="pt-2 sm:pt-5 border-t border-slate-200/80 flex flex-wrap items-center justify-center lg:justify-start gap-2.5 sm:gap-6 text-[11px] sm:text-xs font-semibold"
             >
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-1.5 sm:gap-2">
                 <div className="flex items-center text-amber-400">
                   {[...Array(5)].map((_, i) => (
-                    <Star key={i} className="w-3.5 h-3.5 fill-amber-400" />
+                    <Star key={i} className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-amber-400" />
                   ))}
                 </div>
-                <span className="text-[#253041] font-bold text-xs sm:text-sm">
+                <span className="text-[#253041] font-bold">
                   4.9/5 from 850+ Neighbors
                 </span>
               </div>
 
-              <div className="flex items-center gap-1.5 text-slate-600 text-xs sm:text-sm">
-                <UserCheck className="w-4 h-4 text-emerald-600 shrink-0" />
+              <div className="flex items-center gap-1.5 text-slate-600">
+                <UserCheck className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-emerald-600 shrink-0" />
                 <span>100% Solo Master Workmanship</span>
               </div>
             </motion.div>
@@ -132,13 +131,13 @@ export function ApexHero() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center mt-2 lg:mt-0"
+            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center mt-1 lg:mt-0"
           >
-            <div className="relative w-[260px] xs:w-[290px] sm:w-[360px] lg:w-[420px] xl:w-[460px] h-[300px] xs:h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[510px] flex items-center justify-center">
+            <div className="relative w-[210px] xs:w-[240px] sm:w-[320px] lg:w-[420px] xl:w-[460px] h-[230px] xs:h-[270px] sm:h-[370px] lg:h-[480px] xl:h-[510px] flex items-center justify-center">
               {/* Circular Backdrop */}
-              <div className="absolute inset-0 m-auto w-[230px] xs:w-[260px] sm:w-[330px] lg:w-[380px] h-[230px] xs:h-[260px] sm:h-[330px] lg:h-[380px] rounded-full bg-gradient-to-tr from-[#0052da]/15 via-blue-100/60 to-white border-4 sm:border-8 border-white shadow-2xl" />
+              <div className="absolute inset-0 m-auto w-[180px] xs:w-[210px] sm:w-[290px] lg:w-[380px] h-[180px] xs:h-[210px] sm:h-[290px] lg:h-[380px] rounded-full bg-gradient-to-tr from-[#0052da]/15 via-blue-100/60 to-white border-4 sm:border-8 border-white shadow-xl" />
 
-              {/* Plumber Photo */}
+              {/* Plumber Photo (Unobscured face) */}
               <div className="relative z-10 w-full h-full flex items-end justify-center">
                 <Image
                   src="https://wpocean.com/wp/plumco/wp-content/uploads/2021/11/Image-Plumber.png"
@@ -147,38 +146,25 @@ export function ApexHero() {
                   height={510}
                   priority
                   unoptimized
-                  className="max-h-[105%] w-auto object-contain drop-shadow-xl"
+                  className="max-h-[105%] w-auto object-contain drop-shadow-lg"
                 />
               </div>
 
               {/* Floating Experience Badge */}
               <motion.div
-                initial={{ opacity: 0, x: -20 }}
+                initial={{ opacity: 0, x: -15 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: 0.5, duration: 0.6 }}
-                className="absolute top-2 sm:top-6 left-0 sm:left-2 z-20 bg-white/95 backdrop-blur-xs border border-slate-100 rounded-xl sm:rounded-2xl p-2 sm:p-3.5 shadow-xl flex items-center gap-2 sm:gap-3"
+                className="absolute bottom-2 sm:bottom-auto sm:top-6 left-0 sm:left-2 z-20 bg-white/95 backdrop-blur-xs border border-slate-100 rounded-lg sm:rounded-2xl p-1.5 xs:p-2 sm:p-3.5 shadow-lg flex items-center gap-1.5 sm:gap-3"
               >
-                <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-[#0052da] text-white flex items-center justify-center font-black text-xs sm:text-base font-mono shrink-0">
+                <div className="w-6 h-6 xs:w-7 xs:h-7 sm:w-10 sm:h-10 rounded-md sm:rounded-xl bg-[#0052da] text-white flex items-center justify-center font-black text-[10px] xs:text-xs sm:text-base font-mono shrink-0">
                   25+
                 </div>
-                <div className="text-[10px] sm:text-xs font-bold text-[#253041] leading-tight text-left">
+                <div className="text-[9px] xs:text-[10px] sm:text-xs font-bold text-[#253041] leading-tight text-left">
                   Years Master Craft <br />
-                  <span className="text-[8px] sm:text-[9px] font-normal text-slate-500">
+                  <span className="hidden xs:inline text-[8px] sm:text-[9px] font-normal text-slate-500">
                     Zero Subcontractors
                   </span>
-                </div>
-              </motion.div>
-
-              {/* Floating Dispatch Status */}
-              <motion.div
-                initial={{ opacity: 0, x: 20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.6, duration: 0.6 }}
-                className="absolute bottom-2 sm:bottom-4 right-0 sm:right-2 z-20 bg-[#253041] text-white rounded-lg sm:rounded-xl py-1 sm:py-1.5 px-2.5 sm:px-3 shadow-xl flex items-center gap-1.5"
-              >
-                <Clock className="w-3.5 h-3.5 text-amber-400 shrink-0" />
-                <div className="text-[10px] sm:text-[11px] font-bold">
-                  On Call: <span className="text-emerald-400 font-extrabold">{currentLocation.primaryCity}</span>
                 </div>
               </motion.div>
             </div>
