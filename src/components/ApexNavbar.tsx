@@ -76,6 +76,18 @@ export function ApexNavbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  // Lock body scroll when mobile drawer is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileMenuOpen]);
+
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     targetId: string
@@ -179,57 +191,86 @@ export function ApexNavbar() {
             </button>
           </div>
         </div>
-
-        {/* Mobile Slide-down Drawer */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden bg-white border-t border-slate-200 px-4 py-3 shadow-2xl animate-in slide-in-from-top duration-200">
-            <div className="flex flex-col space-y-1 mb-3">
-              {NAV_LINKS.map((link) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <a
-                    key={link.name}
-                    href={link.href}
-                    onClick={(e) => handleNavClick(e, link.id)}
-                    className={`px-3 py-2 text-sm font-bold rounded-lg transition flex items-center justify-between ${
-                      isActive
-                        ? "bg-blue-50 text-[#0052da] font-extrabold"
-                        : "text-[#253041] hover:bg-slate-50"
-                    }`}
-                  >
-                    <span>{link.name}</span>
-                    {isActive && (
-                      <span className="w-2 h-2 rounded-full bg-[#0052da]" />
-                    )}
-                  </a>
-                );
-              })}
-            </div>
-
-            <div className="pt-3 border-t border-slate-100 flex flex-col gap-2">
-              <a
-                href={`tel:${currentLocation.phoneRaw}`}
-                className="w-full btn-plumco-dark py-2.5 text-xs font-bold text-center flex items-center justify-center gap-2"
-              >
-                <PhoneCall className="w-3.5 h-3.5" />
-                <span>Call Apex Plumber: {currentLocation.phone}</span>
-              </a>
-
-              <button
-                type="button"
-                onClick={() => {
-                  setMobileMenuOpen(false);
-                  openBookingModal({ urgency: "emergency" });
-                }}
-                className="w-full btn-plumco py-2.5 text-xs font-bold flex items-center justify-center gap-2 cursor-pointer"
-              >
-                <CalendarCheck className="w-3.5 h-3.5" />
-                <span>Book Direct / Hire Apex</span>
-              </button>
-            </div>
-          </div>
-        )}
       </nav>
+
+      {/* Blurred Backdrop Overlay (Click outside to close) */}
+      <div
+        onClick={() => setMobileMenuOpen(false)}
+        className={`fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-40 transition-opacity duration-300 lg:hidden ${
+          mobileMenuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none"
+        }`}
+        aria-hidden="true"
+      />
+
+      {/* Right-to-Left Slide-in Mobile Drawer (75% Width of Main Screen) */}
+      <aside
+        className={`fixed top-0 right-0 bottom-0 h-[100dvh] w-[75vw] sm:w-[320px] max-w-[360px] bg-white z-50 shadow-2xl flex flex-col justify-between transition-transform duration-300 ease-out lg:hidden border-l border-slate-100 ${
+          mobileMenuOpen ? "translate-x-0" : "translate-x-full"
+        }`}
+        aria-label="Mobile Navigation Drawer"
+      >
+        {/* Drawer Header */}
+        <div className="p-4 border-b border-slate-100 flex items-center justify-between">
+          <ApexLogo className="h-8" showSubtitle={false} />
+          <button
+            type="button"
+            onClick={() => setMobileMenuOpen(false)}
+            className="w-8 h-8 rounded-full bg-slate-100 hover:bg-slate-200 text-slate-700 flex items-center justify-center transition cursor-pointer"
+            aria-label="Close navigation menu"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+
+        {/* Drawer Navigation Links (Scrollable) */}
+        <div className="flex-1 overflow-y-auto p-4 space-y-1">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.name}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`px-3 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-between ${
+                  isActive
+                    ? "bg-blue-50 text-[#0052da] font-extrabold"
+                    : "text-[#253041] hover:bg-slate-50"
+                }`}
+              >
+                <span>{link.name}</span>
+                {isActive && (
+                  <span className="w-2 h-2 rounded-full bg-[#0052da]" />
+                )}
+              </a>
+            );
+          })}
+        </div>
+
+        {/* Drawer Footer Call & Book Actions */}
+        <div className="p-4 border-t border-slate-100 space-y-2.5 bg-slate-50/70">
+          <a
+            href={`tel:${currentLocation.phoneRaw}`}
+            className="w-full btn-plumco-dark py-2.5 text-xs font-bold text-center flex items-center justify-center gap-2 rounded-xl"
+          >
+            <PhoneCall className="w-3.5 h-3.5" />
+            <span>Call: {currentLocation.phone}</span>
+          </a>
+
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              openBookingModal({ urgency: "emergency" });
+            }}
+            className="w-full btn-plumco py-2.5 text-xs font-bold flex items-center justify-center gap-2 cursor-pointer rounded-xl"
+          >
+            <CalendarCheck className="w-3.5 h-3.5" />
+            <span>Book Apex Plumber</span>
+          </button>
+        </div>
+      </aside>
     </header>
   );
 }
