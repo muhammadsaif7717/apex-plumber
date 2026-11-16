@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { Star, Award, CheckCircle, Wrench, ShieldCheck } from "lucide-react";
 import { AnimatedCounter } from "./AnimatedCounter";
 
@@ -52,8 +53,12 @@ export function ApexFunFact() {
               {stats.map((s, idx) => {
                 const Icon = s.icon;
                 return (
-                  <div
+                  <motion.div
                     key={idx}
+                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                    whileInView={{ opacity: 1, scale: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.2 }}
+                    transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
                     className="bg-white/10 backdrop-blur-xs rounded-xl sm:rounded-2xl p-4 sm:p-7 border border-white/15 hover:bg-white/15 transition-all flex flex-col justify-between hover:-translate-y-1"
                   >
                     <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-lg sm:rounded-xl bg-white/20 flex items-center justify-center mb-3 sm:mb-4">
@@ -71,7 +76,7 @@ export function ApexFunFact() {
                         {s.label}
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 );
               })}
             </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { ChevronDown, HelpCircle } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
@@ -67,7 +68,13 @@ export function ApexFAQ() {
     >
       <div className="max-w-4xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-14"
+        >
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: Questions &amp; Answers</span>
           </div>
@@ -77,15 +84,19 @@ export function ApexFAQ() {
           <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
             Straightforward answers to the most common questions homeowners ask before scheduling a plumbing service call.
           </p>
-        </div>
+        </motion.div>
 
         {/* Accordion List */}
         <div className="space-y-3 sm:space-y-4">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
-              <div
+              <motion.div
                 key={idx}
+                initial={{ opacity: 0, y: 15 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.4, delay: (idx % 4) * 0.08, ease: "easeOut" }}
                 className={`rounded-2xl border transition-all duration-200 overflow-hidden ${
                   isOpen
                     ? "bg-blue-50/40 border-[#0052da]/40 shadow-md"
@@ -118,7 +129,7 @@ export function ApexFAQ() {
                     <p className="pt-2">{faq.answer}</p>
                   </div>
                 )}
-              </div>
+              </motion.div>
             );
           })}
         </div>

@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import {
   MessageSquare,
   UserCheck,
@@ -81,11 +82,15 @@ export function ApexWhyHireMe() {
 
         {/* 6 Icon-Based Reason Cards: 2 Columns on Mobile, 3 Columns on Desktop */}
         <div className="grid grid-cols-2 lg:grid-cols-3 gap-2.5 xs:gap-3.5 sm:gap-6 lg:gap-8">
-          {reasons.map((reason) => {
+          {reasons.map((reason, idx) => {
             const Icon = reason.icon;
             return (
-              <div
+              <motion.div
                 key={reason.id}
+                initial={{ opacity: 0, y: 25 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
                 className="bg-[#f8fbff] rounded-xl sm:rounded-2xl p-3 xs:p-4 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#0052da]/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
@@ -111,7 +116,7 @@ export function ApexWhyHireMe() {
                   <CheckCircle2 className="w-3.5 h-3.5 sm:w-4 sm:h-4 shrink-0" />
                   <span className="truncate">Master Guaranteed</span>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

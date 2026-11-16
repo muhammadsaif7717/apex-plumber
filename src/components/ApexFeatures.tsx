@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { PLUMCO_FEATURES } from "@/data/plumcoData";
 import { CalendarCheck, Truck, CheckCircle2 } from "lucide-react";
 
@@ -20,8 +21,12 @@ export function ApexFeatures() {
             const IconComponent = iconMap[feat.iconName] || CheckCircle2;
             const isLast = idx === 2;
             return (
-              <div
+              <motion.div
                 key={feat.id}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.2 }}
+                transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
                 className={`bg-white rounded-xl sm:rounded-2xl p-3 xs:p-4 sm:p-7 border border-slate-100 shadow-md sm:shadow-xl shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/10 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1 ${
                   isLast ? "col-span-2 md:col-span-1" : "col-span-1"
                 }`}
@@ -44,7 +49,7 @@ export function ApexFeatures() {
                     {feat.desc}
                   </p>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

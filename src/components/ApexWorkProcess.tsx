@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { motion } from "framer-motion";
 import { useLocation } from "@/context/LocationContext";
 import {
   CalendarCheck,
@@ -73,8 +74,12 @@ export function ApexWorkProcess() {
             {steps.map((item, idx) => {
               const Icon = item.icon;
               return (
-                <div
+                <motion.div
                   key={item.step}
+                  initial={{ opacity: 0, y: 25 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.15 }}
+                  transition={{ duration: 0.5, delay: idx * 0.1, ease: "easeOut" }}
                   className="bg-white rounded-xl sm:rounded-2xl p-3 xs:p-4 sm:p-6 border border-slate-200 shadow-md sm:shadow-lg shadow-slate-900/5 hover:shadow-xl hover:border-[#0052da]/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
                 >
                   <div>
@@ -106,7 +111,7 @@ export function ApexWorkProcess() {
                     <span className="font-mono font-semibold">Phase {idx + 1} of 4</span>
                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 text-[#0052da] opacity-0 group-hover:opacity-100 group-hover:translate-x-1 transition-all" />
                   </div>
-                </div>
+                </motion.div>
               );
             })}
           </div>

@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { PLUMCO_PROJECTS } from "@/data/plumcoData";
 import { CheckCircle2 } from "lucide-react";
 
@@ -51,9 +52,13 @@ export function ApexProjects() {
 
         {/* Projects Grid (Stable, No Blinking) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {filteredProjects.map((proj) => (
-            <div
+          {filteredProjects.map((proj, idx) => (
+            <motion.div
               key={proj.id}
+              initial={{ opacity: 0, y: 25 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.15 }}
+              transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
               className="bg-white rounded-2xl overflow-hidden shadow-md border border-slate-100 flex flex-col group hover:shadow-xl hover:border-blue-200 transition-all duration-300 hover:-translate-y-1.5"
             >
               <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
@@ -96,7 +101,7 @@ export function ApexProjects() {
                   </span>
                 </div>
               </div>
-            </div>
+            </motion.div>
           ))}
         </div>
       </div>

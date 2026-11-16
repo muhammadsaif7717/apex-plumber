@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { useLocation } from "@/context/LocationContext";
 import {
   MapPin,
@@ -61,7 +62,13 @@ export function ApexCoverage() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
-        <div className="text-center max-w-2xl mx-auto mb-10 sm:mb-14">
+        <motion.div
+          initial={{ opacity: 0, y: 25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.5, ease: "easeOut" }}
+          className="text-center max-w-2xl mx-auto mb-10 sm:mb-14"
+        >
           <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#0052da] uppercase tracking-widest font-mono mb-2">
             <span>:: Local Territory</span>
           </div>
@@ -71,12 +78,18 @@ export function ApexCoverage() {
           <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600">
             Based locally in {currentLocation.primaryCity}, I provide prompt on-site plumbing services across a 35-mile radius. Zero travel surcharges within my primary service area.
           </p>
-        </div>
+        </motion.div>
 
         {/* Main Coverage Grid */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch">
           {/* Left Column: Interactive Neighborhood List & ZIP Lookup */}
-          <div className="lg:col-span-7 flex flex-col justify-between space-y-6">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-7 flex flex-col justify-between space-y-6"
+          >
             {/* Interactive ZIP Checker */}
             <div className="bg-white rounded-2xl p-5 sm:p-7 border border-slate-200 shadow-lg">
               <h3 className="text-base sm:text-lg font-black text-[#253041] mb-2 flex items-center gap-2">
@@ -153,10 +166,16 @@ export function ApexCoverage() {
                 ))}
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Right Column: Visual Local Service Hub Card */}
-          <div className="lg:col-span-5 bg-[#253041] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.15 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="lg:col-span-5 bg-[#253041] text-white rounded-2xl sm:rounded-3xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden"
+          >
             {/* Ambient Background Accent */}
             <div className="absolute -top-20 -right-20 w-60 h-60 bg-blue-500/10 rounded-full blur-3xl pointer-events-none" />
 
@@ -219,7 +238,7 @@ export function ApexCoverage() {
                 </a>
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

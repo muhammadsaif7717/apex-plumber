@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { PLUMCO_SERVICES, PlumcoService } from "@/data/plumcoData";
 import { useLocation } from "@/context/LocationContext";
 import {
@@ -45,11 +46,15 @@ export function ApexServicesGrid() {
 
         {/* 6 Specialized Services Grid (Stable, No Blinking) */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
-          {PLUMCO_SERVICES.map((srv) => {
+          {PLUMCO_SERVICES.map((srv, idx) => {
             const IconComponent = iconMap[srv.iconName] || Wrench;
             return (
-              <div
+              <motion.div
                 key={srv.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.15 }}
+                transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
                 className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1.5"
               >
                 {/* Image Header with cleanly contained zoom and unclipped floating icon */}
@@ -102,7 +107,7 @@ export function ApexServicesGrid() {
                     </div>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
         </div>

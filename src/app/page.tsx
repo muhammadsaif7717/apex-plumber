@@ -1,4 +1,5 @@
 import { LocationProvider } from "@/context/LocationContext";
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { ApexNavbar } from "@/components/ApexNavbar";
 import { ApexHero } from "@/components/ApexHero";
 import { ApexFeatures } from "@/components/ApexFeatures";
@@ -20,7 +21,8 @@ import { ApexWhatsAppWidget } from "@/components/ApexWhatsAppWidget";
 export default function Home() {
   return (
     <LocationProvider>
-      <div className="relative min-h-screen flex flex-col bg-white overflow-x-hidden">
+      <SmoothScrollProvider>
+        <div className="relative min-h-screen flex flex-col bg-white overflow-x-hidden">
         {/* Personal Topbar & Navigation */}
         <ApexNavbar />
 
@@ -74,6 +76,7 @@ export default function Home() {
         {/* Floating WhatsApp Interactive Chat Widget */}
         <ApexWhatsAppWidget />
       </div>
-    </LocationProvider>
+    </SmoothScrollProvider>
+  </LocationProvider>
   );
 }
