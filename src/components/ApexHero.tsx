@@ -41,12 +41,12 @@ export function ApexHero() {
       {/* Main Centered Content Container */}
       <div className="max-w-7xl mx-auto px-4 sm:px-6 w-full my-auto relative z-10 py-4 sm:py-6">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-10 items-center">
-          {/* Left Column: Apex Plumber Value & Direct CTAs */}
+          {/* Left Column: Apex Plumber Value & Direct CTAs (Order 2 on mobile, Order 1 on desktop) */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut" }}
-            className="lg:col-span-7 space-y-3.5 sm:space-y-5 text-center lg:text-left"
+            className="order-2 lg:order-1 lg:col-span-7 space-y-3.5 sm:space-y-5 text-center lg:text-left"
           >
             {/* Grand Headline */}
             <motion.h1
@@ -127,12 +127,12 @@ export function ApexHero() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Master Plumber Hero Image */}
+          {/* Right Column: Master Plumber Hero Image (Order 1 on mobile, Order 2 on desktop) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
-            className="lg:col-span-5 relative flex justify-center mt-2 lg:mt-0"
+            className="order-1 lg:order-2 lg:col-span-5 relative flex justify-center mt-2 lg:mt-0"
           >
             <div className="relative w-[260px] xs:w-[290px] sm:w-[360px] lg:w-[420px] xl:w-[460px] h-[300px] xs:h-[340px] sm:h-[420px] lg:h-[480px] xl:h-[510px] flex items-center justify-center">
               {/* Circular Backdrop */}

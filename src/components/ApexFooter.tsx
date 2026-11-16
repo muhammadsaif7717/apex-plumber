@@ -25,7 +25,7 @@ export function ApexFooter() {
   };
 
   return (
-    <footer className="bg-[#253041] text-slate-300 pt-16 pb-24 lg:pb-16 border-t border-slate-700">
+    <footer className="bg-[#253041] text-slate-300 pt-16 pb-16 border-t border-slate-700">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 pb-14 border-b border-slate-700">
           {/* Col 1: Brand Info */}

@@ -16,7 +16,6 @@ import { ApexFAQ } from "@/components/ApexFAQ";
 import { ApexAppointment } from "@/components/ApexAppointment";
 import { ApexFooter } from "@/components/ApexFooter";
 import { ApexBookingModal } from "@/components/ApexBookingModal";
-import { ApexMobileDock } from "@/components/ApexMobileDock";
 
 export default function Home() {
   return (
@@ -74,9 +73,6 @@ export default function Home() {
 
         {/* Floating Interactive Modal */}
         <ApexBookingModal />
-
-        {/* Sticky Mobile Bottom Dock (Hidden on Large Screens) */}
-        <ApexMobileDock />
       </div>
     </LocationProvider>
   );
