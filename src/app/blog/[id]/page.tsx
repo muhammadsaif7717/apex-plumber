@@ -16,6 +16,8 @@ interface BlogPageProps {
   params: Promise<{ id: string }>;
 }
 
+export const instant = false;
+
 export async function generateStaticParams() {
   return PLUMCO_BLOGS.map((blog) => ({
     id: blog.id,
@@ -56,7 +58,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           </Link>
 
           <a
-            href="tel:+18005552739"
+            href="tel:+8801319630516"
             className="btn-plumco text-xs font-bold py-2 px-3.5"
           >
             <PhoneCall className="w-3.5 h-3.5" />
@@ -158,7 +160,7 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
           </div>
 
           <a
-            href="tel:+18005552739"
+            href="tel:+8801319630516"
             className="btn-plumco text-xs font-bold py-3 px-5 shrink-0"
           >
             <PhoneCall className="w-3.5 h-3.5" />
