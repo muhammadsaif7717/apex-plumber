@@ -1,0 +1,353 @@
+================================================================================
+🚀 MASTER PROMPT & BLUEPRINT: PRODUCTION-GRADE SMOOTH SCROLL & ANIMATION SYSTEM
+================================================================================
+(Save this file or copy-paste this prompt directly into your AI Agent / Developer instructions)
+
+PROMPT FOR AI AGENT:
+--------------------------------------------------------------------------------
+Please implement a modern, production-grade smooth scrolling and scroll-triggered animation system in this Next.js (App Router) / React project using the exact architecture, packages, and integration guidelines detailed below.
+
+--------------------------------------------------------------------------------
+📦 1. REQUIRED PACKAGES & INSTALLATION
+--------------------------------------------------------------------------------
+Run the following installation command:
+
+```bash
+npm install lenis framer-motion lucide-react
+```
+
+Package Details:
+1. `lenis` (^1.3.x):
+   - High-performance inertial/momentum smooth scrolling engine by Darkroom Engineering (formerly Studio Freight).
+   - Replaces rough browser scroll with silk-smooth momentum acceleration and deceleration.
+2. `framer-motion` (^14.x):
+   - Industry-standard declarative animation library for React.
+   - Provides performant GPU-accelerated viewport scroll reveal animations (`whileInView`).
+3. `lucide-react`:
+   - Lightweight, consistent SVG icon set for navigation and interactive controls.
+
+
+--------------------------------------------------------------------------------
+🛠️ 2. ARCHITECTURE & IMPLEMENTATION GUIDE
+--------------------------------------------------------------------------------
+
+### STEP A: Create the Smooth Scroll Provider
+File: `src/components/SmoothScrollProvider.tsx`
+Description:
+A global client wrapper that initiates Lenis, attaches it to the browser's `requestAnimationFrame` loop, exposes the instance to `window.__lenis`, and intercepts all anchor hash links (`#section`) for unified, jitter-free scrolling.
+
+```tsx
+"use client";
+
+import React, { useEffect, ReactNode } from "react";
+import Lenis from "lenis";
+
+export function SmoothScrollProvider({ children }: { children: ReactNode }) {
+  useEffect(() => {
+    // 1. Initialize Lenis with optimal momentum easing
+    const lenis = new Lenis({
+      duration: 1.1, // Smooth duration (seconds)
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // Exponential deceleration curve
+      orientation: "vertical",
+      gestureOrientation: "vertical",
+      smoothWheel: true,
+      wheelMultiplier: 0.9,
+      touchMultiplier: 1.2,
+    });
+
+    let rafId: number;
+    function raf(time: number) {
+      lenis.raf(time);
+      rafId = requestAnimationFrame(raf);
+    }
+    rafId = requestAnimationFrame(raf);
+
+    // 2. Expose Lenis instance globally to window for component coordination (e.g. Navbar)
+    (window as unknown as { __lenis?: Lenis }).__lenis = lenis;
+
+    // 3. Catch all internal anchor links (#hash) for Lenis smooth scrolling
+    const handleAnchorClick = (e: MouseEvent) => {
+      const target = (e.target as HTMLElement).closest("a");
+      if (
+        target &&
+        target.hash &&
+        target.hash.startsWith("#") &&
+        target.origin === window.location.origin
+      ) {
+        if (target.hash === "#" || target.hash === "#hero") {
+          e.preventDefault();
+          lenis.scrollTo(0, { duration: 1.1 });
+          return;
+        }
+        const element = document.querySelector(target.hash);
+        if (element) {
+          e.preventDefault();
+          // offset: 0 respects the element's CSS scroll-margin-top
+          lenis.scrollTo(element, { offset: 0, duration: 1.1 });
+        }
+      }
+    };
+
+    document.addEventListener("click", handleAnchorClick);
+
+    return () => {
+      cancelAnimationFrame(rafId);
+      document.removeEventListener("click", handleAnchorClick);
+      delete (window as unknown as { __lenis?: Lenis }).__lenis;
+      lenis.destroy();
+    };
+  }, []);
+
+  return <>{children}</>;
+}
+```
+
+Usage in Root Layout (`src/app/layout.tsx` or `src/app/page.tsx`):
+```tsx
+import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
+
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <html lang="en">
+      <body>
+        <SmoothScrollProvider>
+          {children}
+        </SmoothScrollProvider>
+      </body>
+    </html>
+  );
+}
+```
+
+
+### STEP B: Bulletproof Navbar ScrollSpy & Click-Lock
+File: `src/components/Navbar.tsx`
+Description:
+Prevents the classic "off-by-one" bug where clicking a nav link scrolls to that section but highlights the previous link.
+
+Key Principles to implement:
+1. Click Lock (`isClickScrollingRef`):
+   When clicking a nav link, immediately activate that link in state and freeze ScrollSpy updates for 1000ms until the smooth scroll completes.
+2. Viewport Focal-Point Detection:
+   Never rely on `el.offsetTop <= window.scrollY + offset` (fails with CSS margins/transforms). Instead, use `getBoundingClientRect().top <= focalPoint` (e.g. 200px) in reverse order of sections.
+3. Coordinate with Lenis:
+   Use `window.__lenis.scrollTo(targetElement, { offset: 0, duration: 1.1 })`.
+
+Reference Implementation:
+```tsx
+"use client";
+
+import React, { useState, useEffect, useRef } from "react";
+
+const NAV_LINKS = [
+  { name: "Home", href: "/#hero", id: "hero" },
+  { name: "About", href: "/#about", id: "about" },
+  { name: "Services", href: "/#services", id: "services" },
+  { name: "Projects", href: "/#projects", id: "projects" },
+  { name: "Contact", href: "/#contact", id: "contact" },
+];
+
+export function Navbar() {
+  const [activeSection, setActiveSection] = useState("hero");
+  const [scrolled, setScrolled] = useState(false);
+
+  const isClickScrollingRef = useRef(false);
+  const clickScrollTimerRef = useRef<NodeJS.Timeout | null>(null);
+
+  useEffect(() => {
+    let ticking = false;
+
+    const handleScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 20);
+
+          // If user recently clicked a nav link, skip scroll spy recalculation to avoid flickering
+          if (!isClickScrollingRef.current) {
+            let current = "hero";
+            if (window.scrollY < 120) {
+              current = "hero";
+            } else if (
+              window.innerHeight + window.scrollY >=
+              document.documentElement.scrollHeight - 80
+            ) {
+              // At bottom of page -> select last section
+              current = "contact";
+            } else {
+              const sectionIds = NAV_LINKS.map((l) => l.id);
+              const focalPoint = 200; // Focal line just below sticky navbar
+
+              // Reverse loop: find deepest section whose top has crossed the focal line
+              for (let i = sectionIds.length - 1; i >= 0; i--) {
+                const el = document.getElementById(sectionIds[i]);
+                if (el) {
+                  const rect = el.getBoundingClientRect();
+                  if (rect.top <= focalPoint) {
+                    current = sectionIds[i];
+                    break;
+                  }
+                }
+              }
+            }
+            setActiveSection((prev) => (prev !== current ? current : prev));
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      if (clickScrollTimerRef.current) {
+        clearTimeout(clickScrollTimerRef.current);
+      }
+    };
+  }, []);
+
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    const targetElement = document.getElementById(targetId);
+    if (targetElement) {
+      e.preventDefault();
+
+      // Lock scrollspy immediately to the clicked link
+      isClickScrollingRef.current = true;
+      setActiveSection(targetId);
+
+      if (clickScrollTimerRef.current) {
+        clearTimeout(clickScrollTimerRef.current);
+      }
+      clickScrollTimerRef.current = setTimeout(() => {
+        isClickScrollingRef.current = false;
+      }, 1100);
+
+      // Scroll smoothly via global Lenis instance
+      const lenis = (window as unknown as { __lenis?: { scrollTo: (t: Element | number, opts?: unknown) => void } }).__lenis;
+      if (lenis && typeof lenis.scrollTo === "function") {
+        if (targetId === "hero") {
+          lenis.scrollTo(0, { duration: 1.1 });
+        } else {
+          lenis.scrollTo(targetElement, { offset: 0, duration: 1.1 });
+        }
+      } else {
+        targetElement.scrollIntoView({ behavior: "smooth" });
+      }
+    }
+  };
+
+  return (
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all ${scrolled ? "bg-white/95 backdrop-blur shadow-sm py-2" : "bg-transparent py-4"}`}>
+      <div className="max-w-7xl mx-auto px-4 flex items-center justify-between">
+        <a href="/#hero" onClick={(e) => handleNavClick(e, "hero")} className="font-black text-xl">
+          BRAND
+        </a>
+        <div className="flex items-center gap-2">
+          {NAV_LINKS.map((link) => {
+            const isActive = activeSection === link.id;
+            return (
+              <a
+                key={link.id}
+                href={link.href}
+                onClick={(e) => handleNavClick(e, link.id)}
+                className={`relative px-3 py-1.5 text-sm font-semibold rounded-lg transition-all ${
+                  isActive ? "text-blue-600 bg-blue-50 font-bold" : "text-slate-600 hover:text-slate-900"
+                }`}
+              >
+                {link.name}
+                {isActive && (
+                  <span className="absolute bottom-0 left-2 right-2 h-0.5 bg-blue-600 rounded-full" />
+                )}
+              </a>
+            );
+          })}
+        </div>
+      </div>
+    </nav>
+  );
+}
+```
+
+
+### STEP C: Section Scroll-Margin Setup (Tailwind CSS)
+Every target `<section>` MUST have a scroll-margin class so that when scrolling to it, the section content does not get buried underneath the sticky navbar:
+
+```tsx
+<section id="services" className="py-20 bg-white scroll-mt-24">
+  {/* Content */}
+</section>
+```
+Note: `scroll-mt-24` in Tailwind sets `scroll-margin-top: 6rem` (96px), which gives a clean 26px breathing gap below a 70px fixed navbar.
+
+
+### STEP D: Scroll-Triggered Reveal Animations (Framer Motion)
+Use Framer Motion's `whileInView` to reveal cards, headers, and grids smoothly as the user scrolls into view.
+
+1. Single Component Fade-In & Slide-Up:
+```tsx
+import { motion } from "framer-motion";
+
+<motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true, margin: "-40px" }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+>
+  <h2 className="text-3xl font-black">Section Title</h2>
+</motion.div>
+```
+
+2. Staggered Grid / List Reveal:
+```tsx
+const items = [...];
+
+<div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+  {items.map((item, index) => (
+    <motion.div
+      key={item.id}
+      initial={{ opacity: 0, y: 25 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-30px" }}
+      transition={{ duration: 0.5, delay: index * 0.1, ease: "easeOut" }}
+      className="p-6 bg-white rounded-2xl border shadow-sm hover:shadow-md transition-shadow"
+    >
+      <h3>{item.title}</h3>
+      <p>{item.description}</p>
+    </motion.div>
+  ))}
+</div>
+```
+
+3. Lateral Entry (Left to Right / Right to Left):
+```tsx
+<motion.div
+  initial={{ opacity: 0, x: -40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+>
+  {/* Left Image or Content */}
+</motion.div>
+```
+
+
+--------------------------------------------------------------------------------
+⚠️ 3. COMMON PITFALLS & HOW TO AVOID THEM
+--------------------------------------------------------------------------------
+1. DON'T use native `window.scrollTo({ behavior: "smooth" })` alongside Lenis.
+   -> Why: They will fight each other and cause visible stutter. Always use `lenis.scrollTo(target, ...)`.
+
+2. DON'T calculate `scrollPosition` with static `el.offsetTop`.
+   -> Why: In modern CSS with transformed parents, sticky elements, or margins, `offsetTop` is relative to `offsetParent`, not the document. Always use `el.getBoundingClientRect().top`.
+
+3. DON'T forget `viewport={{ once: true }}` in Framer Motion.
+   -> Why: Without `once: true`, the animations will re-trigger and flash every single time the user scrolls up and down.
+
+4. DON'T forget `scroll-mt-24` on sections.
+   -> Why: Without scroll margin, the top of the section will land behind the fixed navbar.
+
+================================================================================
+END OF PROMPT
+================================================================================
