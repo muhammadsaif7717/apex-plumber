@@ -9,10 +9,11 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
+  MessageCircle,
 } from "lucide-react";
 
 export function ApexWorkProcess() {
-  const { openBookingModal, currentLocation } = useLocation();
+  const { currentLocation } = useLocation();
 
   const steps = [
     {
@@ -129,19 +130,21 @@ export function ApexWorkProcess() {
           </div>
 
           <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => openBookingModal({ urgency: "emergency" })}
-              className="btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 sm:px-6 w-full sm:w-auto text-center cursor-pointer whitespace-nowrap"
-            >
-              <span>Book Appointment</span>
-            </button>
             <a
-              href={`tel:${currentLocation.phoneRaw}`}
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-[#ffb600] font-mono text-xs font-bold transition whitespace-nowrap"
+              href="https://wa.me/8801319630516"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 sm:px-6 w-full sm:w-auto text-center rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap transition"
+            >
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span>Chat on WhatsApp</span>
+            </a>
+            <a
+              href="tel:+8801319630516"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs font-bold transition whitespace-nowrap"
             >
               <PhoneCall className="w-3.5 h-3.5" />
-              <span>{currentLocation.phone}</span>
+              <span>Call Now</span>
             </a>
           </div>
         </div>

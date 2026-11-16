@@ -10,11 +10,11 @@ import {
   ShieldCheck,
   CheckCircle2,
   Award,
+  MessageCircle,
+  PhoneCall,
 } from "lucide-react";
-import { useLocation } from "@/context/LocationContext";
 
 export function ApexTestimonials() {
-  const { openBookingModal } = useLocation();
 
   // Desktop Page index for 3-cards pagination (0: reviews 0-2, 1: reviews 3-5)
   const [currentPage, setCurrentPage] = useState<number>(0);
@@ -359,15 +359,24 @@ export function ApexTestimonials() {
           </div>
         </div>
 
-        {/* Bottom Callout / Book Apex Prompt */}
-        <div className="mt-8 sm:mt-12 text-center">
-          <button
-            type="button"
-            onClick={() => openBookingModal({ urgency: "emergency" })}
-            className="btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-5 sm:px-6 cursor-pointer"
+        {/* Bottom Callout / WhatsApp Prompt */}
+        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
+          <a
+            href="https://wa.me/8801319630516"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer transition"
           >
-            <span>Experience Apex Plumber&apos;s 5-Star Service</span>
-          </button>
+            <MessageCircle className="w-4 h-4 fill-white" />
+            <span>Chat on WhatsApp</span>
+          </a>
+          <a
+            href="tel:+8801319630516"
+            className="btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer transition"
+          >
+            <PhoneCall className="w-4 h-4" />
+            <span>Call Now</span>
+          </a>
         </div>
       </div>
     </section>

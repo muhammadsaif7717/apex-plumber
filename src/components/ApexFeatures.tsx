@@ -2,11 +2,9 @@
 
 import React from "react";
 import { PLUMCO_FEATURES } from "@/data/plumcoData";
-import { CalendarCheck, Truck, CheckCircle2, ArrowRight } from "lucide-react";
-import { useLocation } from "@/context/LocationContext";
+import { CalendarCheck, Truck, CheckCircle2, ArrowRight, MessageCircle } from "lucide-react";
 
 export function ApexFeatures() {
-  const { openBookingModal } = useLocation();
 
   const iconMap: Record<string, React.ElementType> = {
     CalendarCheck,
@@ -48,15 +46,16 @@ export function ApexFeatures() {
                 </div>
 
                 <div className="mt-2.5 xs:mt-3 sm:mt-5 pt-2 sm:pt-4 border-t border-slate-100">
-                  <button
-                    type="button"
-                    onClick={() => openBookingModal({ urgency: "emergency" })}
-                    className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] xs:text-[11px] sm:text-xs font-bold text-[#0052da] group-hover:underline cursor-pointer"
+                  <a
+                    href="https://wa.me/8801319630516?text=Hi%20Apex%20Plumber%2C%20I%20would%20like%20to%20request%20plumbing%20service."
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 sm:gap-1.5 text-[10px] xs:text-[11px] sm:text-xs font-bold text-[#075E54] hover:text-[#25D366] transition cursor-pointer"
                   >
-                    <span className="sm:hidden">Request Service</span>
-                    <span className="hidden sm:inline">Request Service / Get Estimate</span>
+                    <MessageCircle className="w-3 h-3 sm:w-3.5 sm:h-3.5 fill-[#25D366] text-[#25D366]" />
+                    <span>Chat on WhatsApp</span>
                     <ArrowRight className="w-3 h-3 sm:w-3.5 sm:h-3.5 group-hover:translate-x-1 transition-transform" />
-                  </button>
+                  </a>
                 </div>
               </div>
             );

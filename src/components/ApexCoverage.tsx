@@ -10,11 +10,11 @@ import {
   CheckCircle2,
   Navigation,
   Search,
-  CalendarCheck,
+  MessageCircle,
 } from "lucide-react";
 
 export function ApexCoverage() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
 
   const [zipInput, setZipInput] = useState("");
   const [zipResult, setZipResult] = useState<{
@@ -94,7 +94,7 @@ export function ApexCoverage() {
                   <input
                     type="text"
                     maxLength={5}
-                    placeholder="Enter 5-Digit ZIP (e.g. 78701)"
+                    placeholder="Enter 5-Digit ZIP (e.g. 90014)"
                     value={zipInput}
                     onChange={(e) => setZipInput(e.target.value.replace(/\D/g, ""))}
                     className="w-full bg-[#f4f8fe] border border-slate-200 rounded-xl px-4 py-3 text-sm font-mono font-bold text-[#253041] placeholder:text-slate-400 placeholder:font-normal focus:bg-white focus:border-[#0052da] outline-none transition"
@@ -117,13 +117,16 @@ export function ApexCoverage() {
                       Yes! You are in my primary dispatch zone ({zipResult.areaName}).
                     </span>
                   </div>
-                  <button
-                    type="button"
-                    onClick={() => openBookingModal({ urgency: "emergency" })}
-                    className="text-xs font-black text-[#0052da] underline hover:text-[#0041ae] whitespace-nowrap cursor-pointer"
+                  <a
+                    href={`https://wa.me/8801319630516?text=${encodeURIComponent(
+                      `Hi Apex Plumber, I checked my ZIP (${zipInput || "LA"}) and am in your area.`
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs font-black text-[#25D366] hover:underline whitespace-nowrap cursor-pointer flex items-center gap-1"
                   >
-                    Book Now
-                  </button>
+                    <span>WhatsApp Me</span>
+                  </a>
                 </div>
               )}
             </div>
@@ -214,20 +217,21 @@ export function ApexCoverage() {
               </div>
 
               <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
-                <button
-                  type="button"
-                  onClick={() => openBookingModal({ urgency: "emergency" })}
-                  className="btn-plumco text-xs sm:text-sm font-bold py-3 px-4 w-full flex items-center justify-center gap-2 cursor-pointer shadow-md"
-                >
-                  <CalendarCheck className="w-4 h-4" />
-                  <span>Book Service In My Area</span>
-                </button>
                 <a
-                  href={`tel:${currentLocation.phoneRaw}`}
+                  href="https://wa.me/8801319630516"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-3 px-4 w-full flex items-center justify-center gap-2 rounded-xl shadow-md transition cursor-pointer"
+                >
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Chat on WhatsApp</span>
+                </a>
+                <a
+                  href="tel:+8801319630516"
                   className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs sm:text-sm font-bold border border-slate-700 transition"
                 >
                   <PhoneCall className="w-4 h-4 text-[#ffb600]" />
-                  <span>Call Directly</span>
+                  <span>Call Now</span>
                 </a>
               </div>
             </div>

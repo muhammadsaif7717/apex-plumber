@@ -10,6 +10,7 @@ import {
   Send,
   ShieldCheck,
   CheckCircle,
+  MessageCircle,
 } from "lucide-react";
 
 export function ApexFooter() {
@@ -43,10 +44,21 @@ export function ApexFooter() {
               <div className="flex items-center gap-2.5 text-slate-300">
                 <PhoneCall className="w-4 h-4 text-[#0052da] shrink-0" />
                 <a
-                  href={`tel:${currentLocation.phoneRaw}`}
+                  href="tel:+8801319630516"
                   className="font-mono font-bold hover:text-white transition"
                 >
-                  Dispatch: {currentLocation.phone}
+                  Direct Call: +880 1319-630516
+                </a>
+              </div>
+              <div className="flex items-center gap-2.5 text-slate-300">
+                <MessageCircle className="w-4 h-4 text-[#25D366] shrink-0 fill-[#25D366]" />
+                <a
+                  href="https://wa.me/8801319630516"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-bold hover:text-white transition"
+                >
+                  WhatsApp: +880 1319-630516
                 </a>
               </div>
               <div className="flex items-center gap-2.5 text-slate-300">

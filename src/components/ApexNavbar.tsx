@@ -4,11 +4,11 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { useLocation } from "@/context/LocationContext";
 import { ApexLogo } from "./ApexLogo";
+import { WhatsAppIcon } from "./ApexWhatsAppWidget";
 import {
   PhoneCall,
   Menu,
   X,
-  CalendarCheck,
 } from "lucide-react";
 
 interface NavLinkItem {
@@ -156,28 +156,27 @@ export function ApexNavbar() {
 
           {/* Right Action Area */}
           <div className="flex items-center gap-1.5 xs:gap-2 sm:gap-3 shrink-0">
-            {/* Quick Call Button */}
+            {/* WhatsApp Direct Chat Button (Desktop) */}
             <a
-              href={`tel:${currentLocation.phoneRaw}`}
-              className="inline-flex items-center gap-1 px-2 xs:px-2.5 sm:px-3 py-1.5 sm:py-2 rounded-lg bg-blue-50 hover:bg-blue-100 text-[#0052da] text-xs sm:text-sm font-extrabold font-mono transition whitespace-nowrap"
-              aria-label={`Call Apex Plumber at ${currentLocation.phone}`}
+              href="https://wa.me/8801319630516"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 sm:py-2 rounded-xl bg-emerald-50 hover:bg-emerald-100 text-[#075E54] hover:text-[#064e46] text-xs sm:text-sm font-bold border border-emerald-200/80 transition shadow-xs"
+              aria-label="Chat with Apex Plumber on WhatsApp"
             >
-              <PhoneCall className="w-3.5 h-3.5 shrink-0" />
-              <span className="hidden sm:inline whitespace-nowrap">
-                {currentLocation.phone}
-              </span>
-              <span className="sm:hidden text-xs font-bold">Call</span>
+              <WhatsAppIcon className="w-4 h-4 text-[#25D366]" />
+              <span className="whitespace-nowrap">WhatsApp</span>
             </a>
 
-            {/* Book Apex Plumber Primary Button (Visible on screens >= 640px or sm) */}
-            <button
-              type="button"
-              onClick={() => openBookingModal({ urgency: "emergency" })}
-              className="hidden! sm:inline-flex! btn-plumco text-xs sm:text-sm font-bold py-1.5 sm:py-2 px-3 xs:px-3.5 sm:px-4 shadow-sm whitespace-nowrap cursor-pointer"
+            {/* Direct Call Now Button */}
+            <a
+              href="tel:+8801319630516"
+              className="inline-flex items-center gap-1.5 px-3 sm:px-4 py-1.5 sm:py-2 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs sm:text-sm font-extrabold shadow-sm active:scale-95 transition whitespace-nowrap"
+              aria-label="Call Apex Plumber Now"
             >
-              <CalendarCheck className="w-3.5 h-3.5 shrink-0" />
-              <span className="whitespace-nowrap">Book Service</span>
-            </button>
+              <PhoneCall className="w-3.5 h-3.5 shrink-0" />
+              <span>Call Now</span>
+            </a>
 
             {/* Mobile Hamburger Drawer Toggle */}
             <button
@@ -248,27 +247,25 @@ export function ApexNavbar() {
           })}
         </div>
 
-        {/* Drawer Footer Call & Book Actions */}
-        <div className="p-4 border-t border-slate-100 space-y-2.5 bg-slate-50/70">
+        {/* Drawer Footer Call & WhatsApp Actions */}
+        <div className="p-4 border-t border-slate-100 space-y-2 bg-slate-50/70">
           <a
-            href={`tel:${currentLocation.phoneRaw}`}
-            className="w-full btn-plumco-dark py-2.5 text-xs font-bold text-center flex items-center justify-center gap-2 rounded-xl"
+            href="tel:+8801319630516"
+            className="w-full btn-plumco py-2.5 text-xs font-bold text-center flex items-center justify-center gap-2 rounded-xl shadow-xs"
           >
             <PhoneCall className="w-3.5 h-3.5" />
-            <span>Call: {currentLocation.phone}</span>
+            <span>Call Now</span>
           </a>
 
-          <button
-            type="button"
-            onClick={() => {
-              setMobileMenuOpen(false);
-              openBookingModal({ urgency: "emergency" });
-            }}
-            className="w-full btn-plumco py-2.5 text-xs font-bold flex items-center justify-center gap-2 cursor-pointer rounded-xl"
+          <a
+            href="https://wa.me/8801319630516"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white py-2.5 text-xs font-bold text-center flex items-center justify-center gap-2 rounded-xl shadow-xs transition"
           >
-            <CalendarCheck className="w-3.5 h-3.5" />
-            <span>Book Apex Plumber</span>
-          </button>
+            <WhatsAppIcon className="w-4 h-4" />
+            <span>Chat on WhatsApp</span>
+          </a>
         </div>
       </aside>
     </header>

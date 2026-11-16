@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { useLocation } from "@/context/LocationContext";
 import {
-  CalendarCheck,
+  MessageCircle,
   PhoneCall,
   Star,
   UserCheck,
@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 
 export function ApexHero() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
 
   const scrollToNext = () => {
     const el = document.getElementById("features");
@@ -74,30 +74,23 @@ export function ApexHero() {
               transition={{ delay: 0.4, duration: 0.6 }}
               className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-2 xs:gap-2.5 sm:gap-4 pt-0.5 sm:pt-1"
             >
-              <button
-                type="button"
-                onClick={() => openBookingModal({ urgency: "emergency" })}
-                className="w-full sm:w-auto btn-plumco text-xs xs:text-sm sm:text-base font-extrabold py-2.5 xs:py-3 sm:py-3.5 px-4 xs:px-6 sm:px-8 text-center shadow-md cursor-pointer whitespace-nowrap"
-              >
-                <CalendarCheck className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
-                <span>Book a Service</span>
-              </button>
-
+              {/* WhatsApp Direct Chat Button */}
               <a
-                href={`tel:${currentLocation.phoneRaw}`}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 sm:gap-2.5 px-3.5 sm:px-6 py-2 xs:py-2.5 sm:py-3.5 rounded-lg bg-white hover:bg-slate-50 border border-slate-200 text-[#253041] font-bold text-xs sm:text-sm shadow-xs transition hover:border-[#0052da] cursor-pointer whitespace-nowrap"
+                href="https://wa.me/8801319630516"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full sm:w-auto bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs xs:text-sm sm:text-base font-extrabold py-3 sm:py-3.5 px-5 sm:px-7 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 transition whitespace-nowrap cursor-pointer"
               >
-                <div className="w-6 h-6 sm:w-8 sm:h-8 rounded-full bg-blue-50 text-[#0052da] flex items-center justify-center shrink-0">
-                  <PhoneCall className="w-3 h-3 sm:w-4 sm:h-4 fill-[#0052da]" />
-                </div>
-                <div className="flex flex-col text-left">
-                  <span className="text-[8px] xs:text-[9px] sm:text-[10px] uppercase font-mono text-slate-500 font-bold leading-none">
-                    Direct Line • Call Me Now
-                  </span>
-                  <span className="font-mono text-xs sm:text-sm font-extrabold text-[#0052da]">
-                    {currentLocation.phone}
-                  </span>
-                </div>
+                <MessageCircle className="w-5 h-5 fill-white shrink-0" />
+                <span>Chat on WhatsApp</span>
+              </a>
+              {/* Direct Call Button */}
+              <a
+                href="tel:+8801319630516"
+                className="w-full sm:w-auto bg-[#0052da] hover:bg-[#0042b3] active:scale-95 text-white text-xs xs:text-sm sm:text-base font-extrabold py-3 sm:py-3.5 px-5 sm:px-7 rounded-xl shadow-md hover:shadow-lg flex items-center justify-center gap-2.5 transition whitespace-nowrap cursor-pointer"
+              >
+                <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5 shrink-0" />
+                <span>Call Now</span>
               </a>
             </motion.div>
 

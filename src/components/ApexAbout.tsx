@@ -3,10 +3,10 @@
 import React from "react";
 import Image from "next/image";
 import { useLocation } from "@/context/LocationContext";
-import { CheckCircle2, PhoneCall, Award, CalendarCheck } from "lucide-react";
+import { CheckCircle2, PhoneCall, Award, MessageCircle } from "lucide-react";
 
 export function ApexAbout() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
 
   const personalGuarantees = [
     "Every job handled personally by me—a licensed master plumber, never apprentices.",
@@ -79,19 +79,20 @@ export function ApexAbout() {
               ))}
             </div>
 
-            {/* Direct Action & Cell Phone */}
+            {/* Direct Action & WhatsApp / Phone */}
             <div className="pt-4 sm:pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6">
-              <button
-                type="button"
-                onClick={() => openBookingModal({ urgency: "emergency" })}
-                className="btn-plumco text-xs sm:text-sm font-bold py-3 px-5 cursor-pointer whitespace-nowrap"
+              <a
+                href="https://wa.me/8801319630516"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-3 px-5 rounded-xl shadow-xs flex items-center justify-center gap-2 whitespace-nowrap transition cursor-pointer"
               >
-                <CalendarCheck className="w-4 h-4" />
-                <span>Schedule With Apex Plumber</span>
-              </button>
+                <MessageCircle className="w-4 h-4 fill-white" />
+                <span>Chat on WhatsApp</span>
+              </a>
 
               <a
-                href={`tel:${currentLocation.phoneRaw}`}
+                href="tel:+8801319630516"
                 className="flex items-center gap-3 group p-2 rounded-xl hover:bg-slate-50 transition"
               >
                 <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-50 text-[#0052da] group-hover:bg-[#0052da] group-hover:text-white flex items-center justify-center transition-colors shrink-0">
@@ -99,10 +100,10 @@ export function ApexAbout() {
                 </div>
                 <div className="text-left">
                   <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                    Call Apex Plumber
+                    Direct Line
                   </div>
-                  <div className="text-xs sm:text-sm font-black text-[#253041] font-mono group-hover:text-[#0052da] transition whitespace-nowrap">
-                    {currentLocation.phone}
+                  <div className="text-xs sm:text-sm font-black text-[#253041] group-hover:text-[#0052da] transition whitespace-nowrap">
+                    Call Now
                   </div>
                 </div>
               </a>

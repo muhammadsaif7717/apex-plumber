@@ -8,14 +8,14 @@ import {
   Award,
   Clock,
   ShieldCheck,
-  CalendarCheck,
   PhoneCall,
   CheckCircle2,
+  MessageCircle,
 } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
 export function ApexWhyHireMe() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
 
   const reasons = [
     {
@@ -130,21 +130,22 @@ export function ApexWhyHireMe() {
           </div>
 
           <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
-            <button
-              type="button"
-              onClick={() => openBookingModal({ urgency: "sameday" })}
-              className="btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 sm:px-5 w-full sm:w-auto text-center cursor-pointer whitespace-nowrap"
+            <a
+              href="https://wa.me/8801319630516"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 sm:px-5 w-full sm:w-auto text-center rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap transition"
             >
-              <CalendarCheck className="w-4 h-4" />
-              <span>Book a Service Call</span>
-            </button>
+              <MessageCircle className="w-4 h-4 fill-white" />
+              <span>Chat on WhatsApp</span>
+            </a>
 
             <a
-              href={`tel:${currentLocation.phoneRaw}`}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-white border border-slate-200 text-[#0052da] text-xs sm:text-sm font-mono font-bold hover:bg-blue-50 transition shadow-xs whitespace-nowrap"
+              href="tel:+8801319630516"
+              className="hidden sm:inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs sm:text-sm font-bold shadow-xs whitespace-nowrap transition"
             >
               <PhoneCall className="w-4 h-4" />
-              <span>{currentLocation.phone}</span>
+              <span>Call Now</span>
             </a>
           </div>
         </div>

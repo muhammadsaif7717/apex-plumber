@@ -204,7 +204,7 @@ export function ApexAppointment() {
                       <input
                         type="text"
                         required
-                        placeholder="e.g. 1404 Oak Dr, Austin 78704"
+                        placeholder="e.g. 842 S Olive St, Los Angeles 90014"
                         value={formData.address}
                         onChange={(e) =>
                           setFormData({ ...formData, address: e.target.value })

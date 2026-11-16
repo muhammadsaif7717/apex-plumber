@@ -13,10 +13,11 @@ import {
   Wrench,
   ArrowRight,
   PhoneCall,
+  MessageCircle,
 } from "lucide-react";
 
 export function ApexServicesGrid() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
 
   const iconMap: Record<string, React.ElementType> = {
     UtensilsCrossed,
@@ -25,15 +26,6 @@ export function ApexServicesGrid() {
     Bath,
     ShieldAlert,
     Wrench,
-  };
-
-  const handleBookService = (service: PlumcoService) => {
-    openBookingModal({
-      serviceId: service.id,
-      issueDescription: service.title,
-      estimatedPriceRange: `Starting from $${service.startingPrice}`,
-      urgency: "sameday",
-    });
   };
 
   return (
@@ -96,23 +88,28 @@ export function ApexServicesGrid() {
                     </p>
                   </div>
 
-                  <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
-                    <button
-                      type="button"
-                      onClick={() => handleBookService(srv)}
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0052da] group-hover:underline cursor-pointer"
+                  <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                    <a
+                      href={`https://wa.me/8801319630516?text=${encodeURIComponent(
+                        `Hi Apex Plumber, I need help with ${srv.title}.`
+                      )}`}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#075E54] hover:text-[#25D366] transition-colors"
                     >
-                      <span>Book This Service</span>
+                      <MessageCircle className="w-4 h-4 fill-[#25D366] text-[#25D366]" />
+                      <span>WhatsApp</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
-                    </button>
+                    </a>
 
                     <a
-                      href={`tel:${currentLocation.phoneRaw}`}
-                      className="text-slate-400 hover:text-[#0052da] transition p-1.5 rounded-lg hover:bg-blue-50"
-                      title="Call about this service"
+                      href="tel:+8801319630516"
+                      className="text-slate-500 hover:text-[#0052da] transition p-1.5 rounded-lg hover:bg-blue-50 flex items-center gap-1 text-xs font-bold"
+                      title="Call Now"
                       aria-label={`Call Apex Plumber about ${srv.title}`}
                     >
                       <PhoneCall className="w-4 h-4" />
+                      <span className="hidden sm:inline">Call</span>
                     </a>
                   </div>
                 </div>

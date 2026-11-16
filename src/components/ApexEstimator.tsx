@@ -8,6 +8,7 @@ import {
   Clock,
   ArrowRight,
   Info,
+  MessageCircle,
 } from "lucide-react";
 
 interface RepairOption {
@@ -90,7 +91,7 @@ const URGENCY_OPTIONS = [
 ];
 
 export function ApexEstimator() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
 
   const [selectedRepairId, setSelectedRepairId] = useState<string>("pipe-leak");
   const [selectedPropertyId, setSelectedPropertyId] = useState<string>("single-family");
@@ -118,13 +119,12 @@ export function ApexEstimator() {
   }, [currentRepair, currentProperty]);
 
   const handleLockInPrice = () => {
-    openBookingModal({
-      serviceId: currentRepair.id,
-      issueDescription: `${currentRepair.name} (${currentProperty.label})`,
-      estimatedPriceRange: calculation.priceRange,
-      urgency: selectedUrgencyId === "immediate" ? "emergency" : "sameday",
-      propertyType: currentProperty.label,
-    });
+    const text = `Hi Apex Plumber, I used your pricing estimator for ${currentRepair.name} (${currentProperty.label}). Estimated range: ${calculation.priceRange}. Can you confirm your earliest availability?`;
+    window.open(
+      `https://wa.me/8801319630516?text=${encodeURIComponent(text)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
   };
 
   return (
@@ -281,14 +281,15 @@ export function ApexEstimator() {
                 </div>
               </div>
 
-              {/* Lock In Button */}
+              {/* Lock In via WhatsApp Button */}
               <div className="lg:col-span-3">
                 <button
                   type="button"
                   onClick={handleLockInPrice}
-                  className="w-full py-3.5 px-4 bg-orange-600 hover:bg-orange-500 active:bg-orange-700 text-white font-extrabold rounded-lg text-sm transition-all shadow-lg shadow-orange-600/30 flex items-center justify-center gap-2 group focus-visible:ring-4 focus-visible:ring-orange-400"
+                  className="w-full py-3.5 px-4 bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da850] text-white font-extrabold rounded-lg text-sm transition-all shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 group focus-visible:ring-4 focus-visible:ring-emerald-400 cursor-pointer"
                 >
-                  <span>Lock In Price</span>
+                  <MessageCircle className="w-4 h-4 fill-white" />
+                  <span>Get Firm Quote on WhatsApp</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

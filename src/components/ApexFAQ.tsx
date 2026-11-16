@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, PhoneCall, CalendarCheck } from "lucide-react";
+import { ChevronDown, HelpCircle, PhoneCall, MessageCircle } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
 interface FAQItem {
@@ -10,7 +10,7 @@ interface FAQItem {
 }
 
 export function ApexFAQ() {
-  const { currentLocation, openBookingModal } = useLocation();
+  const { currentLocation } = useLocation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const faqs: FAQItem[] = [
@@ -135,17 +135,18 @@ export function ApexFAQ() {
           </div>
 
           <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
-            <button
-              type="button"
-              onClick={() => openBookingModal({ urgency: "flexible" })}
-              className="btn-plumco text-xs font-bold py-2.5 px-4 w-full sm:w-auto cursor-pointer whitespace-nowrap"
-            >
-              <CalendarCheck className="w-3.5 h-3.5" />
-              <span>Ask a Question</span>
-            </button>
             <a
-              href={`tel:${currentLocation.phoneRaw}`}
-              className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-lg bg-white border border-slate-200 text-[#0052da] text-xs font-mono font-bold hover:bg-blue-50 transition whitespace-nowrap"
+              href="https://wa.me/8801319630516?text=Hi%20Apex%20Plumber%2C%20I%20have%20a%20question%20about%20your%20service."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-xs flex items-center justify-center gap-2 whitespace-nowrap transition cursor-pointer"
+            >
+              <MessageCircle className="w-3.5 h-3.5 fill-white" />
+              <span>Ask on WhatsApp</span>
+            </a>
+            <a
+              href="tel:+8801319630516"
+              className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs font-bold transition whitespace-nowrap"
             >
               <PhoneCall className="w-3.5 h-3.5" />
               <span>Call Direct</span>

@@ -15,7 +15,7 @@ import { ApexCoverage } from "@/components/ApexCoverage";
 import { ApexFAQ } from "@/components/ApexFAQ";
 import { ApexAppointment } from "@/components/ApexAppointment";
 import { ApexFooter } from "@/components/ApexFooter";
-import { ApexBookingModal } from "@/components/ApexBookingModal";
+import { ApexWhatsAppWidget } from "@/components/ApexWhatsAppWidget";
 
 export default function Home() {
   return (
@@ -71,8 +71,8 @@ export default function Home() {
         {/* Global Footer */}
         <ApexFooter />
 
-        {/* Floating Interactive Modal */}
-        <ApexBookingModal />
+        {/* Floating WhatsApp Interactive Chat Widget */}
+        <ApexWhatsAppWidget />
       </div>
     </LocationProvider>
   );
