@@ -18,7 +18,7 @@ export function ApexBlog() {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Apex Plumber Practical Plumbing Advice
           </h2>
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600">
             Homeowner guides, diagnostic insights, and winterization advice written directly from 25 years of master plumbing experience.
           </p>
         </div>
@@ -75,7 +75,7 @@ export function ApexBlog() {
                     </h3>
                   </Link>
 
-                  <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed line-clamp-3">
+                  <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3">
                     {blog.excerpt}
                   </p>
                 </div>

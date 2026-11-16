@@ -39,7 +39,7 @@ export function ApexServicesGrid() {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Specialized Services Handled by Certified Masters
           </h2>
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165] leading-relaxed">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600 leading-relaxed">
             Every service call is handled by certified master plumbers equipped with Spartan 4,000 PSI hydro-jetters, SeeSnake HD video inspection scopes, and ProPress precision copper tools.
           </p>
         </div>
@@ -87,7 +87,7 @@ export function ApexServicesGrid() {
                     <h3 className="text-base sm:text-xl font-bold text-[#253041] group-hover:text-[#0052da] transition-colors mb-2">
                       {srv.title}
                     </h3>
-                    <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed mb-4">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4">
                       {srv.desc}
                     </p>
                   </div>

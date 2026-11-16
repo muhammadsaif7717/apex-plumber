@@ -126,7 +126,7 @@ export function ApexEstimator() {
   };
 
   return (
-    <section id="cost-calculator" className="py-14 sm:py-20 lg:py-24 bg-slate-50 border-b border-slate-200 scroll-mt-24">
+    <section id="cost-calculator" className="py-14 sm:py-20 lg:py-24 bg-[#f4f8fe] border-b border-slate-200/80 scroll-mt-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Heading */}
         <motion.div
@@ -158,10 +158,10 @@ export function ApexEstimator() {
           {/* Step 1: Repair Type */}
           <div className="mb-8">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center">
+              <span className="w-6 h-6 rounded-full bg-[#253041] text-white font-mono text-xs font-bold flex items-center justify-center">
                 1
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900">
+              <h3 className="text-sm sm:text-base font-bold text-[#253041]">
                 Select Your Plumbing Issue
               </h3>
             </div>
@@ -173,17 +173,17 @@ export function ApexEstimator() {
                   onClick={() => setSelectedRepairId(repair.id)}
                   className={`text-left p-3.5 rounded-xl border transition flex flex-col justify-between ${
                     selectedRepairId === repair.id
-                      ? "bg-blue-50/70 border-blue-500 ring-2 ring-blue-500/20"
-                      : "bg-slate-50/60 border-slate-200 hover:bg-slate-100/70"
+                      ? "bg-blue-50/80 border-[#0052da] ring-2 ring-[#0052da]/20"
+                      : "bg-[#f4f8fe]/60 border-slate-200 hover:bg-[#f4f8fe]"
                   }`}
                 >
-                  <div className="font-bold text-slate-900 text-sm mb-1">
+                  <div className="font-bold text-[#253041] text-sm mb-1">
                     {repair.name}
                   </div>
                   <div className="text-[11px] text-slate-500 mb-2 leading-relaxed">
                     {repair.desc}
                   </div>
-                  <div className="text-xs font-mono font-bold text-blue-700 mt-auto">
+                  <div className="text-xs font-mono font-bold text-[#0052da] mt-auto">
                     Base: ${repair.baseMin} – ${repair.baseMax}
                   </div>
                 </button>
@@ -194,10 +194,10 @@ export function ApexEstimator() {
           {/* Step 2: Property Structure */}
           <div className="mb-8 pt-6 border-t border-slate-100">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center">
+              <span className="w-6 h-6 rounded-full bg-[#253041] text-white font-mono text-xs font-bold flex items-center justify-center">
                 2
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900">
+              <h3 className="text-sm sm:text-base font-bold text-[#253041]">
                 Property Architecture
               </h3>
             </div>
@@ -209,8 +209,8 @@ export function ApexEstimator() {
                   onClick={() => setSelectedPropertyId(prop.id)}
                   className={`p-3.5 rounded-xl border text-center font-bold text-sm transition ${
                     selectedPropertyId === prop.id
-                      ? "bg-blue-50/70 border-blue-500 ring-2 ring-blue-500/20 text-blue-900"
-                      : "bg-slate-50/60 border-slate-200 hover:bg-slate-100/70 text-slate-700"
+                      ? "bg-blue-50/80 border-[#0052da] ring-2 ring-[#0052da]/20 text-[#0052da]"
+                      : "bg-[#f4f8fe]/60 border-slate-200 hover:bg-[#f4f8fe] text-slate-700"
                   }`}
                 >
                   <div>{prop.label}</div>
@@ -225,10 +225,10 @@ export function ApexEstimator() {
           {/* Step 3: Dispatch Urgency */}
           <div className="mb-8 pt-6 border-t border-slate-100">
             <div className="flex items-center gap-2 mb-3">
-              <span className="w-6 h-6 rounded-full bg-slate-900 text-white font-mono text-xs font-bold flex items-center justify-center">
+              <span className="w-6 h-6 rounded-full bg-[#253041] text-white font-mono text-xs font-bold flex items-center justify-center">
                 3
               </span>
-              <h3 className="text-sm sm:text-base font-bold text-slate-900">
+              <h3 className="text-sm sm:text-base font-bold text-[#253041]">
                 Service Urgency
               </h3>
             </div>
@@ -240,13 +240,13 @@ export function ApexEstimator() {
                   onClick={() => setSelectedUrgencyId(urg.id)}
                   className={`p-3.5 rounded-xl border text-left transition ${
                     selectedUrgencyId === urg.id
-                      ? "bg-orange-50/70 border-orange-500 ring-2 ring-orange-500/20 text-orange-950"
-                      : "bg-slate-50/60 border-slate-200 hover:bg-slate-100/70 text-slate-700"
+                      ? "bg-amber-50/80 border-amber-500 ring-2 ring-amber-500/20 text-[#253041]"
+                      : "bg-[#f4f8fe]/60 border-slate-200 hover:bg-[#f4f8fe] text-slate-700"
                   }`}
                 >
                   <div className="font-bold text-sm flex items-center gap-1.5">
                     {urg.id === "immediate" && (
-                      <Zap className="w-3.5 h-3.5 text-orange-500 fill-orange-500" />
+                      <Zap className="w-3.5 h-3.5 text-amber-500 fill-amber-500" />
                     )}
                     <span>{urg.label}</span>
                   </div>
@@ -259,24 +259,24 @@ export function ApexEstimator() {
           </div>
 
           {/* Dynamic Calculation Output Bar */}
-          <div className="bg-slate-950 text-white rounded-xl p-6 sm:p-7 shadow-xl">
+          <div className="bg-[#253041] text-white rounded-xl p-6 sm:p-7 shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-center">
               {/* Estimated Range */}
               <div className="lg:col-span-5 space-y-1">
-                <div className="text-xs uppercase font-mono tracking-wider text-orange-400 font-semibold">
+                <div className="text-xs uppercase font-mono tracking-wider text-amber-400 font-semibold">
                   Estimated Flat-Rate Cost
                 </div>
                 <div className="text-3xl sm:text-4xl font-black font-mono text-white tracking-tight">
                   {calculation.priceRange}
                 </div>
-                <div className="text-xs text-slate-400 flex items-center gap-1.5 pt-1">
-                  <Clock className="w-3.5 h-3.5 text-slate-300" />
+                <div className="text-xs text-slate-300 flex items-center gap-1.5 pt-1">
+                  <Clock className="w-3.5 h-3.5 text-slate-400" />
                   <span>Est. Duration: {calculation.duration}</span>
                 </div>
               </div>
 
               {/* What is Included */}
-              <div className="lg:col-span-4 text-xs text-slate-300 space-y-1.5 border-y lg:border-y-0 lg:border-l lg:border-r border-slate-800 py-3 lg:py-0 lg:px-6">
+              <div className="lg:col-span-4 text-xs text-slate-300 space-y-1.5 border-y lg:border-y-0 lg:border-l lg:border-r border-slate-700/80 py-3 lg:py-0 lg:px-6">
                 <div className="flex items-center gap-2">
                   <CheckCircle className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                   <span>Full HD Camera / Acoustic Scope</span>
@@ -296,7 +296,7 @@ export function ApexEstimator() {
                 <button
                   type="button"
                   onClick={handleLockInPrice}
-                  className="w-full py-3.5 px-4 bg-[#0052da] hover:bg-[#0042b3] active:bg-[#003699] text-white font-extrabold rounded-lg text-sm transition-all shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
+                  className="w-full py-3.5 px-4 bg-[#0052da] hover:bg-[#0041ae] active:bg-[#00358e] text-white font-extrabold rounded-lg text-sm transition-all shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
                 >
                   <span>Lock In Estimated Price</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -304,9 +304,9 @@ export function ApexEstimator() {
               </div>
             </div>
 
-            <div className="mt-4 pt-3 border-t border-slate-800 text-center lg:text-left text-[11px] text-slate-400 flex flex-wrap items-center justify-between gap-2">
+            <div className="mt-4 pt-3 border-t border-slate-700/80 text-center lg:text-left text-[11px] text-slate-400 flex flex-wrap items-center justify-between gap-2">
               <span className="flex items-center gap-1">
-                <Info className="w-3.5 h-3.5 text-orange-400" />
+                <Info className="w-3.5 h-3.5 text-amber-400" />
                 Final price confirmed in writing before technician begins work.
               </span>
               <span className="font-mono text-slate-300">

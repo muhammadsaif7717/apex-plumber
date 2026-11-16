@@ -124,7 +124,7 @@ export function ApexTestimonials() {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             What Neighbors Say About Apex Plumber
           </h2>
-          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600">
             Real feedback from verified homeowners and property managers across the United States. Over 850+ five-star ratings.
           </p>
 
@@ -182,7 +182,7 @@ export function ApexTestimonials() {
             </h3>
 
             {/* Review Comment */}
-            <p className="text-[11px] xs:text-xs text-[#4c5165] leading-relaxed mb-3 italic">
+            <p className="text-[11px] xs:text-xs text-slate-600 leading-relaxed mb-3 italic">
               {activeMobileReview.comment}
             </p>
 
@@ -293,7 +293,7 @@ export function ApexTestimonials() {
                     </h3>
 
                     {/* Comment text */}
-                    <p className="text-xs sm:text-sm text-[#4c5165] leading-relaxed mb-4 italic line-clamp-4">
+                    <p className="text-xs sm:text-sm text-slate-600 leading-relaxed mb-4 italic line-clamp-4">
                       {rev.comment}
                     </p>
                   </div>

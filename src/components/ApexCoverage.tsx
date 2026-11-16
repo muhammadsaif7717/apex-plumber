@@ -58,7 +58,7 @@ export function ApexCoverage() {
   return (
     <section
       id="service-areas"
-      className="py-14 sm:py-20 lg:py-24 bg-gradient-to-b from-white via-slate-50 to-white border-b border-slate-200 scroll-mt-24"
+      className="py-14 sm:py-20 lg:py-24 bg-white border-b border-slate-200/80 scroll-mt-24"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Header */}
@@ -153,13 +153,13 @@ export function ApexCoverage() {
                 {neighborhoods.map((n) => (
                   <div
                     key={n.name}
-                    className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-100 hover:border-blue-200 transition flex flex-col justify-between group"
+                    className="p-3 rounded-xl bg-[#f4f8fe]/60 hover:bg-blue-50 border border-slate-200/80 hover:border-[#0052da]/40 transition flex flex-col justify-between group"
                   >
                     <div className="flex items-center gap-2 font-bold text-xs sm:text-sm text-[#253041] group-hover:text-[#0052da]">
                       <MapPin className="w-3.5 h-3.5 text-[#0052da] shrink-0" />
                       <span>{n.name}</span>
                     </div>
-                    <span className="text-[10px] sm:text-[11px] text-slate-400 font-mono mt-1 pl-5">
+                    <span className="text-[10px] sm:text-[11px] text-slate-500 font-mono mt-1 pl-5">
                       ZIP: {n.zips}
                     </span>
                   </div>

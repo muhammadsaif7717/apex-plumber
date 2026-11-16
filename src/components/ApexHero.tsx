@@ -62,7 +62,7 @@ export function ApexHero() {
               initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.6 }}
-              className="text-xs xs:text-sm sm:text-base md:text-lg text-[#4c5165] leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal"
+              className="text-xs xs:text-sm sm:text-base md:text-lg text-slate-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-normal"
             >
               From everyday plumbing repairs to complex installations, I provide dependable workmanship, honest communication, and personalized service for every customer. No middlemen, no sales commissions, and no junior apprentices.
             </motion.p>

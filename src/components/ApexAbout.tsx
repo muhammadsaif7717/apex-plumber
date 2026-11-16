@@ -76,7 +76,7 @@ export function ApexAbout() {
               Meet Your Local Independent Master Plumber
             </h2>
 
-            <p className="text-xs xs:text-sm sm:text-base text-[#4c5165] leading-relaxed">
+            <p className="text-xs xs:text-sm sm:text-base text-slate-600 leading-relaxed">
               Hi, I&apos;m your dedicated Master Plumber at <strong className="text-[#253041] font-bold">Apex Plumber</strong>. For over 25 years, I&apos;ve built my reputation on personal craftsmanship, transparent flat-rate pricing, and honest advice. When you call Apex Plumber, you deal directly with me—never a revolving door of junior apprentices or subcontracted laborers. I arrive fully equipped in my mobile workshop and solve your plumbing problems right the first time.
             </p>
 

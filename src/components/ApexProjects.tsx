@@ -27,7 +27,7 @@ export function ApexProjects() {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Recent Projects We Successfully Solved
           </h2>
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600">
             Explore real plumbing challenges our master technicians diagnosed and resolved for local residential homeowners and commercial restaurants.
           </p>
         </div>
@@ -84,7 +84,7 @@ export function ApexProjects() {
                     Client: {proj.client}
                   </div>
 
-                  <div className="space-y-1.5 sm:space-y-2 text-xs text-[#4c5165] bg-slate-50 p-3 rounded-xl border border-slate-100">
+                  <div className="space-y-1.5 sm:space-y-2 text-xs text-slate-600 bg-slate-50 p-3 rounded-xl border border-slate-100">
                     <div>
                       <strong className="text-slate-700">Problem:</strong> {proj.problem}
                     </div>

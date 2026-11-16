@@ -45,7 +45,7 @@ export function ApexFeatures() {
                     {feat.title}
                   </h3>
 
-                  <p className="text-[10px] xs:text-[11px] sm:text-sm text-[#4c5165] leading-tight sm:leading-relaxed">
+                  <p className="text-[10px] xs:text-[11px] sm:text-sm text-slate-600 leading-tight sm:leading-relaxed">
                     {feat.desc}
                   </p>
                 </div>

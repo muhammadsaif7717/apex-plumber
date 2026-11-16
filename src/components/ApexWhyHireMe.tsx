@@ -75,7 +75,7 @@ export function ApexWhyHireMe() {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Why Homeowners Choose to Work With Me
           </h2>
-          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
+          <p className="mt-2 sm:mt-3 text-xs sm:text-sm md:text-base text-slate-600">
             Experience the difference of partnering directly with an experienced, independent master plumber who cares about your home as much as you do.
           </p>
         </div>
@@ -91,11 +91,11 @@ export function ApexWhyHireMe() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.15 }}
                 transition={{ duration: 0.5, delay: (idx % 3) * 0.1, ease: "easeOut" }}
-                className="bg-[#f8fbff] rounded-xl sm:rounded-2xl p-3 xs:p-4 sm:p-7 border border-slate-200/90 shadow-sm hover:shadow-xl hover:border-[#0052da]/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
+                className="bg-[#f4f8fe] rounded-xl sm:rounded-2xl p-3 xs:p-4 sm:p-7 border border-blue-100/80 shadow-sm hover:shadow-xl hover:border-[#0052da]/40 transition-all duration-300 flex flex-col justify-between group hover:-translate-y-1"
               >
                 <div>
                   <div className="flex items-center justify-between mb-2.5 xs:mb-3 sm:mb-4">
-                    <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-blue-100/80 text-[#0052da] group-hover:bg-[#0052da] group-hover:text-white flex items-center justify-center transition-colors shadow-xs shrink-0">
+                    <div className="w-8 h-8 xs:w-10 xs:h-10 sm:w-12 sm:h-12 rounded-lg sm:rounded-xl bg-white text-[#0052da] group-hover:bg-[#0052da] group-hover:text-white flex items-center justify-center transition-colors shadow-xs shrink-0 border border-blue-100">
                       <Icon className="w-4 h-4 xs:w-5 xs:h-5 sm:w-6 sm:h-6" />
                     </div>
                     <span className="font-mono text-[9px] xs:text-[10px] sm:text-xs font-bold px-1.5 xs:px-2.5 py-0.5 sm:py-1 rounded-full bg-white border border-slate-200 text-[#0052da]">
@@ -107,7 +107,7 @@ export function ApexWhyHireMe() {
                     {reason.title}
                   </h3>
 
-                  <p className="text-[10px] xs:text-[11px] sm:text-sm text-[#4c5165] leading-tight sm:leading-relaxed">
+                  <p className="text-[10px] xs:text-[11px] sm:text-sm text-slate-600 leading-tight sm:leading-relaxed">
                     {reason.desc}
                   </p>
                 </div>
@@ -122,7 +122,7 @@ export function ApexWhyHireMe() {
         </div>
 
         {/* Bottom Banner with Personal Reassurance */}
-        <div className="mt-8 sm:mt-16 bg-slate-50 border border-slate-200 rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-5">
+        <div className="mt-8 sm:mt-16 bg-[#f4f8fe] border border-blue-100/80 rounded-2xl sm:rounded-3xl p-4 xs:p-5 sm:p-8 flex flex-col md:flex-row items-center justify-between gap-4 sm:gap-5">
           <div className="text-center md:text-left space-y-1">
             <h4 className="text-sm sm:text-lg font-black text-[#253041]">
               Need an honest second opinion on a quote?

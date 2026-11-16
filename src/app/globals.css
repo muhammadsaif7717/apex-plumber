@@ -8,7 +8,7 @@
   --plumco-navy: #253041;
   --plumco-dark: #162132;
   --plumco-light-bg: #f4f8fe;
-  --plumco-body: #4c5165;
+  --plumco-body: #475569;
 }
 
 html {
@@ -38,7 +38,7 @@ html.lenis, html.lenis body {
 
 body {
   background-color: #ffffff;
-  color: #4c5165;
+  color: #475569;
   font-family: var(--font-sans);
   overflow-x: hidden;
   text-rendering: optimizeLegibility;

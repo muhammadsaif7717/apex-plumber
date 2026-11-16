@@ -56,7 +56,7 @@ export default function RootLayout({
       lang="en"
       className={`${manrope.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
-      <body className="min-h-screen bg-white text-[#4c5165] font-sans antialiased overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
+      <body className="min-h-screen bg-white text-slate-600 font-sans antialiased overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
         {children}
       </body>
     </html>

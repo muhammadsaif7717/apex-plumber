@@ -81,7 +81,7 @@ export function ApexFAQ() {
           <h2 className="text-2xl xs:text-3xl sm:text-4xl md:text-5xl font-black text-[#253041] tracking-tight">
             Frequently Asked Questions
           </h2>
-          <p className="mt-3 text-xs sm:text-sm md:text-base text-[#4c5165]">
+          <p className="mt-3 text-xs sm:text-sm md:text-base text-slate-600">
             Straightforward answers to the most common questions homeowners ask before scheduling a plumbing service call.
           </p>
         </motion.div>
@@ -125,7 +125,7 @@ export function ApexFAQ() {
                 </button>
 
                 {isOpen && (
-                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-[#4c5165] leading-relaxed border-t border-blue-100/60 mt-1 animate-in fade-in duration-200">
+                  <div className="px-4 pb-4 sm:px-5 sm:pb-5 pt-0 text-xs sm:text-sm text-slate-600 leading-relaxed border-t border-blue-100/60 mt-1 animate-in fade-in duration-200">
                     <p className="pt-2">{faq.answer}</p>
                   </div>
                 )}

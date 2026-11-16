@@ -59,7 +59,7 @@ export function ApexAppointment() {
         particleCount: 100,
         spread: 70,
         origin: { y: 0.6 },
-        colors: ["#0052da", "#ffb600", "#10B981", "#ffffff"],
+        colors: ["#0052da", "#fbbf24", "#10B981", "#ffffff"],
       });
     } catch (err) {
       console.error(err);
@@ -81,7 +81,7 @@ export function ApexAppointment() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-5 space-y-4 sm:space-y-6 text-center lg:text-left"
           >
-            <div className="inline-flex items-center gap-1.5 text-xs font-black text-[#ffb600] uppercase tracking-widest font-mono">
+            <div className="inline-flex items-center gap-1.5 text-xs font-black text-amber-400 uppercase tracking-widest font-mono">
               <span>:: Book a Master Plumber</span>
             </div>
 
@@ -105,7 +105,7 @@ export function ApexAppointment() {
                   </div>
                   <a
                     href={`tel:${currentLocation.phoneRaw}`}
-                    className="text-base sm:text-lg font-black font-mono text-white hover:text-[#ffb600] transition whitespace-nowrap"
+                    className="text-base sm:text-lg font-black font-mono text-white hover:text-amber-400 transition whitespace-nowrap"
                   >
                     {currentLocation.phone}
                   </a>
