@@ -19,7 +19,7 @@ export function ApexHero() {
   const scrollToNext = () => {
     const el = document.getElementById("features");
     if (el) {
-      const topOffset = 84;
+      const topOffset = 68;
       const elementPosition = el.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - topOffset;
       window.scrollTo({
@@ -32,7 +32,7 @@ export function ApexHero() {
   return (
     <section
       id="hero"
-      className="relative min-h-[100dvh] lg:h-[100dvh] pt-20 xs:pt-22 sm:pt-26 pb-4 sm:pb-6 flex flex-col justify-between bg-gradient-to-b from-[#f4f8fe] via-[#f7faff] to-white border-b border-slate-100 overflow-hidden"
+      className="relative min-h-[100dvh] lg:h-[100dvh] pt-16 xs:pt-18 sm:pt-20 pb-4 sm:pb-6 flex flex-col justify-between bg-gradient-to-b from-[#f4f8fe] via-[#f7faff] to-white border-b border-slate-100 overflow-hidden"
     >
       {/* Ambient background glows */}
       <div className="absolute top-1/4 right-0 w-[280px] sm:w-[450px] lg:w-[600px] h-[280px] sm:h-[450px] lg:h-[600px] bg-blue-100/40 rounded-full blur-3xl pointer-events-none -mr-20 lg:-mr-40" />
@@ -48,17 +48,6 @@ export function ApexHero() {
             transition={{ duration: 0.6, ease: "easeOut" }}
             className="lg:col-span-7 space-y-3.5 sm:space-y-5 text-center lg:text-left"
           >
-            {/* Master Plumber Tag */}
-            <motion.div
-              initial={{ opacity: 0, y: 10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1, duration: 0.4 }}
-              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-100/90 text-[#0052da] text-xs font-bold font-mono shadow-xs"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-500 shadow-xs" />
-              <span>YOUR LOCAL, INDEPENDENT PLUMBING PROFESSIONAL • {currentLocation.licenseNumber}</span>
-            </motion.div>
-
             {/* Grand Headline */}
             <motion.h1
               initial={{ opacity: 0, y: 15 }}

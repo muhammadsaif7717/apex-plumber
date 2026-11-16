@@ -6,12 +6,9 @@ import { useLocation } from "@/context/LocationContext";
 import { ApexLogo } from "./ApexLogo";
 import {
   PhoneCall,
-  MapPin,
   Menu,
   X,
-  ChevronDown,
   CalendarCheck,
-  ShieldCheck,
 } from "lucide-react";
 
 interface NavLinkItem {
@@ -36,15 +33,11 @@ const NAV_LINKS: NavLinkItem[] = [
 export function ApexNavbar() {
   const {
     currentLocation,
-    selectedStateKey,
-    setSelectedStateKey,
-    allLocations,
     openBookingModal,
   } = useLocation();
 
   const [activeSection, setActiveSection] = useState<string>("hero");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [stateDropdownOpen, setStateDropdownOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
   // Optimized non-flickering Active ScrollSpy implementation
@@ -58,7 +51,7 @@ export function ApexNavbar() {
           setScrolled((prev) => (prev !== isScrolled ? isScrolled : prev));
 
           const sectionIds = NAV_LINKS.map((l) => l.id);
-          const scrollPosition = window.scrollY + 160;
+          const scrollPosition = window.scrollY + 120;
 
           let current = "hero";
           for (let i = sectionIds.length - 1; i >= 0; i--) {
@@ -68,7 +61,7 @@ export function ApexNavbar() {
               break;
             }
           }
-          if (window.scrollY < 200) {
+          if (window.scrollY < 160) {
             current = "hero";
           }
           setActiveSection((prev) => (prev !== current ? current : prev));
@@ -91,7 +84,7 @@ export function ApexNavbar() {
     setMobileMenuOpen(false);
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
-      const topOffset = 88; // Height of fixed navbar
+      const topOffset = 70; // Height of fixed navbar
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - topOffset;
 
@@ -105,83 +98,7 @@ export function ApexNavbar() {
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300">
-      {/* 1. Minimal Clean Top Utility Bar (Single-Line Guarantee) */}
-      <div className="bg-[#162132] text-slate-300 text-[11px] sm:text-xs py-1 px-3 sm:px-6 border-b border-slate-800/80">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2">
-          {/* Left: Location & License (Strictly Single Line) */}
-          <div className="flex items-center gap-2 overflow-hidden text-ellipsis whitespace-nowrap min-w-0">
-            <span className="flex items-center gap-1 text-slate-300 shrink-0 font-medium">
-              <MapPin className="w-3 h-3 text-[#0052da] shrink-0" />
-              <strong className="text-white font-bold whitespace-nowrap">
-                {currentLocation.primaryCity}, {currentLocation.stateCode}
-              </strong>
-            </span>
-            <span className="text-slate-600 hidden sm:inline">•</span>
-            <span className="hidden sm:flex items-center gap-1 font-mono text-slate-300 shrink-0">
-              <ShieldCheck className="w-3 h-3 text-emerald-400 shrink-0" />
-              <span className="whitespace-nowrap">{currentLocation.licenseNumber}</span>
-            </span>
-          </div>
-
-          {/* Right: Dispatch Speed & State Switcher */}
-          <div className="flex items-center gap-2 sm:gap-3 shrink-0 whitespace-nowrap">
-            <span className="hidden md:inline text-slate-400 font-mono text-[11px] whitespace-nowrap">
-              Arrival: <strong className="text-emerald-400 font-bold">{currentLocation.averageArrival}</strong>
-            </span>
-
-            {/* Quick State Switcher */}
-            <div className="relative">
-              <button
-                type="button"
-                onClick={() => setStateDropdownOpen(!stateDropdownOpen)}
-                className="flex items-center gap-1 bg-[#253041] hover:bg-slate-700 text-white px-2 py-0.5 rounded text-[11px] font-semibold border border-slate-700 transition cursor-pointer whitespace-nowrap"
-                aria-label="Switch service location"
-              >
-                <span>{currentLocation.stateCode}</span>
-                <ChevronDown className="w-3 h-3 text-slate-400" />
-              </button>
-
-              {stateDropdownOpen && (
-                <>
-                  <div
-                    className="fixed inset-0 z-40"
-                    onClick={() => setStateDropdownOpen(false)}
-                  />
-                  <div className="absolute right-0 mt-1 w-52 bg-white rounded-lg shadow-2xl border border-slate-200 py-1 z-50 text-slate-800 text-xs">
-                    <div className="px-3 py-1.5 text-[10px] font-mono font-bold text-slate-400 uppercase border-b border-slate-100">
-                      Select Market Area
-                    </div>
-                    {Object.values(allLocations).map((loc) => (
-                      <button
-                        key={loc.id}
-                        type="button"
-                        onClick={() => {
-                          setSelectedStateKey(loc.id);
-                          setStateDropdownOpen(false);
-                        }}
-                        className={`w-full text-left px-3 py-2 flex items-center justify-between hover:bg-blue-50 transition cursor-pointer ${
-                          loc.id === selectedStateKey
-                            ? "bg-blue-50 font-bold text-[#0052da]"
-                            : "text-slate-700"
-                        }`}
-                      >
-                        <span className="whitespace-nowrap font-medium">
-                          {loc.primaryCity}, {loc.stateCode}
-                        </span>
-                        <span className="text-[10px] text-slate-500 font-mono">
-                          {loc.licenseNumber}
-                        </span>
-                      </button>
-                    ))}
-                  </div>
-                </>
-              )}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 2. Main Minimal Navigation Bar */}
+      {/* Main Navigation Bar */}
       <nav
         className={`w-full bg-white/95 backdrop-blur-md transition-all duration-200 border-b ${
           scrolled

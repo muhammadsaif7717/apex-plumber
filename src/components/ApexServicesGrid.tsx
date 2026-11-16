@@ -61,29 +61,32 @@ export function ApexServicesGrid() {
                 key={srv.id}
                 className="bg-white rounded-2xl overflow-hidden shadow-md shadow-slate-900/5 hover:shadow-2xl hover:shadow-[#0052da]/15 transition-all duration-300 flex flex-col group border border-slate-100 hover:-translate-y-1.5"
               >
-                {/* Image Header */}
-                <div className="relative h-48 sm:h-56 w-full overflow-hidden bg-slate-100">
-                  <Image
-                    src={srv.img}
-                    alt={srv.title}
-                    width={600}
-                    height={380}
-                    unoptimized
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  />
-                  {/* Floating Icon */}
-                  <div className="absolute -bottom-4 sm:-bottom-5 right-5 sm:right-6 w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-[#0052da] text-white flex items-center justify-center shadow-lg group-hover:bg-[#253041] transition-colors">
-                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
+                {/* Image Header with cleanly contained zoom and unclipped floating icon */}
+                <div className="relative h-48 sm:h-56 w-full bg-slate-100">
+                  <div className="w-full h-full overflow-hidden">
+                    <Image
+                      src={srv.img}
+                      alt={srv.title}
+                      width={600}
+                      height={380}
+                      unoptimized
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
 
                   {/* Starting Price Pill */}
-                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-xs text-[#253041] px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono font-bold shadow-sm">
+                  <div className="absolute top-3 left-3 sm:top-4 sm:left-4 bg-white/95 backdrop-blur-xs text-[#253041] px-2.5 sm:px-3 py-1 rounded-md text-[11px] sm:text-xs font-mono font-bold shadow-sm z-10">
                     Starting from ${srv.startingPrice}
+                  </div>
+
+                  {/* Floating Icon Overlapping Card Border (100% Fully Visible) */}
+                  <div className="absolute -bottom-5 sm:-bottom-6 right-5 sm:right-6 w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-[#0052da] text-white flex items-center justify-center shadow-lg group-hover:bg-[#253041] transition-colors z-20 border-2 border-white">
+                    <IconComponent className="w-5 h-5 sm:w-6 sm:h-6" />
                   </div>
                 </div>
 
                 {/* Content */}
-                <div className="p-5 sm:p-7 flex-1 flex flex-col justify-between">
+                <div className="p-5 sm:p-7 pt-7 sm:pt-8 flex-1 flex flex-col justify-between">
                   <div>
                     <h3 className="text-base sm:text-xl font-bold text-[#253041] group-hover:text-[#0052da] transition-colors mb-2">
                       {srv.title}

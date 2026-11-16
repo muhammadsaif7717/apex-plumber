@@ -25,7 +25,7 @@
 ---
 
 ## 2. Page Structure & Personal Workflow
-1. **Sticky Header / Navigation:** Single-line topbar + main navbar with active scroll tracking and click-to-call.
+1. **Sticky Header / Navigation:** Clean unified navbar with active scroll tracking, click-to-call, and direct service booking (zero cluttered top utility bars).
 2. **Hero Section:** "Reliable Plumbing Services, Delivered Personally." Split layout on desktop, stacked on mobile.
 3. **Features Band:** 3 immediate advantages of working directly with an independent master plumber.
 4. **About Me:** Personal story, credentials, 25+ years experience, and master plumbing guarantee.
