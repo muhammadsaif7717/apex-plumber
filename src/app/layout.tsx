@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope, JetBrains_Mono } from "next/font/google";
+import { LocationProvider } from "@/context/LocationContext";
 import "./globals.css";
 
 const manrope = Manrope({
@@ -57,7 +58,9 @@ export default function RootLayout({
       className={`${manrope.variable} ${jetbrainsMono.variable} scroll-smooth`}
     >
       <body className="min-h-screen bg-white text-slate-600 font-sans antialiased overflow-x-hidden selection:bg-blue-100 selection:text-blue-900">
-        {children}
+        <LocationProvider>
+          {children}
+        </LocationProvider>
       </body>
     </html>
   );

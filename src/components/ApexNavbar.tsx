@@ -18,16 +18,17 @@ interface NavLinkItem {
 }
 
 const NAV_LINKS: NavLinkItem[] = [
-  { name: "Home", href: "#hero", id: "hero" },
-  { name: "About", href: "#about", id: "about" },
-  { name: "Services", href: "#services", id: "services" },
-  { name: "Why Me", href: "#why-hire-me", id: "why-hire-me" },
-  { name: "Process", href: "#process", id: "process" },
-  { name: "Projects", href: "#projects", id: "projects" },
-  { name: "Reviews", href: "#reviews", id: "reviews" },
-  { name: "Areas", href: "#service-areas", id: "service-areas" },
-  { name: "FAQ", href: "#faq", id: "faq" },
-  { name: "Contact", href: "#contact", id: "contact" },
+  { name: "Home", href: "/#hero", id: "hero" },
+  { name: "About", href: "/#about", id: "about" },
+  { name: "Services", href: "/#services", id: "services" },
+  { name: "Why Me", href: "/#why-hire-me", id: "why-hire-me" },
+  { name: "Process", href: "/#process", id: "process" },
+  { name: "Projects", href: "/#projects", id: "projects" },
+  { name: "Reviews", href: "/#reviews", id: "reviews" },
+  { name: "Areas", href: "/#service-areas", id: "service-areas" },
+  { name: "FAQ", href: "/#faq", id: "faq" },
+  { name: "Blog", href: "/blog", id: "blog" },
+  { name: "Contact", href: "/#contact", id: "contact" },
 ];
 
 export function ApexNavbar() {
@@ -90,12 +91,16 @@ export function ApexNavbar() {
 
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
-    targetId: string
+    targetId: string,
+    href: string = ""
   ) => {
-    e.preventDefault();
     setMobileMenuOpen(false);
+    if (href === "/blog") {
+      return;
+    }
     const targetElement = document.getElementById(targetId);
     if (targetElement) {
+      e.preventDefault();
       const topOffset = 70; // Height of fixed navbar
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.pageYOffset - topOffset;
@@ -138,7 +143,7 @@ export function ApexNavbar() {
                 <a
                   key={link.name}
                   href={link.href}
-                  onClick={(e) => handleNavClick(e, link.id)}
+                  onClick={(e) => handleNavClick(e, link.id, link.href)}
                   className={`relative px-2.5 xl:px-3 py-1.5 text-xs xl:text-sm font-bold transition-all rounded-md whitespace-nowrap cursor-pointer ${
                     isActive
                       ? "text-[#0052da] bg-blue-50/90 font-black"
@@ -231,7 +236,7 @@ export function ApexNavbar() {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={(e) => handleNavClick(e, link.id)}
+                onClick={(e) => handleNavClick(e, link.id, link.href)}
                 className={`px-3 py-2.5 text-xs sm:text-sm font-bold rounded-xl transition flex items-center justify-between ${
                   isActive
                     ? "bg-blue-50 text-[#0052da] font-extrabold"

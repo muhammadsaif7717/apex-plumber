@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { ApexLogo } from "./ApexLogo";
 import { useLocation } from "@/context/LocationContext";
 import {
@@ -109,9 +110,9 @@ export function ApexFooter() {
                 </a>
               </li>
               <li>
-                <a href="#blog" className="hover:text-white transition">
+                <Link href="/blog" className="hover:text-white transition">
                   Plumbing Tips &amp; Blog
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="#contact" className="hover:text-white transition">

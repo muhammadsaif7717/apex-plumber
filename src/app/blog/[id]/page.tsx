@@ -50,11 +50,11 @@ export default async function BlogDetailPage({ params }: BlogPageProps) {
       <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 py-3.5 px-4 sm:px-6">
         <div className="max-w-5xl mx-auto flex items-center justify-between">
           <Link
-            href="/#blog"
+            href="/blog"
             className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#253041] hover:text-[#0052da] transition"
           >
             <ArrowLeft className="w-4 h-4" />
-            <span>Back to All Tips &amp; Home</span>
+            <span>Back to All Articles</span>
           </Link>
 
           <a

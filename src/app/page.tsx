@@ -1,4 +1,3 @@
-import { LocationProvider } from "@/context/LocationContext";
 import { SmoothScrollProvider } from "@/components/SmoothScrollProvider";
 import { ApexNavbar } from "@/components/ApexNavbar";
 import { ApexHero } from "@/components/ApexHero";
@@ -11,7 +10,6 @@ import { ApexWorkProcess } from "@/components/ApexWorkProcess";
 import { ApexProjects } from "@/components/ApexProjects";
 import { ApexTestimonials } from "@/components/ApexTestimonials";
 import { ApexEstimator } from "@/components/ApexEstimator";
-import { ApexBlog } from "@/components/ApexBlog";
 import { ApexCoverage } from "@/components/ApexCoverage";
 import { ApexFAQ } from "@/components/ApexFAQ";
 import { ApexAppointment } from "@/components/ApexAppointment";
@@ -20,8 +18,7 @@ import { ApexWhatsAppWidget } from "@/components/ApexWhatsAppWidget";
 
 export default function Home() {
   return (
-    <LocationProvider>
-      <SmoothScrollProvider>
+    <SmoothScrollProvider>
         <div className="relative min-h-screen flex flex-col bg-white overflow-x-hidden">
         {/* Personal Topbar & Navigation */}
         <ApexNavbar />
@@ -60,10 +57,7 @@ export default function Home() {
           {/* 11. Areas I Personally Serve */}
           <ApexCoverage />
 
-          {/* 12. Apex Plumber Practical Plumbing Advice & Blog */}
-          <ApexBlog />
-
-          {/* 13. Frequently Asked Questions (FAQ Accordion) */}
+          {/* 12. Frequently Asked Questions (FAQ Accordion) */}
           <ApexFAQ />
 
           {/* 14. Direct Hire / Appointment Booking Intake (Contact Form) */}
@@ -77,6 +71,5 @@ export default function Home() {
         <ApexWhatsAppWidget />
       </div>
     </SmoothScrollProvider>
-  </LocationProvider>
   );
 }
