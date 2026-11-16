@@ -10,8 +10,6 @@ import {
   ShieldCheck,
   CheckCircle2,
   Award,
-  MessageCircle,
-  PhoneCall,
 } from "lucide-react";
 
 export function ApexTestimonials() {
@@ -359,24 +357,10 @@ export function ApexTestimonials() {
           </div>
         </div>
 
-        {/* Bottom Callout / WhatsApp Prompt */}
-        <div className="mt-8 sm:mt-12 flex flex-col sm:flex-row items-center justify-center gap-3">
-          <a
-            href="https://wa.me/8801319630516"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer transition"
-          >
-            <MessageCircle className="w-4 h-4 fill-white" />
-            <span>Chat on WhatsApp</span>
-          </a>
-          <a
-            href="tel:+8801319630516"
-            className="btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-5 sm:px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer transition"
-          >
-            <PhoneCall className="w-4 h-4" />
-            <span>Call Now</span>
-          </a>
+        {/* Bottom Proof Note */}
+        <div className="mt-8 sm:mt-12 text-center text-xs font-semibold text-slate-500 flex items-center justify-center gap-2">
+          <ShieldCheck className="w-4 h-4 text-emerald-600" />
+          <span>850+ Verified 5-Star Reviews Across Greater Los Angeles</span>
         </div>
       </div>
     </section>

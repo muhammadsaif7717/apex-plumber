@@ -8,7 +8,6 @@ import {
   Clock,
   ArrowRight,
   Info,
-  MessageCircle,
 } from "lucide-react";
 
 interface RepairOption {
@@ -119,12 +118,10 @@ export function ApexEstimator() {
   }, [currentRepair, currentProperty]);
 
   const handleLockInPrice = () => {
-    const text = `Hi Apex Plumber, I used your pricing estimator for ${currentRepair.name} (${currentProperty.label}). Estimated range: ${calculation.priceRange}. Can you confirm your earliest availability?`;
-    window.open(
-      `https://wa.me/8801319630516?text=${encodeURIComponent(text)}`,
-      "_blank",
-      "noopener,noreferrer"
-    );
+    const el = document.getElementById("contact");
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth" });
+    }
   };
 
   return (
@@ -281,15 +278,14 @@ export function ApexEstimator() {
                 </div>
               </div>
 
-              {/* Lock In via WhatsApp Button */}
+              {/* Lock In Estimated Price Button */}
               <div className="lg:col-span-3">
                 <button
                   type="button"
                   onClick={handleLockInPrice}
-                  className="w-full py-3.5 px-4 bg-[#25D366] hover:bg-[#20ba59] active:bg-[#1da850] text-white font-extrabold rounded-lg text-sm transition-all shadow-lg shadow-emerald-600/30 flex items-center justify-center gap-2 group focus-visible:ring-4 focus-visible:ring-emerald-400 cursor-pointer"
+                  className="w-full py-3.5 px-4 bg-[#0052da] hover:bg-[#0042b3] active:bg-[#003699] text-white font-extrabold rounded-lg text-sm transition-all shadow-lg flex items-center justify-center gap-2 group cursor-pointer"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>Get Firm Quote on WhatsApp</span>
+                  <span>Lock In Estimated Price</span>
                   <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </button>
               </div>

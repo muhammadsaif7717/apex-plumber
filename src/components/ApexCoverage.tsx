@@ -4,13 +4,11 @@ import React, { useState } from "react";
 import { useLocation } from "@/context/LocationContext";
 import {
   MapPin,
-  PhoneCall,
   Clock,
   ShieldCheck,
   CheckCircle2,
   Navigation,
   Search,
-  MessageCircle,
 } from "lucide-react";
 
 export function ApexCoverage() {
@@ -118,14 +116,10 @@ export function ApexCoverage() {
                     </span>
                   </div>
                   <a
-                    href={`https://wa.me/8801319630516?text=${encodeURIComponent(
-                      `Hi Apex Plumber, I checked my ZIP (${zipInput || "LA"}) and am in your area.`
-                    )}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-xs font-black text-[#25D366] hover:underline whitespace-nowrap cursor-pointer flex items-center gap-1"
+                    href="#contact"
+                    className="text-xs font-black text-[#0052da] hover:underline whitespace-nowrap cursor-pointer flex items-center gap-1"
                   >
-                    <span>WhatsApp Me</span>
+                    <span>Request Service &rarr;</span>
                   </a>
                 </div>
               )}
@@ -216,22 +210,12 @@ export function ApexCoverage() {
                 <span>Available for planned projects &amp; 24/7 emergencies</span>
               </div>
 
-              <div className="pt-2 flex flex-col sm:flex-row gap-2.5">
+              <div className="pt-2">
                 <a
-                  href="https://wa.me/8801319630516"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-3 px-4 w-full flex items-center justify-center gap-2 rounded-xl shadow-md transition cursor-pointer"
+                  href="#contact"
+                  className="btn-plumco text-xs sm:text-sm font-bold py-3 px-6 w-full flex items-center justify-center gap-2 rounded-xl shadow-md transition cursor-pointer text-center"
                 >
-                  <MessageCircle className="w-4 h-4 fill-white" />
-                  <span>Chat on WhatsApp</span>
-                </a>
-                <a
-                  href="tel:+8801319630516"
-                  className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs sm:text-sm font-bold border border-slate-700 transition"
-                >
-                  <PhoneCall className="w-4 h-4 text-[#ffb600]" />
-                  <span>Call Now</span>
+                  <span>Confirm Service for My Neighborhood</span>
                 </a>
               </div>
             </div>

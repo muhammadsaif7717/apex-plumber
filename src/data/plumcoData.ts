@@ -132,7 +132,7 @@ export const PLUMCO_PROJECTS: PlumcoProject[] = [
     id: "proj-4",
     title: "Cast Iron Sewer Pipe Video & Jetting",
     category: "DRAIN & SEWER",
-    img: "https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=800&q=80",
+    img: "https://images.unsplash.com/photo-1607472586893-edb57bdc0e39?auto=format&fit=crop&w=800&q=80",
     client: "Oak Ridge Residence",
     problem: "Tree roots had penetrated sewer lateral under driveway.",
     outcome: "Hydro-jetted roots and installed epoxy cured-in-place sleeve.",

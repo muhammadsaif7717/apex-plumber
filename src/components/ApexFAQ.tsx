@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
-import { ChevronDown, HelpCircle, PhoneCall, MessageCircle } from "lucide-react";
+import { ChevronDown, HelpCircle } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
 interface FAQItem {
@@ -134,22 +134,12 @@ export function ApexFAQ() {
             </p>
           </div>
 
-          <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
+          <div className="shrink-0 w-full sm:w-auto text-center">
             <a
-              href="https://wa.me/8801319630516?text=Hi%20Apex%20Plumber%2C%20I%20have%20a%20question%20about%20your%20service."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs font-bold py-2.5 px-4 rounded-xl shadow-xs flex items-center justify-center gap-2 whitespace-nowrap transition cursor-pointer"
+              href="#contact"
+              className="inline-flex items-center justify-center btn-plumco text-xs sm:text-sm font-bold py-2.5 px-5 rounded-xl shadow-xs whitespace-nowrap transition cursor-pointer w-full sm:w-auto"
             >
-              <MessageCircle className="w-3.5 h-3.5 fill-white" />
-              <span>Ask on WhatsApp</span>
-            </a>
-            <a
-              href="tel:+8801319630516"
-              className="inline-flex items-center gap-1.5 px-3 py-2.5 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs font-bold transition whitespace-nowrap"
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>Call Direct</span>
+              <span>Contact Me Directly</span>
             </a>
           </div>
         </div>

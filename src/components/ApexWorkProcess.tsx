@@ -9,7 +9,6 @@ import {
   CheckCircle2,
   ArrowRight,
   ShieldCheck,
-  MessageCircle,
 } from "lucide-react";
 
 export function ApexWorkProcess() {
@@ -129,22 +128,12 @@ export function ApexWorkProcess() {
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5 shrink-0 w-full sm:w-auto">
+          <div className="shrink-0 w-full sm:w-auto text-center">
             <a
-              href="https://wa.me/8801319630516"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 sm:px-6 w-full sm:w-auto text-center rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap transition"
+              href="#contact"
+              className="inline-flex items-center justify-center btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-6 rounded-xl shadow-xs whitespace-nowrap transition cursor-pointer w-full sm:w-auto"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Chat on WhatsApp</span>
-            </a>
-            <a
-              href="tel:+8801319630516"
-              className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-2.5 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs font-bold transition whitespace-nowrap"
-            >
-              <PhoneCall className="w-3.5 h-3.5" />
-              <span>Call Now</span>
+              <span>Schedule Work With Me</span>
             </a>
           </div>
         </div>

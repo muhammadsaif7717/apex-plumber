@@ -8,9 +8,7 @@ import {
   Award,
   Clock,
   ShieldCheck,
-  PhoneCall,
   CheckCircle2,
-  MessageCircle,
 } from "lucide-react";
 import { useLocation } from "@/context/LocationContext";
 
@@ -129,23 +127,12 @@ export function ApexWhyHireMe() {
             </p>
           </div>
 
-          <div className="flex items-center gap-3 shrink-0 w-full md:w-auto">
+          <div className="shrink-0 w-full md:w-auto text-center">
             <a
-              href="https://wa.me/8801319630516"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-4 sm:px-5 w-full sm:w-auto text-center rounded-xl shadow-xs flex items-center justify-center gap-2 cursor-pointer whitespace-nowrap transition"
+              href="#contact"
+              className="inline-flex items-center justify-center gap-2 btn-plumco text-xs sm:text-sm font-bold py-2.5 sm:py-3 px-6 rounded-xl shadow-xs whitespace-nowrap transition cursor-pointer w-full sm:w-auto"
             >
-              <MessageCircle className="w-4 h-4 fill-white" />
-              <span>Chat on WhatsApp</span>
-            </a>
-
-            <a
-              href="tel:+8801319630516"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-[#0052da] hover:bg-[#0042b3] text-white text-xs sm:text-sm font-bold shadow-xs whitespace-nowrap transition"
-            >
-              <PhoneCall className="w-4 h-4" />
-              <span>Call Now</span>
+              <span>Get Free Second Opinion</span>
             </a>
           </div>
         </div>

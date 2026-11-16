@@ -3,7 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import { useLocation } from "@/context/LocationContext";
-import { CheckCircle2, PhoneCall, Award, MessageCircle } from "lucide-react";
+import { CheckCircle2, Award } from "lucide-react";
 
 export function ApexAbout() {
   const { currentLocation } = useLocation();
@@ -79,34 +79,19 @@ export function ApexAbout() {
               ))}
             </div>
 
-            {/* Direct Action & WhatsApp / Phone */}
+            {/* Direct Action */}
             <div className="pt-4 sm:pt-6 border-t border-slate-100 flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-6">
               <a
-                href="https://wa.me/8801319630516"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-[#25D366] hover:bg-[#20ba59] active:scale-95 text-white text-xs sm:text-sm font-bold py-3 px-5 rounded-xl shadow-xs flex items-center justify-center gap-2 whitespace-nowrap transition cursor-pointer"
+                href="#contact"
+                className="btn-plumco text-xs sm:text-sm font-bold py-3 px-6 rounded-xl shadow-xs flex items-center justify-center gap-2 whitespace-nowrap transition cursor-pointer"
               >
-                <MessageCircle className="w-4 h-4 fill-white" />
-                <span>Chat on WhatsApp</span>
+                <span>Hire Apex Plumber Directly</span>
               </a>
 
-              <a
-                href="tel:+8801319630516"
-                className="flex items-center gap-3 group p-2 rounded-xl hover:bg-slate-50 transition"
-              >
-                <div className="w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-blue-50 text-[#0052da] group-hover:bg-[#0052da] group-hover:text-white flex items-center justify-center transition-colors shrink-0">
-                  <PhoneCall className="w-4 h-4 sm:w-5 sm:h-5" />
-                </div>
-                <div className="text-left">
-                  <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
-                    Direct Line
-                  </div>
-                  <div className="text-xs sm:text-sm font-black text-[#253041] group-hover:text-[#0052da] transition whitespace-nowrap">
-                    Call Now
-                  </div>
-                </div>
-              </a>
+              <div className="text-xs text-slate-500 font-medium flex items-center gap-2">
+                <CheckCircle2 className="w-4 h-4 text-emerald-600 shrink-0" />
+                <span>100% Personal Workmanship • Zero Subcontractors</span>
+              </div>
             </div>
           </div>
         </div>

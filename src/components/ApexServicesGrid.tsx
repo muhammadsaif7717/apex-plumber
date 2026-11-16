@@ -12,8 +12,7 @@ import {
   ShieldAlert,
   Wrench,
   ArrowRight,
-  PhoneCall,
-  MessageCircle,
+  CheckCircle2,
 } from "lucide-react";
 
 export function ApexServicesGrid() {
@@ -88,29 +87,19 @@ export function ApexServicesGrid() {
                     </p>
                   </div>
 
-                  <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between gap-2">
+                  <div className="pt-3 sm:pt-4 border-t border-slate-100 flex items-center justify-between">
                     <a
-                      href={`https://wa.me/8801319630516?text=${encodeURIComponent(
-                        `Hi Apex Plumber, I need help with ${srv.title}.`
-                      )}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#075E54] hover:text-[#25D366] transition-colors"
+                      href="#contact"
+                      className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-bold text-[#0052da] hover:text-[#0042b3] group-hover:underline cursor-pointer"
                     >
-                      <MessageCircle className="w-4 h-4 fill-[#25D366] text-[#25D366]" />
-                      <span>WhatsApp</span>
+                      <span>Request Service</span>
                       <ArrowRight className="w-3.5 h-3.5 group-hover:translate-x-1 transition-transform" />
                     </a>
 
-                    <a
-                      href="tel:+8801319630516"
-                      className="text-slate-500 hover:text-[#0052da] transition p-1.5 rounded-lg hover:bg-blue-50 flex items-center gap-1 text-xs font-bold"
-                      title="Call Now"
-                      aria-label={`Call Apex Plumber about ${srv.title}`}
-                    >
-                      <PhoneCall className="w-4 h-4" />
-                      <span className="hidden sm:inline">Call</span>
-                    </a>
+                    <div className="flex items-center gap-1 text-[11px] font-semibold text-emerald-600">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      <span>Upfront Flat Rate</span>
+                    </div>
                   </div>
                 </div>
               </div>
